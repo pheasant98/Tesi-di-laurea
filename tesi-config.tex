@@ -170,6 +170,19 @@
 %**************************************************************
 \definecolor{webgreen}{rgb}{0,.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
+%%Colori per le tabelle
+\definecolor{grigetto}{RGB}{234, 234, 234}
+\definecolor{rossoep}{RGB}{164,60,59}
+\definecolor{darkblue}{RGB}{59,77,95}
+\definecolor{giallo}{RGB}{251,168,11}
+\definecolor{verde}{RGB}{87,180,0}
+\definecolor{grigio}{gray}{.7}
+\definecolor{grigioChiaro}{gray}{.9}
+
+\newcommand{\classdesc}[2]{\item[\textbf{#1:}] #2}
+\newcommand{\intest}[1]{\multicolumn{1}{>{\columncolor{rossoep}}c}{\textbf{#1}}}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{>{\arraybackslash}m{#1}}
 
 
 %**************************************************************
@@ -259,4 +272,7 @@
     \medskip
 }
 
-\newcommand{\classdesc}[2]{\item[\textbf{#1:}] #2}
+
+
+
+

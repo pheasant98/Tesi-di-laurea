@@ -3,11 +3,248 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Processi e metodologie}
-\label{cap:processi-metodologie}
+\chapter{Lo stage}
+\label{cap:descrizione-stage}
 %**************************************************************
 
-\intro{Brevissima introduzione al capitolo}\\
+\intro{Nel seguente capitolo verrà descritto in dettaglio la proposta di stage accetta, indicandone gli obbiettivi, la pianificazione, i prodotti attesi e gli strumenti e tecnologie utilizzate durante lo stage, e infine verranno esposte le motivazioni per cui ho scelto questo stage.}\\
 
 %**************************************************************
-\section{Processo sviluppo prodotto}
+\section{Descrizione dello stage}
+Lo stage era legato al progetto interno dell'azienda denominato "Azzurra.flow". Tale progetto nasceva dall'esigenza dell'azienda AzzurroDigitale di offrire un prodotto più completo ai propri clienti da affiancare alla soluzione AWMS. Perciò era previsto di implementare un’applicazione mobile che potesse comunicare con la piattaforma AWMS, dando un mezzo di supporto al lavoratore di una azienda manifatturiera. All'interno di essa doveva essere implementato una chat bot con un bot denominato "Azzurra" che offra funzionalità di supporto al lavoratore. All'interno del progetto era anche previsto le implementazioni necessarie per la comunicazione tra AWMS e l'applicazione mobile, quindi la gestione di una connessione websocket e la creazione della componente Azzurra.io, la quale ha il compito di tenere memorizzati i flussi conversazionali esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi devono essere generati, e di fare da tramite tra l'applicazione mobile e AWMS.\\
+Partendo dal progetto "Azzurra.flow" è stato creato lo stage da me sostenuto, composto da attività che andassero a contribuire allo sviluppo del progetto. \\
+Lo stage è stato costruito inserendo le seguenti parti:\\
+
+
+\begin{itemize}
+	\item La prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di e-learning Udeny, offerte dall'azienda;
+	\item La seconda parte era dedicata allo studio del funzionamento dell'architettura del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzura.io e in più come esercitazione, era richiesto la creazione di alcuni test e2e per la parte frontend del sistema quindi l'implementare di test per la dashboard di AWMS;
+	\item La terza parte era dedicata all'analisi, progettazione e implementazione dei flussi di conversazione per il bot Azzurra;
+	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di Azzurra;
+	\item La quinta parte sulle basi che si era in parto nella seconda parte, era previsto lo sviluppo di una test-suite di test e2e, con l'obbiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione mobile funzionassero in modo corretto;
+	\item Infine nella sesta parte era dedicata allo studio di alcuni aspetti dell'applicazione mobile che sono:
+		\begin{itemize}
+			\item La gestione delle notifiche push;
+			\item Il template engine multi-lingua;
+			\item La gestione comportamenti mobile app in condizioni di mancanza di connettività.
+		\end{itemize}
+\end{itemize}
+
+
+
+%**************************************************************
+\section{Obiettivi}
+
+\subsection{Classificazione}
+Piano di lavoro stage di 2019/2020 presso I40SAAS.
+Si farà riferimento ai requisiti secondo le seguenti notazioni:
+\begin{itemize}
+	\item \textit{OB-x} per i requisiti obbligatori, vincolanti in quanto obiettivo primario richiesto dal committente;
+	\item \textit{OD-x} per i requisiti desiderabili, non vincolanti o strettamente necessari,
+	ma dal riconoscibile valore aggiunto;
+	\item \textit{OF-x} per i requisiti facoltativi, rappresentanti valore aggiunto non strettamente competitivo.
+\end{itemize}
+Dove x è un numero progressivo intero maggiore di zero.
+
+\subsection{Definizione degli obiettivi}
+Si prevede lo svolgimento dei seguenti obiettivi:
+\subsubsection*{Obbligatori}
+\begin{itemize}
+ \item \textbf{OB-1}: competenza nello sviluppo delle singole attività identificate con i linguaggi PHP e Typescript.
+\end{itemize}
+\subsubsection*{Desiderabili} 
+\begin{itemize}
+ \item \textbf{OD-1}: capacità autonoma di analisi delle singole attività delle soluzioni tecniche viste durante il progetto;
+\item \textbf{OD-2}: capacità autonoma di progettazione delle singole attività delle soluzioni tecniche viste durante il progetto.
+\end{itemize}
+
+%**************************************************************
+\section{Prodotti attesi}
+Durante lo stage era atteso lo sviluppo deii seguenti deliverable:
+\begin{itemize}
+	\item \textbf{Analisi tecnica}: Descrizione dell’analisi svolta e soluzione identificata, sarà redatta sulla piattaforma documentale aziendale Confluence;
+	\item \textbf{Software}: Implementazione software della soluzione identificata, redatta con l’IDE di sviluppo identificato per il progetto e depositata sul repository GitLab di riferimento.
+\end{itemize}
+
+%**************************************************************
+\section{Modalità di svolgimento del lavoro}
+Lo stage è stato svolto in presenza negli uffici di AzzurroDigitale rispettando tutte le norme sul distanziamento sociale. L'orario di lavoro è stato dalle 9:00 fino alle 13:00 e dalle 14:00 fino alle 18:00. Durante lo stage sono stato inserito in un gruppo di sviluppatori, i quali fornivano una azione di supporto e guida nel caso in cui sorgevano difficoltà nel proseguimento delle attività di stage. Nonostante ciò ero comunque seguito anche dal mio tutor aziendale non che team leader del gruppo di sviluppatori, il quale esplicitava i task che dovevo realizzare e gli obiettivi attesi nello svolgimento di ogni task. 
+
+Durante lo stage per gestire le attività di progetto è stato utilizzato il modello agile SCRUM, modello adottato dall'azienda per gestire i propri progetti.
+Vi erano quindi le seguenti attività:
+\begin{itemize}
+	\item Daily meeting mattutino, della durata di circa 15 minuti, dove vengono discussi i task della giornata, ed eventuali problemi bloccanti;
+	\item Weekly review dove vengono analizzate e discusse le attività che dovevo svolgere nella settimana successiva.
+\end{itemize}
+
+Infine, durante lo stage era mio compito redirige un registro su cui, quotidianamente, segnare le attività svolte.
+
+\section{Pianificazione del lavoro}
+
+Di seguito viene mostrato in dettaglio la pianificazione delle attività per i mesi di Luglio, Agosto e Settembre 2020.
+Per ognuna delle seguenti attività si dovrà:
+\begin{itemize}
+	\item Leggere e comprendere l’analisi funzionale;
+	\item Analizzare, progettare e documentare la soluzione tecnica identificata;
+	\item Contribuire all’implementazione della soluzione tecnica;
+	\item Contribuire all’implementazione ed all’esecuzione test e bugfix.
+\end{itemize}
+
+\subsection{Pianificazione settimanale}
+Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle attività svolte durante lo stage:
+\begin{trivlist}
+	\item \subsubsection{Prima Settimana 01/07-03/07 (24 ore)}   
+	\begin{itemize}
+		\item \textbf{Formazione Angular}: corso Udemy + review di alcuni componenti di AWMS;
+		\item \textbf{Formazione Ionic}: corso Udemy + review di alcuni componenti di AWMS Azzurra (mobile app).
+	\end{itemize}  
+
+\item \subsubsection{Seconda Settimana 06/07-10/07 (40 ore)}
+\begin{itemize}
+	\item \textbf{Formazione NestJS}: corso Udemy + review di alcuni componenti di “Azzurra” già sviluppati;
+	\item \textbf{Unit testing}: (Jasmine+Karma) lato frontend;
+	\item \textbf{End-to-end testing}: (Appium+Cucumber.js) lato mobile app.
+\end{itemize}
+
+\item \subsubsection{Terza Settimana 13/07-17/07 (40 ore)}
+\begin{itemize}
+	\item Approfondimenti architetture a micro-services e loro implementazione in AWMS Platform;
+	\item Analisi implementazione di un conversational flow editor visuale;
+	\item Software selection (con test/poc) per lo sviluppo di un conversational flow editor visuale.
+\end{itemize}	
+
+\item \subsubsection{Quarta Settimana 20/07-24/07  (40 ore)}
+\begin{itemize}
+	\item Contributi alla redazione della Solution Design di “Azzurra”;
+	\item Contributi alla documentazione sorgenti di “Azzurra” (frontend/backend).
+\end{itemize}
+
+\item \subsubsection{Quinta Settimana 27/07-31/07 (40 ore)}
+\begin{itemize}
+	\item Review di alcuni componenti di AWMS;
+	\item Aspetti di scalabilità di un flow-engine (concorrenzialità, HA, persistenza/storicizzazione
+	messaggi)
+\end{itemize}
+
+\item \subsubsection{Sesta Settimana 03/08-07/08 (40 ore)}
+\begin{itemize}
+	\item Contributi alla redazione della Solution Design di “Azzurra”;
+	\item Implementazione Push Notifications (lato mobile App);
+	\item Implementazione Push Notifications (lato backend).
+\end{itemize}
+
+\item \subsubsection{Settima Settimana 17/08-21/08 (40 ore)}
+\begin{itemize}
+	\item Progettazione e documentazione template engine multi-lingua;
+	\item Implementazione template engine multi-lingua (l’assistente virtuale dovrà avere il supporto multi-lingua) basato su sintassi “mustache”.
+\end{itemize}	
+
+\item \subsubsection{Ottava Settimana 24/08-28/08 (40 ore)}
+\begin{itemize}
+	\item Gestione comportamenti mobile app in condizioni di mancanza di connettività (corner cases, messaggi di feedback, landing pages).
+\end{itemize}
+
+\item \subsubsection{Nona Settimana 31/08-01/09 (16 ore)}
+\begin{itemize}
+	\item Continuazione ottava settimana.
+\end{itemize}
+\end{trivlist}
+Di seguito viene riportata una tabella riassuntiva della pianificazione:
+\\
+
+\begin{table}[h]%
+	\rowcolors{2}{grigetto}{white}
+	\centering
+\begin{tabularx}{\textwidth}{|c|c|X|}
+	\hline	
+	\rowcolor{giallo}
+	 \intest{Durata in ore} &  \intest{Data inizio - fine} & \intest{Attività}\\	
+	\hline			
+	24 &  01/07/2020 - 03/07/2020 & Studio delle tecnologie, Angular 2+ e Ionic, da utilizzare durante lo stage.\\
+
+	40 &  06/07/2020 - 10/07/2020 & Studio di componenti del dell'architettura di sistema di Azzurra, creazione di test per la dashboard di AWMS e per l'applicazione mobile. \\
+
+	40 &  13/07/2020 - 17/07/2020 & Continuazione studio delle componenti del sistema di Azzurra e analisi, progettazione e implementazione di flussi conversazionali.\\
+
+	40 &  20/07/2020 - 24/07/2020 & Scritture di documentazione per le componenti di Azzurra.\\
+
+	40 &  27/07/2020 - 31/07/2020 & Continuazione di altre componenti di AWMS.\\
+
+	40 &  03/08/2020 - 07/08/2020 & Documentazione delle componenti AWMS e implementazione notifiche push.\\
+
+	40 &  17/08/2020 - 21/08/2020 & Progettazione, implementazione e documentazione di template engine multi-lingua.\\
+
+	40 &  24/08/2020 - 28/08/2020 & Gestione comportamenti mobile app in condizioni di mancanza di connettività.\\
+
+	16 &  31/08/2020 - 01/09/2020 & Continuazione ottava settimana. \\
+	\hline	
+\end{tabularx} \hbox{}
+\caption{Tabella del tracciamento dei requisiti qualitativi}
+\end{table}%
+
+\section{Variazioni}
+Nella seconda settimana è stato deciso di svolgere al posto di test d'unità nella parte front-end, test end to end con lo scopo di esercitazione. La creazione di test end to end per l'applicazione mobile è stata sposta alla quinta settimana per poter testare anche i flussi di conversazione implementati per la chat con Azzurra.
+
+\section{Strumenti e tecnologie utilizzate}
+\subsection{Strumenti}
+\subsubsection*{HTML}
+L'HTML è un linguaggio di markup per la strutturazione delle pagine web. Nato per la formattazione e impaginazione di documenti ipertestuali disponibili nel web 1.0, oggi è utilizzato principalmente per il disaccoppiamento della struttura logica di una pagina web. Attualmente HTML5 è l'ultima versione di HTML la quale porta una sintassi più semplice e un pieno supporta anche a browser più datati.
+
+\subsubsection*{CSS}
+È un linguaggio usato per definire la formattazione di documenti HTML, XHTML e XML ad esempio i siti web e relative pagine web. Permette una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo anche il riutilizzo di codice e facilita la manutenzione. Le specifiche CSS3 sono costituite da sezioni separate dette "moduli" e hanno differenti stati di avanzamento e stabilità.
+
+\subsubsection*{TypeScript}
+È un linguaggio di programmazione open source che estende la sintassi di JavaScript in modo che qualunque programma scritto in JavaScript sia anche in grado di funzionare con TypeScript senza nessuna modifica. Come JavaScript è un linguaggio di programmazione orientato agli oggetti e agli eventi, comunemente utilizzato nella programmazione Web lato client per la creazione, in siti web e applicazioni web, di effetti dinamici interattivi tramite funzioni di script invocate da eventi innescati a loro volta in vari modi dall'utente sulla pagina web in uso.
+
+\subsubsection*{Angular 2+}
+Angular è un framework open source per lo sviluppo di applicazioni web con licenza MIT, sviluppato principalmente da Google. Angular è l'evoluzione di AngularJS infatti , è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili. Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript. Angular è stato progettato per fornire uno strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi smartphone e tablet. Inoltre le applicazioni sviluppate in Angular vengono eseguite interamente dal web browser dopo essere state scaricate dal web server. Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente. 
+
+\subsubsection*{Ionic}
+Ionic è un SDK open source completo per lo sviluppo di app mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come CSS, HTML5 e Sass. In particolare, le app mobili possono essere costruite con queste tecnologie Web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
+
+\subsubsection*{Protractor}
+Protractor è un framework di test end-to-end per applicazioni Angular e AngularJS. Protractor esegue test sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
+
+\subsubsection*{Appium}
+Appium è  un strumento  open source che permette di eseguire in modo automatizzato script per testare applicazioni native, applicazioni web mobile e applicazioni ibride su Android o iOS utilizzando un webdriver.
+
+\subsubsection*{Cucumber}
+Cucumber è un strumento che permette di creare test automatizzati con una specifica non ambigua e documenta come si comporta effettivamente il sistema. Cucumber supporta lo sviluppo guidato dal comportamento (BDD).
+
+\subsubsection*{Selenium}
+Selenium è un framework che permette di testare le applicazioni web. Selenium fornisce uno strumento di riproduzione per la creazione di test funzionali senza la necessità di apprendere un linguaggio di scripting di test (Selenium IDE). Fornisce anche un linguaggio specifico del dominio di test (Selenese) per scrivere test in altri linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala. I test possono quindi essere eseguiti sulla maggior parte dei browser Web moderni.
+
+\subsubsection*{Npm}
+ Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js. Consiste in un client da linea di comando, chiamato anch'esso npm, e un database online di pacchetti pubblici e privati.
+
+%\subsubsection*{NestJS}
+
+\subsection{Tecnologie}
+
+\subsubsection*{WebStorm}
+WebStorm è un ambiente di sviluppo integrato progettato per lo sviluppo web, principalmente in JavaScript e TypeScript. Supporta comunque, altri linguaggi per lo sviluppo di applicazioni web come ad esempio HTML, CSS, e PHP.
+
+\subsubsection{Jira Software}
+è un software proprietario che consente il bug tracking e la gestione dei progetti agile sviluppato da Atlassian.
+
+\subsubsection{Jira Confluence}
+è una piattaforma collaborativa sviluppata da Atlassian e scritta in Java, dove vengono forniti i strumenti per la scrittura e gestione della documentazione.
+
+\subsubsection{GitLab}
+è una piattaforma web open source che permette la gestione di repository Git e di funzioni trouble ticket.
+
+\section{Motivazioni personali}
+Attraverso la partecipazione all'iniziativa di StageIT, organizzata dall'Università di Padova e da Assiindustria venetocentro, ho potuto entrare in contato con molte aziende del territorio.
+Durante la partecipazione telematica all'evento ero alla ricerca di un’azienda che proponesse un progetto di stage con le seguenti caratteristiche:
+
+\begin{itemize}
+	\item permettermi di ampliare e migliorare le mie conoscenze in Angular ma più in generale a imparare a utilizzare nuove tecnologie per lo sviluppo front-end;
+	\item che trattasse tematiche legate allo sviluppo di applicazioni mobile;
+	\item permettermi di lavorare in un ambiente giovane e dinamico.
+	
+\end{itemize}  
+
+Confrontando con le varie aziende con cui ero entrato in contatto ho scelto di accettare lo stage proposto da AzzurroDigitale. \\
+Questo perché nella loro proposta di stage c'è tutti i tre punti elencati prima, infatti grazie a questo progetto di stage ho avuto modo di migliorarmi nell’utilizzo di Angular imparando a utilizzare i metodi offerti da lui, in modo più efficiente. Inoltre, ho avuto la possibilità di sviluppare un’applicazione mobile grazie all'utilizzo di Ionic e Cordova. Altro aspetto importante fu che quest'azienda si distingue dal fatto che per gestire i propri progetti utilizza la metodologia agile SCRUM, una tematica mi interessava scoprire come valida alternativa al modello incrementale appresso durante il progetto del corso di Ingegneria del Software. Infine, l'azienda è una realtà giovane nata da meno di 5 anni fatta da persone giovani in cui potevo inserirmi facilmente.
+
+\clearpage

@@ -7,6 +7,13 @@
 \label{cap:introduzione}
 %**************************************************************
 
+\section{Convenzioni tipografiche}
+Nella stesura del presente documento, sono state adottate le seguenti convenzioni tipografiche:
+\begin{itemize}
+	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
+	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
+	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
+\end{itemize}
 Introduzione al contesto applicativo.\\
 
 \noindent Esempio di utilizzo di un termine nel glossario \\
@@ -15,17 +22,18 @@ Introduzione al contesto applicativo.\\
 \noindent Esempio di citazione in linea \\
 \cite{site:agile-manifesto}. \\
 
-\noindent Esempio di citazione nel pie' di pagina \\
-citazione\footcite{womak:lean-thinking} \\
+%\noindent Esempio di citazione nel pie' di pagina \\
+%citazione\footcite{womak:lean-thinking} \\
 
 %**************************************************************
 \section{L'azienda AzzurroDigitale srl}
 
-Lo stage è stato svolto nell'azienda AzzurroDigitale srl situata nella zona industriale di Padova. AzzurroDigitale nasce nel 2015 quando tre giovani padovani (Carlo Pasqualetto, Jacopo Pertile e Antonio Fornari) fondano la startup, puntando fortemente nelle nuove emergenti tecnologie che il mercato offriva. Come primo cliente, fu l'azienda Electrolux che grazie a una forte attività collaborazione, fu sviluppata una piattaforma per la gestione degli operai denominata AWMS, che tutt’ora continua a ricevere miglioramenti e a crescere. Dopo il successo ottenuto con la collaborazione con Electrolux, l'azienda capisce che il mercato delle aziende manifatturiere è la nicchia sulla quale puntare soprattutto grazie al momento storico della digital transformation.
+Lo stage è stato svolto nell'azienda AzzurroDigitale S.r.l. situata nella zona industriale di Padova. AzzurroDigitale nasce nel 2015 quando tre giovani padovani (Carlo Pasqualetto, Jacopo Pertile e Antonio Fornari) fondano la startup, puntando fortemente nelle nuove emergenti tecnologie che il mercato offriva. Come primo cliente, fu l'azienda Electrolux che grazie a una forte attività collaborazione, fu sviluppata una piattaforma per la gestione degli operai denominata AWMS, che tutt’ora continua a ricevere miglioramenti e a crescere. Dopo il successo ottenuto con la collaborazione con Electrolux, l'azienda capisce che il mercato delle aziende manifatturiere è la nicchia sulla quale puntare soprattutto grazie al momento storico della digital transformation. \\
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[height=3cm]{Logo_azzurrodigite.png}
+		\includegraphics[scale=1.5]{Logo_azzurrodigite.png}
+			\caption{Logo di AzzurroDigitale}
 	\end{center}
 \end{figure}
 
@@ -34,28 +42,51 @@ Oggi AzzurroDigitale offre servizi di industrial digital transformation, workfor
 %**************************************************************
 \section{L'idea}
 
-Introduzione all'idea dello stage.
+%Introduzione all'idea dello stage.
+\subsection{Il contesto applicativo}
+L'azienda AzzurroDigitale offre come principale servizio, la piattaforma di gestione forza lavoro denominata AWMS.\\
+	\begin{figure}[!h] 
+		\begin{center}
+			\includegraphics[scale=0.4]{logoAWMS.jpg}
+			\caption{Logo di AWMS}
+		\end{center}
+	\end{figure}
 
+AWMS è una soluzione software che utilizza algoritmi di machine learning, per risolvere uno dei problemi cardine di un plant manager ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore. Per permettere il funzionamento della pianificazione, la piattaforma estrae da database interni dell'azienda, dati sui lavoratori che ne descrivono le competenze che possiedono. Viene perciò registrato uno storico per ogni lavoratore che se nel tempo acquisirà nuove competenze queste verranno indicate nei dati dei database, aggiornandoli. In base perciò, ai dati estratti dalla piattaforma viene scelto il miglior candidato per un determinato compito. AWMS offre la possibilità di pianificare il lavoro per il giorno successivo ma anche gestire situazioni impreviste, come ad esempio l'assenza di un lavoratore.
+
+\subsection{Il progetto Azzurra.flow}
+
+Il progetto Azzurra.flow nasce dalla esigenza, da parte dell'azienda AzzurroDigitale, di offrire un prodotto completo per tutti i soggetti coinvolti nelle attività lavorative. Con AWMS si ha uno strumento che supporta i team leader o i plant manager nella loro pianificazione del lavoro ma non si ha nessun strumento che supporti il lavoratore. Da questa mancanza nasce perciò il progetto "Azzurra.flow". Esso consiste nel creare un bot denominato Azzurra, inserito in un’applicazione mobile, che permette di offrire delle funzionalità utili all'utente che sono:
+\begin{itemize}
+	\item Visualizzare il proprio turno di lavoro;
+	\item Visualizzare i propri permessi lavorativi o richiederne di nuovi;
+	\item Visualizzare avvisi da parte dell'azienda;
+	\item Sapere informazione sul menu del giorno della mensa aziendale;
+	\item Poter effettuare prenotazioni di un posto in una sala riunioni e visualizzare le proprie prenotazioni, inoltre utilizzare un scannerizzatore QR-CODE per riscattare il posto prenotato.
+\end{itemize}
+	\begin{figure}[!h] 
+	\begin{center}
+		\includegraphics[scale=0.25]{azzurra.png}
+		\caption{Logo del bot Azzurra}
+	\end{center}
+\end{figure}
+Il progetto include non solo lo sviluppo dell'applicazione mobile con Azzurra ma, un motore conversazionale in grado di poter generare una conversazione con il lavoratore, attraverso dei flussi di conversazione, anche essi da sviluppare, che indicano che cosa deve fare Azzurra, dopo essere stati interpretati dal motore conversazionale. Inoltre questi flussi devono essere memorizzati in un preciso posto perciò, è stato progettato che sia un database contenuto nella nuova componente Azzurra.io, la quale ha il compito di non solo di tenere memorizzati i flussi di conversazionili esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi generare, ma di fare da tramite tra l'applicazione con all'interno Azzurra e AWMS tutto attraverso una comunicazione tramite Websocket.
 %**************************************************************
 \section{Organizzazione del testo}
-
+Il capitolo trattato attualmente è l'introduzione del documento, dove si è spiegato brevemente l'ambito di lavoro e il progetto sul quale si è svolto lo stage.\\
+Di seguito il documento sarà organizzato nella seguente struttura:
 \begin{description}
-    \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
     
-    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] descrive in modo dettagliato lo stage svolto, indicandone obbiettivi, pianificazione, strumenti e tecnologie utilizzate. Infine verranno esposte le motivazioni per cui ho scelto di svolgere questo stage.
     
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:archittettura del sistema AWMS]{Il terzo capitolo}}] descrive l'architettura del sistema AWMS che permette il funzionamento di Azzurra.
     
-    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:flow engine]{Il quarto capitolo}}] approfondisce il funzionamento del motore conversazionale di Azzurra, indicando perciò come avviene una conversazione.
     
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:flussi di conversazione]{Il quinto capitolo}}] descrive il lavoro di analisi, progettazione e implementazione dei flussi di conversazione per Azzurra.
     
-    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
+    \item[{\hyperref[cap:test]{Il sesto capitolo}}] descrive le tecnologie utilizzate per costruire una test-suite per Azzurra, espone il piano di test stabilito inserendo i risultati ottenuti.
+    
+    \item[{\hyperref[cap:conclusioni]{Il settimo capitolo}}] rappresenta la conclusione del documento, viene perciò riepilogato il lavoro svolto durante lo stage, gli obbiettivi raggiunti e infine una valutazione personale sull'esperienza di stage.
 \end{description}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}
