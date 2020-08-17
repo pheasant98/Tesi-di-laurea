@@ -7,21 +7,21 @@
 \label{cap:descrizione-stage}
 %**************************************************************
 
-\intro{Nel seguente capitolo verrà descritto in dettaglio la proposta di stage accetta, indicandone gli obbiettivi, la pianificazione, i prodotti attesi e gli strumenti e tecnologie utilizzate durante lo stage, e infine verranno esposte le motivazioni per cui ho scelto questo stage.}\\
+\intro{Nel seguente capitolo verrà descritto in dettaglio la proposta di stage accetta, indicandone gli obbiettivi, la pianificazione, i prodotti attesi e gli strumenti e tecnologie utilizzate durante lo stage, e infine, verranno esposte le motivazioni per cui ho scelto questo stage.}\\
 
 %**************************************************************
 \section{Descrizione dello stage}
-Lo stage era legato al progetto interno dell'azienda denominato "Azzurra.flow". Tale progetto nasceva dall'esigenza dell'azienda AzzurroDigitale di offrire un prodotto più completo ai propri clienti da affiancare alla soluzione AWMS. Perciò era previsto di implementare un’applicazione mobile che potesse comunicare con la piattaforma AWMS, dando un mezzo di supporto al lavoratore di una azienda manifatturiera. All'interno di essa doveva essere implementato una chat bot con un bot denominato "Azzurra" che offra funzionalità di supporto al lavoratore. All'interno del progetto era anche previsto le implementazioni necessarie per la comunicazione tra AWMS e l'applicazione mobile, quindi la gestione di una connessione websocket e la creazione della componente Azzurra.io, la quale ha il compito di tenere memorizzati i flussi conversazionali esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi devono essere generati, e di fare da tramite tra l'applicazione mobile e AWMS.\\
+Lo stage era legato al progetto interno dell'azienda denominato "Azzurra.flow". Tale progetto nasceva dall'esigenza dell'azienda AzzurroDigitale di offrire un prodotto più completo ai propri clienti da affiancare alla soluzione \gls{AWMS}\ap{8}. Perciò era previsto di implementare un’applicazione mobile che potesse comunicare con la piattaforma \gls{AWMS}\ap{9}, dando un mezzo di supporto al lavoratore di una azienda manifatturiera. All'interno di essa doveva essere implementato una chat bot con un \gls{bot}\ap{2} denominato "\textbf{Azzurra}" che offra funzionalità di supporto al lavoratore. All'interno del progetto era anche previsto le implementazioni necessarie per la comunicazione tra \gls{AWMS}\ap{10} e l'applicazione mobile, quindi la gestione di una connessione \gls{WebSocket}\ap{2} e la creazione della componente \textbf{Azzurra.io}, la quale ha il compito di tenere memorizzati i flussi conversazionali esistenti e di inviarli a \textbf{Azzurra} quando li richiede, per sapere che messaggi devono essere generati, e di fare da tramite tra l'applicazione mobile e \gls{AWMS}\ap{11}.\\
 Partendo dal progetto "Azzurra.flow" è stato creato lo stage da me sostenuto, composto da attività che andassero a contribuire allo sviluppo del progetto. \\
 Lo stage è stato costruito inserendo le seguenti parti:
 
 \begin{itemize}
-	\item La prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di e-learning Udeny, offerte dall'azienda;
-	\item La seconda parte era dedicata allo studio del funzionamento dell'architettura del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzura.io e in più come esercitazione, era richiesto la creazione di alcuni test e2e per la parte frontend del sistema quindi l'implementare di test per la dashboard di AWMS;
-	\item La terza parte era dedicata all'analisi, progettazione e implementazione dei flussi di conversazione per il bot Azzurra;
-	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di Azzurra;
-	\item La quinta parte sulle basi che si era in parto nella seconda parte, era previsto lo sviluppo di una test-suite di test e2e, con l'obbiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione mobile funzionassero in modo corretto;
-	\item Infine nella sesta parte era dedicata allo studio di alcuni aspetti dell'applicazione mobile che sono:
+	\item Nella prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di \emph{e-learning} Udeny, offerte dall'azienda;
+	\item La seconda parte era dedicata allo studio del funzionamento dell'architettura del sistema che permette l'esecuzione di \textbf{Azzurra}, in particolare il funzionamento dei metodi del motore conversazionale denominato \textbf{Azzurra.io} e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS}\ap{12};
+	\item La terza parte era dedicata all'analisi, progettazione e implementazione dei flussi di conversazione per il \gls{bot}\ap{3} \textbf{Azzurra};
+	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di \textbf{Azzurra};
+	\item La quinta parte sulle basi che si era imparato nella seconda parte, era previsto lo sviluppo di una test-suite di \gls{test e2e}\ap{2}, con l'obbiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione mobile funzionassero in modo corretto;
+	\item Infine, nella sesta parte era dedicata allo studio di alcuni aspetti dell'applicazione mobile che sono:
 		\begin{itemize}
 			\item La gestione delle notifiche push;
 			\item Il template engine multi-lingua;
@@ -68,11 +68,11 @@ Durante lo stage era atteso lo sviluppo deii seguenti deliverable:
 \section{Modalità di svolgimento del lavoro}
 Lo stage è stato svolto in presenza negli uffici di AzzurroDigitale rispettando tutte le norme sul distanziamento sociale. L'orario di lavoro è stato dalle 9:00 fino alle 13:00 e dalle 14:00 fino alle 18:00. Durante lo stage sono stato inserito in un gruppo di sviluppatori, i quali fornivano una azione di supporto e guida nel caso in cui sorgevano difficoltà nel proseguimento delle attività di stage. Nonostante ciò ero comunque seguito anche dal mio tutor aziendale non che team leader del gruppo di sviluppatori, il quale esplicitava i task che dovevo realizzare e gli obiettivi attesi nello svolgimento di ogni task. 
 
-Durante lo stage per gestire le attività di progetto è stato utilizzato il modello agile SCRUM, modello adottato dall'azienda per gestire i propri progetti.
+Durante lo stage per gestire le attività di progetto è stato utilizzato il modello agile \gls{SCRUM}\glsfirstoccur, modello adottato dall'azienda per gestire i propri progetti.
 Vi erano quindi le seguenti attività:
 \begin{itemize}
-	\item Daily meeting mattutino, della durata di circa 15 minuti, dove vengono discussi i task della giornata, ed eventuali problemi bloccanti;
-	\item Weekly review dove vengono analizzate e discusse le attività che dovevo svolgere nella settimana successiva.
+	\item \emph{Daily meeting} mattutino, della durata di circa 15 minuti, dove vengono discussi i task della giornata, ed eventuali problemi bloccanti;
+	\item \emph{Weekly review} dove vengono analizzate e discusse le attività che dovevo svolgere nella settimana successiva.
 \end{itemize}
 
 Infine, durante lo stage era mio compito redirige un registro su cui, quotidianamente, segnare le attività svolte.
@@ -85,7 +85,7 @@ Per ognuna delle seguenti attività si dovrà:
 	\item Leggere e comprendere l’analisi funzionale;
 	\item Analizzare, progettare e documentare la soluzione tecnica identificata;
 	\item Contribuire all’implementazione della soluzione tecnica;
-	\item Contribuire all’implementazione ed all’esecuzione test e bugfix.
+	\item Contribuire all’implementazione ed all’esecuzione \emph{test} e \emph{bugfix}.
 \end{itemize}
 
 \subsection{Pianificazione settimanale}
@@ -94,12 +94,12 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 	\item \subsubsection{Prima Settimana 01/07-03/07 (24 ore)}   
 	\begin{itemize}
 		\item \textbf{Formazione Angular}: corso Udemy + review di alcuni componenti di AWMS;
-		\item \textbf{Formazione Ionic}: corso Udemy + review di alcuni componenti di AWMS Azzurra (mobile app).
+		\item \textbf{Formazione Ionic}: corso Udemy + review di alcuni componenti di AWMS \textbf{Azzurra} (mobile app).
 	\end{itemize}  
 
 \item \subsubsection{Seconda Settimana 06/07-10/07 (40 ore)}
 \begin{itemize}
-	\item \textbf{Formazione NestJS}: corso Udemy + review di alcuni componenti di “Azzurra” già sviluppati;
+	\item \textbf{Formazione NestJS}: corso Udemy + review di alcuni componenti di “\textbf{Azzurra}” già sviluppati;
 	\item \textbf{Unit testing}: (Jasmine+Karma) lato frontend;
 	\item \textbf{End-to-end testing}: (Appium+Cucumber.js) lato mobile app.
 \end{itemize}
@@ -113,20 +113,20 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 
 \item \subsubsection{Quarta Settimana 20/07-24/07  (40 ore)}
 \begin{itemize}
-	\item Contributi alla redazione della Solution Design di “Azzurra”;
-	\item Contributi alla documentazione sorgenti di “Azzurra” (frontend/backend).
+	\item Contributi alla redazione della Solution Design di “\textbf{Azzurra}”;
+	\item Contributi alla documentazione sorgenti di “\textbf{Azzurra}” (frontend/backend).
 \end{itemize}
 
 \item \subsubsection{Quinta Settimana 27/07-31/07 (40 ore)}
 \begin{itemize}
-	\item Review di alcuni componenti di AWMS;
+	\item Review di alcuni componenti di \gls{AWMS}\ap{13};
 	\item Aspetti di scalabilità di un flow-engine (concorrenzialità, HA, persistenza/storicizzazione
 	messaggi)
 \end{itemize}
 
 \item \subsubsection{Sesta Settimana 03/08-07/08 (40 ore)}
 \begin{itemize}
-	\item Contributi alla redazione della Solution Design di “Azzurra”;
+	\item Contributi alla redazione della Solution Design di “\textbf{Azzurra}”;
 	\item Implementazione Push Notifications (lato mobile App);
 	\item Implementazione Push Notifications (lato backend).
 \end{itemize}
@@ -160,15 +160,15 @@ Di seguito viene riportata una tabella riassuntiva della pianificazione:
 	\hline			
 	24 &  01/07/2020 - 03/07/2020 & Studio delle tecnologie, Angular 2+ e Ionic, da utilizzare durante lo stage.\\
 
-	40 &  06/07/2020 - 10/07/2020 & Studio di componenti del dell'architettura di sistema di Azzurra, creazione di test per la dashboard di AWMS e per l'applicazione mobile. \\
+	40 &  06/07/2020 - 10/07/2020 & Studio di componenti del dell'architettura di sistema di \textbf{Azzurra}, creazione di \emph{test} per la \emph{dashboard} di \gls{AWMS}\ap{14} e per l'applicazione mobile. \\
 
-	40 &  13/07/2020 - 17/07/2020 & Continuazione studio delle componenti del sistema di Azzurra e analisi, progettazione e implementazione di flussi conversazionali.\\
+	40 &  13/07/2020 - 17/07/2020 & Continuazione studio delle componenti del sistema di \textbf{Azzurra} e analisi, progettazione e implementazione di flussi conversazionali.\\
 
-	40 &  20/07/2020 - 24/07/2020 & Scritture di documentazione per le componenti di Azzurra.\\
+	40 &  20/07/2020 - 24/07/2020 & Scritture di documentazione per le componenti di \textbf{Azzurra}.\\
 
-	40 &  27/07/2020 - 31/07/2020 & Continuazione di altre componenti di AWMS.\\
+	40 &  27/07/2020 - 31/07/2020 & Continuazione di altre componenti di \gls{AWMS}\ap{15}.\\
 
-	40 &  03/08/2020 - 07/08/2020 & Documentazione delle componenti AWMS e implementazione notifiche push.\\
+	40 &  03/08/2020 - 07/08/2020 & Documentazione delle componenti \gls{AWMS}\ap{16} e implementazione notifiche push.\\
 
 	40 &  17/08/2020 - 21/08/2020 & Progettazione, implementazione e documentazione di template engine multi-lingua.\\
 
@@ -181,7 +181,7 @@ Di seguito viene riportata una tabella riassuntiva della pianificazione:
 \end{table}%
 
 \section{Variazioni}
-Nella seconda settimana è stato deciso di svolgere al posto di test d'unità nella parte front-end, test end to end con lo scopo di esercitazione. La creazione di test end to end per l'applicazione mobile è stata sposta alla quinta settimana per poter testare anche i flussi di conversazione implementati per la chat con Azzurra.
+Nella seconda settimana è stato deciso di svolgere al posto di test d'unità nella parte front-end, \gls{test e2e}\ap{3} con lo scopo di esercitazione. La creazione di \gls{test e2e}\ap{4} per l'applicazione mobile è stata sposta alla quinta settimana per poter testare anche i flussi di conversazione implementati per la chat con \textbf{Azzurra}.
 
 \section{Strumenti e tecnologie utilizzate}
 \subsection{Strumenti}
@@ -201,16 +201,16 @@ Angular è un framework open source per lo sviluppo di applicazioni web con lice
 Ionic è un SDK open source completo per lo sviluppo di app mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come CSS, HTML5 e Sass. In particolare, le app mobili possono essere costruite con queste tecnologie Web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
 
 \subsubsection*{Protractor}
-Protractor è un framework di test end-to-end per applicazioni Angular e AngularJS. Protractor esegue test sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
+Protractor è un framework di test end-to-end per applicazioni Angular e AngularJS. Protractor esegue \emph{test} sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
 
 \subsubsection*{Appium}
 Appium è  un strumento  open source che permette di eseguire in modo automatizzato script per testare applicazioni native, applicazioni web mobile e applicazioni ibride su Android o iOS utilizzando un webdriver.
 
 \subsubsection*{Cucumber}
-Cucumber è un strumento che permette di creare test automatizzati con una specifica non ambigua e documenta come si comporta effettivamente il sistema. Cucumber supporta lo sviluppo guidato dal comportamento (BDD).
+Cucumber è un strumento che permette di creare \emph{test} automatizzati con una specifica non ambigua e documenta come si comporta effettivamente il sistema. Cucumber supporta lo sviluppo guidato dal comportamento (BDD).
 
 \subsubsection*{Selenium}
-Selenium è un framework che permette di testare le applicazioni web. Selenium fornisce uno strumento di riproduzione per la creazione di test funzionali senza la necessità di apprendere un linguaggio di scripting di test (Selenium IDE). Fornisce anche un linguaggio specifico del dominio di test (Selenese) per scrivere test in altri linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala. I test possono quindi essere eseguiti sulla maggior parte dei browser Web moderni.
+Selenium è un framework che permette di testare le applicazioni web. Selenium fornisce uno strumento di riproduzione per la creazione di \emph{test} funzionali senza la necessità di apprendere un linguaggio di scripting di \emph{test} (Selenium IDE). Fornisce anche un linguaggio specifico del dominio di \emph{test} (Selenese) per scrivere \emph{test} in altri linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala. I \emph{test} possono quindi essere eseguiti sulla maggior parte dei browser Web moderni.
 
 \subsubsection*{Npm}
  Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js. Consiste in un client da linea di comando, chiamato anch'esso npm, e un database online di pacchetti pubblici e privati.
@@ -243,4 +243,4 @@ Durante la partecipazione telematica all'evento ero alla ricerca di un’azienda
 \end{itemize}  
 
 Confrontando con le varie aziende con cui ero entrato in contatto ho scelto di accettare lo stage proposto da AzzurroDigitale. \\
-Questo perché nella loro proposta di stage c'è tutti i tre punti elencati prima, infatti grazie a questo progetto di stage ho avuto modo di migliorarmi nell’utilizzo di Angular imparando a utilizzare i metodi offerti da lui, in modo più efficiente. Inoltre, ho avuto la possibilità di sviluppare un’applicazione mobile grazie all'utilizzo di Ionic e Cordova. Altro aspetto importante fu che quest'azienda si distingue dal fatto che per gestire i propri progetti utilizza la metodologia agile SCRUM, una tematica mi interessava scoprire come valida alternativa al modello incrementale appresso durante il progetto del corso di Ingegneria del Software. Infine, l'azienda è una realtà giovane nata da meno di 5 anni fatta da persone giovani in cui potevo inserirmi facilmente.\\
+Questo perché nella loro proposta di stage c'è tutti i tre punti elencati prima, infatti grazie a questo progetto di stage ho avuto modo di migliorarmi nell’utilizzo di Angular imparando a utilizzare i metodi offerti da lui, in modo più efficiente. Inoltre, ho avuto la possibilità di sviluppare un’applicazione mobile grazie all'utilizzo di Ionic e Cordova. Altro aspetto importante fu che quest'azienda si distingue dal fatto che per gestire i propri progetti utilizza la metodologia agile \gls{SCRUM}, una tematica mi interessava scoprire come valida alternativa al modello incrementale appresso durante il progetto del corso di Ingegneria del Software. Infine, l'azienda è una realtà giovane nata da meno di 5 anni fatta da persone giovani in cui potevo inserirmi facilmente.\\
