@@ -117,11 +117,11 @@ Oltre a campi del tipo \textbf{BLOCK} ha i seguenti campi in più:
 
 Il blocco di conversazione \textbf{SAY} ha la funzione di mostrare all'utente un messaggio a video attraverso il quale si comunica l'esito della operazione precedente e il risultato da essa ricavata. Perciò l'utente richiede l'esecuzione di una qualche operazione, viene eseguita e una volta conclusa il bot risponderà all'utente con il risultato ricavato precedentemente.
 
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[scale=0.7]{img/say.png}
-%	\caption{Definizione della classe SAY}
-%\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.25]{say.jpg}
+	\caption{DEsempio di messaggio prodotto da un blocco di tipo SAY}
+\end{figure}
 Oltre a campi del tipo \textbf{BLOCK} ha il seguente campo in più:
 
 \begin{itemize}
@@ -149,7 +149,7 @@ Oltre a campi del tipo \textbf{BLOCK} ha i seguenti campi in più:
 
 
 \subsubsection{PROC}
-Il blocco di conversazione \textbf{PROC} permette di eseguire delle operazioni sulle variabili conversazionali quali assegnazione o trasformazione di dato. Ad esempio, permette di riordinare i dati ricevuti dal server in modo da poter essere utilizzati dai \textbf{source} con \textbf{sourceType} uguale a \textbf{VARIABLE}.
+Il blocco di conversazione \textbf{PROC} permette di eseguire delle operazioni sulle variabili conversazionali cioè, assegnazione o trasformazione dei dati. Ad esempio, permette di riordinare i dati ricevuti dal server in modo da poter essere utilizzati dai \textbf{source} con \textbf{sourceType} uguale a \textbf{VARIABLE}.
 
 %\begin{figure}[htbp]
 %	\centering
@@ -168,13 +168,13 @@ Oltre a campi del tipo \textbf{BLOCK} ha il seguente campo in più:
 		\begin{itemize}
 			\item \textbf{reduce to textvalue}: Permette di riordinare i vari valori che si hanno in una struttura chiave valore.
 		\end{itemize}
-		\item \textbf{args}: Contiene un espressione in \textsf{Handlebars}, un linguaggio di templating utilizzato per costruire template in HTML con dei cosiddetti segnaposto che verranno poi valorizzati con dei valori, utilizzando delle \emph{keyword} del linguaggio, in modo da ottenere delle componenti in HTML da mostrare come messaggio.
+		\item \textbf{args}: Contiene un espressione in Handlebars, un linguaggio di \emph{templating} utilizzato per costruire \emph{template} in HTML con dei cosiddetti segnaposto che verranno poi valorizzati con dei valori, utilizzando delle \emph{keyword} del linguaggio, in modo da ottenere delle componenti in HTML da mostrare come messaggio.
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{JUMP}
 
-Il blocco di conversazione \textbf{JUMP} permette di cambiare il flusso di conversazione ed eseguirne una altro. In termini tecnici si passa da un JSON di configurazione ad un altro dove ogni configurazioni in JSON contiene un specifico flusso di conversazione. Perciò, grazie a \textbf{JUMP} si può "saltare" da un flusso di conversazione a un altro.
+Il blocco di conversazione \textbf{JUMP} permette di cambiare il flusso conversazionale ed eseguirne una altro. In termini tecnici si passa da un JSON di configurazione ad un altro dove ogni configurazioni in JSON contiene un specifico flusso di conversazione. Perciò, grazie a \textbf{JUMP} si può "saltare" da un flusso di conversazione a un altro.
 
 %\begin{figure}[htbp]
 %	\centering
@@ -182,11 +182,11 @@ Il blocco di conversazione \textbf{JUMP} permette di cambiare il flusso di conve
 %	\caption{Definizione della classe JUMP}
 %\end{figure}
 
-Nel campo target non viene indicato l'id del blocco successivo ma, l'id del flow che si vuole eseguire.
+Nel campo \textbf{target} non viene indicato l'id del blocco successivo ma, l'id del \emph{flow} che si vuole eseguire.
 
 \subsubsection{CALLFUNC}
 
-Il blocco di conversazione \textbf{CALLFUNC} è il blocco attraverso il quale, il bot (la mobile App) può richiedere l’esecuzione di chiamate ad API (interne o esterne). Attraverso un WebSocket, che mantiene una connessione tra il bot e Azzurra.io, quest’ultima richiama, a sua volta, delle API di AWMS (o esterne ad AWMS) per ottenere i dati richiesti dell’utente o per salvare dati. 
+Il blocco di conversazione \textbf{CALLFUNC} è il blocco attraverso il quale, il bot (l'applicazione mobile) può richiedere l’esecuzione di chiamate ad API (interne o esterne). Attraverso un WebSocket, che mantiene una connessione tra il bot e Azzurra.io, quest’ultima richiama, a sua volta, delle API di AWMS (o esterne ad AWMS) per ottenere i dati richiesti dell’utente o per salvare dati. 
 
 %\begin{figure}[htbp]
 %	\centering
@@ -202,21 +202,21 @@ Oltre a campi del tipo \textbf{BLOCK} ha il seguente campo in più:
 	\begin{itemize}
 		\item \textbf{type}: Indica se la chiamata è verso Azzurra.io attraverso il valore \textsf{int} oppure verso un servizio esterno con il valore \textsf{ext}.
 	\end{itemize}
-	Se la chiamata è di tipo \textsf{int} ha la seguente struttura:
+	Se la chiamata è di tipo int ha la seguente struttura:
 	\begin{itemize}
 		\item \textbf{route}: Indica il metodo di Azzurra.io da richiamare;
-		\item \textbf{body}: Contiene il corpo della richiesta, nello specifico un template costruito da \textsf{Handlebars} che verrà idratato da Azzurra.io nel caso sia una richiesta di dati o dal bot nel caso in cui debba inviare dei dati da salvare.
+		\item \textbf{body}: Contiene il corpo della richiesta, nello specifico un \emph{template} costruito da Handlebars che verrà idratato da Azzurra.io nel caso sia una richiesta di dati o dal bot nel caso in cui debba inviare dei dati da salvare.
 	\end{itemize}
-	Se la chiamata è di tipo \textsf{ext} ha la seguente struttura:
+	Se la chiamata è di tipo ext ha la seguente struttura:
 	\begin{itemize}
 		\item \textbf{config}: Contiene la struttura di una chiamata HTTP.\\
 		Ha i seguenti campi:
 		\begin{itemize}
 			\item \textbf{url}: Contiene l'indirizzo URL del servizio esterno a cui fare richiesta;
-			\item \textbf{method}: Se la richiesta e di tipo \textsf{GET} o \textsf{POST};
+			\item \textbf{method}: Se la richiesta e di tipo GET o POST;
 			\item \textbf{headers}: Contiene l'intestazione per la richiesta HTTP;
-			\item \textbf{params}: Contiene le variabili necessarie per la chiamata, questo campo viene usato solo se il la richiesta e di tipo \textsf{GET};
-			\item \textbf{data}: Analogo al campo \textbf{params} solo che viene usato dai metodi POST.
+			\item \textbf{params}: Contiene le variabili necessarie per la chiamata, questo campo viene usato solo se la richiesta e di tipo GET;
+			\item \textbf{data}: Analogo al campo \textbf{params} solo se viene usato dai metodi POST.
 		\end{itemize}
 	\end{itemize}
 	\item \textbf{var}: Indica il nome della variabile dove salvare il risultato della richiesta;
@@ -225,7 +225,7 @@ Oltre a campi del tipo \textbf{BLOCK} ha il seguente campo in più:
 \end{itemize}
 
 \subsection{Oggetti ausiliari}
-Come scritto nella sezione precedente questi oggetti vengono definiti per poterli utilizzarli all'interno dei blocchi per svolgere un azione di supporto ai blocchi affinché si possa raggiungere ciò per cui sono stati realizzati i blocchi di conversazione stessi.\\
+Come scritto nella sezione precedente questi oggetti vengono definiti per poterli utilizzare all'interno dei blocchi per svolgere un azione di supporto ai blocchi, affinché si possa raggiungere ciò per cui sono stati realizzati i blocchi di conversazione stessi.\\
 \\
 Di seguito vengono indicate tutte le classi degli oggetti ausiliari disponibili.
 
@@ -239,14 +239,14 @@ Ha i seguenti tipi:
 		\includegraphics[scale=1.1]{buttons.png}
 	\caption{Rappresentazione grafica dei buttons}
 	\end{figure}
+	\clearpage
 	\item \textbf{ITEMS}: Genera dei bottoni quadrati;
 	\begin{figure}[h]
 		\centering
 		\includegraphics[scale=0.3]{items.jpg}
 		\caption{Rappresentazione grafica degli items}
 	\end{figure}
-	\clearpage
-	\item \textbf{PICKER}: Genera attraverso l'\textsf{ion-picker} di \textsf{Ionic} una finestra di dialogo dove si può selezionare una opzione tra quelle proposte;
+	\item \textbf{PICKER}: Genera attraverso l'ion-picker di \textsf{Ionic} una finestra di dialogo dove si può selezionare una opzione tra quelle proposte;
 	\begin{figure}[h]
 		\centering
 		\includegraphics[scale=0.2]{picker.jpg}
@@ -258,18 +258,18 @@ Ha i seguenti tipi:
 		\includegraphics[scale=0.2]{timePicker.jpg}
 		\caption{Rappresentazione grafica del time picker}
 	\end{figure}
+\clearpage
 	\item \textbf{DATEPICKER}: Analogo al \textbf{PICKER} solo che le opzioni da scegliere e la data che si vuole selezionare;
 	\begin{figure}[h]
 		\centering
 		\includegraphics[scale=0.2]{datePicker.jpg}
 		\caption{Rappresentazione grafica del date picker}
 	\end{figure}
-	\item \textbf{CALENDAR}: Fa comparire un calendario grazie all'utilizzo del plugin \textsf{Calendar} per \textsf{Ionic};
-	\clearpage
-	\item \textbf{QRSCANNER}: Permette di accedere alla fotocamera (solo se si hanno i permessi) e leggere i codici \textsf{QR-code} tutto ciò grazie al plugin \textsf{QR Scanner} per \textsf{Ionic}.
+	\item \textbf{CALENDAR}: Fa comparire un calendario grazie all'utilizzo del plugin Calendar per Ionic;
+	\item \textbf{QRSCANNER}: Permette di accedere alla fotocamera (solo se si hanno i permessi) e leggere i codici \textsf{QR-code} tutto ciò grazie al plugin QR Scanner per Ionic.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[scale=0.15]{qrcode.jpg}
+		\includegraphics[scale=0.2]{qrcode.jpg}
 		\caption{Rappresentazione grafica del QR scanner}
 	\end{figure}
 \end{itemize}
@@ -280,7 +280,7 @@ Questo oggetto rappresenta una possibile scelta che può fare l'utente, graficam
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.3]{blockItems.jpg}
-	\caption{Rappresentazione grafica del QR scanner}
+	\caption{Rappresentazione grafica del BlockItem}
 \end{figure}
 Ha la seguente struttura:
 
@@ -298,5 +298,74 @@ Ha la seguente struttura:
 
 \begin{itemize}
 	\item \textbf{id}: Contine un codice univoco che identifica ogni \textsl{BlockAttachment};
-	\item \textbf{type}: Indica se contiene un PDF o una immagine, nel caso di un'immagine indica se è in formato \textsf{JPG} o in \textsf{JPEG} oopure in \textsf{PNG}.
+	\item \textbf{type}: Indica se contiene un PDF o una immagine, nel caso di un'immagine indica se è in formato JPG o in JPEG oopure in PNG.
 \end{itemize}	
+
+\section{Funzionamento di Azzurra Flow Engine}
+Come detto il \textbf{Azzurra Flow Engine} è l'elemento in grado di interpretare i dati contenuti nelle configurazioni JSON. Grazie a ciò è possibile eseguire il corretto flusso della conversazione e generare i messaggi della conversazione. 
+\subsection{Messaggio del bot Azzurra}
+Per implementare le funzionalità del \textbf{Azzura Flow Engine} vengono utilizzati:
+\begin{itemize}
+	\item \textbf{FlowService}: Ha i metodi necessari per interpretare le configurazioni JSON e quindi, per poter sapere quale tipo di messaggio deve essere costruito, ricavare i dati necessari per costruire i messaggi e sapere come procedere con la conversazione;
+	\item \textbf{AzzurraService}: Permette principalmente di fare da tramite tra il \textbf{FlowService} e il \textbf{ChatComponent} per la creazione della conversazione. Oltre a ciò permette di gestire operazioni ad alto livello come il caricamento dei messaggi precedenti nel chat e gestire le notifiche che possono arrivare dalla \emph{dashboard};
+	\item \textbf{ChatComponent}: Si occupa di far visualizzare i messaggi della conversazione;
+	\item \textbf{ChatService}: Ha il compito di creare e gestire i Widget da aggiungere al messaggio da mostrare, e inoltre, di ricavarne da essi le risposte dell'utente umano.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=20cm, width=14cm]{sd_bot_mx2.png}
+	\caption{Diagramma di sequenza del processo di generazione del messaggio del bot Azzurra}
+\end{figure}
+Una volta che si è stabilità la connessione con \textbf{Azzurra.io}, attraverso un \gls{WebSocket}, inizializzato il \textbf{Flow Engina} e infine, ricevuto la configurazione JSON contenente il flusso conversazionale, la generazione di un messaggio da parte del bot Azzurra prevede i seguenti passi:\\
+\begin{enumerate}
+	\item Viene inviato alla applicazione mobile il flusso conversazionale richiesto precedentemente;
+	\item Viene avvitato nel \textbf{FlowService} il metodo \textbf{start()} il quale riceve in input il flusso da eseguire. Viene verificato se il flusso ricevuto risulta essere il \emph{main flow}, in questo caso vengono inizializzate le variabili conversazionali d'ambiente utilizzate come supporto per la generazione dei messaggi, ad esempio esiste una variabile d'ambiente per indicare il giorno corrente o il formato della data da utilizzare;
+	\item Una volta impostate le variabile ambiente, usciti dal blocco condizionale, viene salvato il flow da eseguire attraverso il metodo \textbf{\_addFlow()} che inoltre, imposta come flusso corrente da eseguire il flusso ricevuto in input;
+	\item All'interno del metodo \textbf{\_addFlow()} viene controllato se la configurazione definisce delle eventuali \textbf{shortcuts}
+	\item Se ci sono delle \textbf{shortcuts} viene chiamato il metodo \textbf{\_renderText()} per crearle, esso sarà in grado di interpretare il pezzo di configurazione dove sono definite le proprieta di ogni \textbf{shortcuts}.\\
+	
+	Una volta finita l'esecuzione del metodo, l'esecuzione torna nel metodo \textbf{start()}\\
+	\item Sempre nel metodo	\textbf{start()} viene chiamata l'esecuzione del metodo \textbf{\_processBlock()} dandogli in input il primo blocco del flusso da eseguire
+	
+	\item Nel metodo \textbf{\_processBlock()} viene eseguito il blocco che riceve in input, in questo caso il blocco da eseguire è il primo blocco del flusso come detto nel punto precedente. In questo metodo si verifica innanzitutto se c'è un blocco da eseguire, se non c'è viene emesso un segnale che informa che il flusso di conversazione è terminato, mentre se c'è un blocco allora si imposta questo blocco come quello in esecuzione e si verifica di che tipo è il blocco.\\
+	A seconda del tipo del blocco esegue le seguenti istruzioni:
+	\begin{itemize}
+		\item \textbf{Caso SAY}: Viene eseguito il metodo \textbf{\_processSay} dandogli in input il blocco corrente. Il metodo prende il valore salvato nel campo \textbf{text} e le eventuali \textbf{variations} del blocco generando il testo messaggio da mostrare attraverso il metodo \textbf{\_renderText()}. Vengono generati eventuali items attraverso il metodo \textbf{\_buildSayItems()} il quale controlla il sourceType e in base al valore che ha, genera gli items. Tornando in \textbf{\_processSay}, se presenti vengono anche eseguite le \textbf{widgetOptions} attraverso il metodo \textbf{\_processWidgetOptions()} e creati gli eventiali \textbf{BlockAttachment}. Infine, viene emesso il nuovo messaggio creato per il bot Azzurra e si passa all'esecuzione del prossimo blocco;
+		\item \textbf{Caso ASK}: Viene eseguito il metodo \textbf{\_processAsk} dandogli in input il blocco corrente. Il metodo salva il nome della variabile contenuta nel campo \textbf{var}, che contiene la risposta dell'utente. Analogamente per quanto accede per il blocco \textbf{SAY} viene creato il testo della domanda e attraverso il metodo \textbf{\_buildQuestions} vengono creati gli items delle possibili scelte. Inoltre, vengono processati gli eventuali \textbf{widgetOptions} e create le varie opzioni di scelta. Infine, viene emesso il nuovo messaggio creato per il bot, il quale rimane in attesa della risposta dell'utente umano quando verrà visualizzato il messaggio;
+		\item \textbf{Caso JUMP}: Richiama il metodo \textbf{\_getFlow()} per prendersi l'identificativo del flusso da eseguire attraverso la lettura del campo \textbf{target}. Il metodo citato richiede ad Azzurra.io il flusso che ha l'identificativo ricevuto in input, e una volta ricevuto ricomincia l'esecuzione del flusso conversazionale richiamando il metodo \textbf{start()};
+		\item \textbf{Caso IF}: Valuta la condizione se vera o falsa, in base a ciò stabilisce quale sarà il blocco di conversazione successivo;
+		\item \textbf{Caso PROD}: Stabilisce che formattazione deve essere fatta, richiama il metodo corretto per farla e poi passa all'esecuzione del prossimo blocco;
+		\item \textbf{CALLFUNC}: Viene ricavato il payload del blocco, viene codificato il template in handlebars per generare il corpo della richiesta, una volta fatto ciò la richiesta è pronta e viene mandata a \textbf{Azzurra.io}. Successivamente viene salvata la risposta sulla variabile indicata del campo \textbf{var} e in base alla risposta, se andata a buon fine oppure no, si eseguirà il corrispondente blocco successivo.
+	\end{itemize}
+\end{enumerate}
+ 
+  
+
+
+
+
+Nel \textbf{AzzuraService} c'è un ascoltatore che riceve i segnali mandati dai metodi di \textbf{FlowService}, grazie a ciò \textbf{AzzuraService} ha sempre il nuovo messaggio creato. Ora che il messaggio è stato creato bisogna poterlo visualizzare nella UI, più precisamente nella chat tra il bot Azzurra l'utente umano, per farlo \textbf{AzzuraService} emettere a sua volta il nuovo messaggio che è stato creato, verso l'ascoltatore presente in \textbf{ChatComponent}. Quando \textbf{ChatComponent} riceve il messaggio eseguirà il metodo \textbf{createMessage()} di \textbf{ChatService} passandogli il messaggio ricevuto.\\ Questo metodo si occuperà di far creare il messaggio grafico nel modo corretto. Innanzitutto verifica chi ha emesso il messaggio, l'utente umano o bot Azzurra. Nel caso in cui il messaggio sia del bot Azzurra viene indicato il testo da mostrare estraendolo dal messaggio ricevuto in input, aggiunto lo sprite di Azzurra per indicare graficamente che il messaggio viene dal bot.
+\\
+Nel caso in cui il messaggio preveda delle azioni da parte dell'utente umano, ovvero ci siano dei \textbf{Widget}, viene chiamato il metodo \textbf{createAction()} passandogli sempre il messaggio. In questo metodo viene verificato che tipo di \textbf{Widget} deve essere creato, per ogni \textbf{Widget} c'è un corrispondente metodo che ne imposta il testo da far visualizzare quando l'utente interagisce con esso, tale testo potrebbe essere un testo di default o un testo indicato nel campo \textbf{widgetOptions} inoltre nel caso del \textbf{DATEPICKER} o \textbf{TIMEPICKER}, viene impostato il formato di visualizzazione del giorno e dell'ora. Successivamente viene richiamato il metodo attraverso il quale le componenti di \textbf{Ionic} creano graficamente il \textbf{Widget} necessario, il quale alla fine della creazione viene ritornato al \textbf{ChatComponent}.
+\\
+Il messaggio ora appare nella UI, nella chat con il bot Azzurra. Per tenere uno storico sulla chat di tutti i messaggi inviati si richiama il metodo \textbf{addNewMessageToCache()} del \textbf{DataSourceService}, dandogli il nuovo messaggio. \\
+\\
+Una volta che l'utente interagisce con il \textbf{Widget} deve essere creato il messaggio dell'utente umano con la sua risposta. 
+
+\pagebreak
+
+
+\subsection{Messaggio dell’utente  umano}
+La generazione di un messaggio da parte dell’utente  umano prevede le seguenti azioni:\\
+Quando l'utente esegue un'azione che genera la risposta il \textbf{ChatService} emette il valore della risposta ogni volta che un \textbf{Widget} riceve la risposta. Nel \textbf{ChatComponent} esiste un ascoltatore per ogni evento emesso da ogni \textbf{Widget}, quando viene ricevuto il messaggio con la risposta dell'utente viene chiamato il metodo di \textbf{AzzurraService}, \textbf{sendReply()} dandogli in input il messaggio di risposta solo se il messaggio è valido, se non lo è viene ignorato.
+\\
+Il metodo \textbf{sendReply()} chiama a sua volta il metodo \textbf{processHumanAction} di \textbf{FlowService} dove in questo metodo viene impostato il valore della risposta dell'utente nella variabile indicata nel campo \textbf{var}, dopo di che si verifica se \textbf{Widget} abbia al suo interno un proprio campo target, se sì viene impostato come prossimo blocco di conversazione il blocco che il codice identificativo uguale a quello contenuto nel target, se invece non ha un campo target proprio si va a prendere il valore del campo target del blocco e si imposta il suo valore come prossimo blocco da eseguire. 
+\\
+Impostati tutti i dati necessari occorre presentare il messaggio nella UI, viene perciò emesso il messaggio dell'utente umano. Il messaggio viene nuovamente catturato da AzzurraService e inviato a ChatComponent dove vengono rifatte le stesse operazioni che erano state fatte per il messaggio del bot Azzurra solo che nel metodo \textbf{createMessage()} di \textbf{ChatService} verrà creato un messaggio di un utente umano ritornandolo al \textbf{ChatComponent} che si occuperà di farlo visualizzare.
+
+\begin{figure}[htbp]
+	\centering
+%	\includegraphics[scale=0.71]{sd_human_mx.png}
+	\caption{Diagramma di sequenza del processo di generazione del messaggio del bot Azzurra}
+\end{figure}
