@@ -105,7 +105,7 @@ Come spiegato in precedenza, la comunicazione tra l'applicazione mobile e \textb
 Nella Figura~\ref{fig:websocket} viene mostrato come avviene la creazione di una connessione tra l'applicazione mobile e \textbf{Azzurra.io}, i passi perciò sono:
 \begin{enumerate}
 	\item All'inizio, l'applicazione mobile viene aperta dall'utente, essa cercherà da subito di mettersi in contatto con \textbf{Azzurra.io} creando una connessione;
-	\item Per avviare una connessione WebSocket, viene inviata una richiesta HTTPS a \textbf{Azzurra.io}(server). Tale richiesta HTTP ha la particolarità che negli headers dell’intestazione viene specificata un'operazione di tipo Upgrade che indica che l'applicazione mobile (client) vuole aggiornare la connessione ad un protocollo diverso, in questo caso a WebSocket. Questo tipo di operazione prende il nome di WebSocket handshake request.
+	\item Per avviare una connessione WebSocket, viene inviata una richiesta HTTPS a \textbf{Azzurra.io}(server). Tale richiesta HTTP ha la particolarità che negli headers dell’intestazione viene specificata un'operazione di tipo Upgrade che indica che l'applicazione mobile (client) vuole aggiornare la connessione ad un protocollo diverso, in questo caso a WebSocket. Questo tipo di operazione prende il nome di WebSocket handshake request.\\
 	\begin{lstlisting}
 GET /mychat HTTP/1.1
 Host: server.AzzurraIo.com
@@ -118,7 +118,7 @@ Origin: http://AzzurraIo.com
 	\end{lstlisting}
 	Il codice soprastante rappresenta un esempio di WebSocket handshake request inviata dal client al server. Il client inserisce una stringa casuale codifica in base64 nel campo \textbf{Sec-WebSocket-Key} alla quelle viene poi aggiunta una stringa fissa.
 	\item Se il server, in questo caso \textbf{Azzurra.io} supporta la connessione tramite WebSocket allora rispondere mettendo nel campo \textbf{Sec-WebSocket-Accept} la risposta cioè, l'hash della stringa contenuta in \textbf{Sec-WebSocket-Key} utilizzando la funzione di hashing SHA-1. Infine, viene tutto codificato in base64. Una volta arrivata la risposta al client, esso controllerà se la risposta contiene la stringa corretta. Tutte queste operazioni hanno lo scopo di evitare di aprire più connessioni multiple ma non da nessuna garanzia di autenticazione.
-	Nel seguente codice viene riportato un esempio di risposta da parte del server.
+	Nel seguente codice viene riportato un esempio di risposta da parte del server.\\
 	\begin{lstlisting}
 HTTP/1.1 101 Switching Protocols
 Upgrade: websocket
