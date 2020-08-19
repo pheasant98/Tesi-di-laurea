@@ -3,43 +3,128 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Progettazione e codifica}
+\chapter{Flussi conversazionali prodotti}
 \label{cap:flussi di conversazione}
 %**************************************************************
 
-\intro{Breve introduzione al capitolo}\\
+\intro{In questo capitolo verrà descritto il lavoro che è stato fatto di analisi, progettazione e implementazione dei flussi di conversazione per Azzurra}\\
 
 %**************************************************************
-\section{Tecnologie e strumenti}
-\label{sec:flussi di conversazione}
+\section{Gestione delle prenotazioni dei posti}
+Questo flusso conversazionale consiste nel gestire le prenotazioni di un posto a sedere. Deve esserci la possibilità di richiedere una nuova prenotazione, visualizzare la lista delle proprie prenotazioni e infine, visto che è richiesto, che per riscattare il posto a sedere, quando si sta per iniziare a usufruire del posto si deve scannerizzare un QR code, messo nel posto a sedere, c'è perciò bisogno di integrare un lettore di QR code in Azzurra. Quindi si deve poter aprire la fotocamera, scannerizzare il QR code che verrà usato per controllare se la prenotazione è valida oppure no.
+\begin{usecase}{1}{Gestione delle prenotazioni dei posti}
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[scale=0.9]{UC1.png}
+			\caption{Use Case - UC1:Gestione delle prenotazioni dei posti}\label{fig:UC1}
+		\end{center}
+	\end{figure}
+\usecaseactors{Lavoratore}
+\usecasepre{Il lavoratore ha effettuato l'accesso nell'applicazione, è entrato nella sezione Azzurra e ha selezionato la feature UC1 Prenotazione Posto}
+\usecasedesc{Il utilizza le funzioni di gestione delle prenotazioni dei posti
+	per svolgere una o più delle seguenti azioni:
+	\begin{description}
+		\item [- UC1.1] Inserimento di una nuova prenotazione;
+		\item [- UC1.2] Visualizzazione della lista delle proprie prenotazioni;
+		\item [- UC1.3] Scansiona QR-CODE.
+	\end{description}}
+\usecasepost{Vengono forniti all'utente i risultati delle funzionalità per la gestione delle prenotazioni.}
+\end{usecase}
 
-Di seguito viene data una panoramica delle tecnologie e strumenti utilizzati.
+\begin{usecase}{1.1}{Inserimento di una nuova prenotazione}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato la funzionalità di prenotazione posto e può inserire un nuova prenotazione di un posto a sedere}
+	\usecasedesc{Il lavoratore selezione la funzionalità "Inserisci di una nuova prenotazione".}
+	\usecaseflow{
+	\begin{description}
+		\item Il lavoratore accede alla funzionalità di inserimento di una nuova prenotazione di un posto a sedere;
+		\item [- UC1.1.1] Inserisce la data di prenotazione;
+		\item [- UC1.1.2] Inserisce l'ora di inizio della prenotazione;
+		\item [- UC1.1.3] Inserisce l'ora di terminazione della prenotazione;
+		\item [- UC1.1.4] Inserisce la stanza del posto da prenotazione;
+		\item [- UC1.1.5] Inserisce il posto da prenotare;
+\end{description}}
+	\usecasealt{Se il tentativo di inserire una nuova prenotazione fallisce viene visualizzato un messaggio d'errore}
+	\usecasepost{Il lavoratore ha eseguito il processo d'inserimento di una nuova prenotazione}
+	\usecaseest{
+		\begin{description}
+			\item [- UC1.1.6] Visualizzazione di un messaggio d'errore che informa che la prenotazione non è andata a buon fine;
+		\end{description}
+	}
+\end{usecase}
 
-\subsection*{Tecnologia 1}
-Descrizione Tecnologia 1.
+\begin{usecase}{1.1.1}{Inserimento data di prenotazione}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Il lavoratore inserisce la data desiderata per la prenotazione del posto a sedere.}
+	\usecasepost{Il lavoratore ha inserito la data della nuova prenotazione}
+\end{usecase}
 
-\subsection*{Tecnologia 2}
-Descrizione Tecnologia 2
+\begin{usecase}{1.1.2}{Inserimento ora di inizio prenotazione}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Il lavoratore inserisce l'ora di inizio desiderata per la prenotazione del posto a sedere.}
+	\usecasepost{Il lavoratore ha inserito l'ora di inizio della nuova prenotazione}
+\end{usecase}
 
-%**************************************************************
-\section{Ciclo di vita del software}
-\label{sec:ciclo-vita-software}
+\begin{usecase}{1.1.3}{Inserimento ora di terminazione prenotazione}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Il lavoratore inserisce l'ora di terminazione desiderata per la prenotazione del posto a sedere.}
+	\usecasepost{Il lavoratore ha inserito l'ora di terminazione della nuova prenotazione}
+\end{usecase}
 
-%**************************************************************
-\section{Progettazione}
-\label{sec:progettazione}
+\begin{usecase}{1.1.4}{Inserimento stanza del posto da prenotare}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Il lavoratore inserisce la stanza del posto da prenotare.}
+	\usecasepost{Il lavoratore ha inserito la stanza del posto da prenotare}
+\end{usecase}
 
-\subsubsection{Namespace 1} %**************************
-Descrizione namespace 1.
+\begin{usecase}{1.1.5}{Inserimento posto da prenotare}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Il lavoratore inserisce il posto da prenotare}
+	\usecasepost{Il lavoratore ha inserito il posto da prenotare.}
+\end{usecase}
 
-\begin{namespacedesc}
-    \classdesc{Classe 1}{Descrizione classe 1}
-    \classdesc{Classe 2}{Descrizione classe 2}
-\end{namespacedesc}
+\begin{usecase}{1.1.6}{Visualizzazione di un messaggio d'errore che informa che la prenotazione non è andata a buon fine}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato l'inserimento di una nuova prenotazione}
+	\usecasedesc{Con i dati che sono stati inseriti risulta che non ci sono posti liberi, oppure è avvenuto un errore di connessione.}
+	\usecasepost{Il lavoratore ha visualizzato il messaggio d'errore}
+\end{usecase}
 
+\begin{usecase}{1.2}{Visualizzazione della lista delle proprie prenotazioni}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato la funzionalità di prenotazione posto e può visualizzare le sue prenotazione}
+	\usecasedesc{Il lavoratore vuole visualizzare la lista delle proprie prenotazioni asseconda di una certa modalità.}
+	\usecasepost{Il lavoratore ha visualizzato le sue prenotazioni}
+	\usecasegen{	
+		\begin{description}
+			\item [- UC1.2.1] Visualizzazione prenotazioni di oggi;
+			\item [- UC1.2.2] Visualizzazione prenotazioni di domani;
+			\item [- UC1.2.3] Visualizzazione prenotazioni di un giorno specifico.
+		\end{description}}	
+\end{usecase}
 
-%**************************************************************
-\section{Design Pattern utilizzati}
+\begin{usecase}{1.2.1}{Visualizzazione prenotazioni di oggi}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato la visualizzazione delle sue prenotazioni}
+	\usecasedesc{Il lavoratore vuole visualizzare le sue prenotazioni del giorno corrente.}
+	\usecasepost{Il lavoratore visualizza le sue prenotazioni del giorno corrente}
+\end{usecase}
 
-%**************************************************************
-\section{Codifica}
+\begin{usecase}{1.2.2}{Visualizzazione prenotazioni di domani}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato la visualizzazione delle sue prenotazioni}
+	\usecasedesc{Il lavoratore vuole visualizzare le sue prenotazioni di domani.}
+	\usecasepost{Il lavoratore visualizza le sue prenotazioni di domani}
+\end{usecase}
+
+\begin{usecase}{1.2.3}{Visualizzazione prenotazioni di un giorno specifico}
+	\usecaseactors{Lavoratore}
+	\usecasepre{Il lavoratore ha selezionato la visualizzazione delle sue prenotazioni}
+	\usecasedesc{Il lavoratore vuole visualizzare le sue prenotazioni di uno giorno specifico.}
+	\usecasepost{Il lavoratore visualizza le sue prenotazioni di uno giorno specifico}
+\end{usecase}

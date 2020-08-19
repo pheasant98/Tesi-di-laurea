@@ -15,7 +15,7 @@ Un elemento cardine dell'architettura di \textbf{Azzurra} è \textbf{Azzurra Flo
 
 \section{Flussi di conversazione}
 I flussi di conversazione o conversazionali sono degli elementi fondamentali per la conversazione tra il bot e l'utente umano. Essi sono delle configurazioni in JSON, dove ogni configurazione contiene un flusso di conversazione, e ogni flusso è un possibile ramo di conversazione che può essere fatto tra il bot Azzurra e l'utente umano. Ogni configurazione contiene perciò dei particolari comandi che permettono al bot di sapere quali messaggi deve mostrare all'utente umano e come comportarsi in base alle sue scelte. Ogni configurazione ha un \textbf{id} che contiene un codice univoco in modo tale da poter identificare ogni flusso di conversazione. Inoltre, l'esecuzione dei flussi di conversazione prevede che all'inizio ci sia l'esecuzione di un cosiddetto \emph{main flow}, in modo simile a come avviene per i programmi software, cioè c'è una funzione detta \emph{main} che viene eseguita per prima all'avvio del programma. Per indicare quale tra l'insieme dei flussi sia il \emph{main} si utilizza il campo \textbf{isMainFlow} dandogli il valore \emph{true}.
-Oltre a questi campi esistono altri campi che sono:
+Oltre a questi campi esistono altri campi che sono:\\
 \begin{itemize}
 	\item \textbf{Shortcuts "shortcuts"};
 	\item \textbf{Configurazione "config"};
