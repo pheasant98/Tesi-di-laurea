@@ -12,9 +12,9 @@
 %**************************************************************
 \section{Analisi dei requisiti}
 \subsection{Descrizione del problema}
-Durante lo stage è stato deciso, di comune accordo con il tutor aziendale, di costruire due flussi conversazionali per il bot Azzurra, nello specifico:
+Durante lo stage è stato deciso, di comune accordo con il tutor aziendale, di costruire due flussi conversazionali per il \gls{bot}\ap{[G]} Azzurra, nello specifico:
 \begin{itemize}
-	\item \textbf{DeskBooking}: Questo flusso conversazionale consiste nel gestire le prenotazioni di un posto a sedere. Deve esserci la possibilità di richiedere una nuova prenotazione, visualizzare la lista delle proprie prenotazioni e infine, visto che è richiesto, che per riscattare il posto a sedere, quando si sta per iniziare a usufruire del posto, di scannerizzare un QR code, messo nel posto a sedere, per poter verificare se chi ha scansionato il QR code ha veramente diritto a usufruire del posto. C'è perciò bisogno di integrare un lettore di QR code in Azzurra per poter fare il controllo. Perciò, si deve poter aprire la fotocamera, scannerizzare il QR code che verrà usato per controllare se il lavoratore può usufruire del posto e dopo il controllo, comunicare l'esito della verifica al lavoratore;
+	\item \textbf{DeskBooking}: Questo flusso conversazionale consiste nel gestire le prenotazioni di un posto a sedere. Deve esserci la possibilità di richiedere una nuova prenotazione, visualizzare la lista delle proprie prenotazioni e infine, visto che è richiesto, che per riscattare il posto a sedere, quando si sta per iniziare a usufruire del posto, di scannerizzare un \gls{QR code}\ap{[g]}, messo nel posto a sedere, per poter verificare se chi ha scansionato il \gls{QR code}\ap{[g]} ha veramente diritto a usufruire del posto. C'è perciò bisogno di integrare un lettore di \gls{QR code}\ap{[g]} in Azzurra per poter fare il controllo. Perciò, si deve poter aprire la fotocamera, scannerizzare il \gls{QR code}\ap{[g]} che verrà usato per controllare se il lavoratore può usufruire del posto e dopo il controllo, comunicare l'esito della verifica al lavoratore;
 	\item \textbf{Planning}: Questo flusso conversazionale consiste nel far visualizzare al lavoratore il lavoro che deve svolgere. Deve esserci la possibilità di richiedere la visualizzazione del lavoro pianificato di uno specifico giorno oppure la possibilità di vedere il lavoro pianificato per tutta la settimana;
 \end{itemize}
 \subsection{Requisiti}
@@ -51,7 +51,7 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 		R1F1 & Il lavoratore deve poter accedere alla funzionalità di prenotazione posto.\\
 		R1F2 & Il lavoratore deve poter inserire una nuova prenotazione di un posto a sedere.\\
 		R1F3 & Il lavoratore deve poter visualizzare le sue prenotazioni.\\
-		R1F4 & Il lavoratore deve poter scansionare il QR code per poter usufruire del posto prenotato.\\
+		R1F4 & Il lavoratore deve poter scansionare il \gls{QR code}\ap{[g]} per poter usufruire del posto prenotato.\\
 		R1F5 & Il lavoratore deve poter inserire la data in cui vuole prenotare il posto a sedere se disponibile.\\
 		R1F6 & Il lavoratore deve poter inserire l'ora di inizio della prenotazione che desidera.\\
 		R1F7 & Il lavoratore deve poter inserire l'ora di terminazione della prenotazione che desidera.\\
@@ -81,8 +81,8 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 		\hline	
 		R1F18 & Il lavoratore, per ogni prenotazione, deve poter visualizzare la stanza della prenotazione.\\
 		R1F19 & Il lavoratore, per ogni prenotazione, deve poter visualizzare il posto della prenotazione.\\	
-		R1F20 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio di conferma che lo informa che può usufruire del posto a sedere.\\
-		R1F21 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio d'errore che lo informa che non può usufruire del posto a sedere.\\
+		R1F20 & Il lavoratore, dopo avere scannerizzato il \gls{QR code}\ap{[g]} del posto a sedere, deve ricevere un messaggio di conferma che lo informa che può usufruire del posto a sedere.\\
+		R1F21 & Il lavoratore, dopo avere scannerizzato il \gls{QR code}\ap{[g]} del posto a sedere, deve ricevere un messaggio d'errore che lo informa che non può usufruire del posto a sedere.\\
 		R1F22 & Il lavoratore deve poter visualizzazione la pianificazione di uno specifico giorno.\\
 		R1F23 & Il lavoratore deve poter visualizzazione la pianificazione della settimana corrente.\\
 		R1F24 & Il lavoratore deve poter inserire la data del giorno in cui vuole vederne la pianificazione del lavoro a lui assegnato.\\
@@ -91,14 +91,14 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 		R1F27 & Il lavoratore deve poter visualizzare l'ora di terminazione del lavoro pianificato.\\
 		R1F28 & Il lavoratore deve poter visualizzare il lavoro che è stato pianificato per essere svolto.\\
 		R1V1 & Per implementare i flussi conversazionali devono essere usati Angular e Ionic.\\
-		R1V2 & Per gestire la fotocamera per la lettura del QR code deve essere usato il plugin di Cordova, QR Scanner.\\
+		R1V2 & Per gestire la fotocamera per la lettura del \gls{QR code}\ap{[g]} deve essere usato il plugin di Cordova, QR Scanner.\\
 		
 		\hline	
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei requisiti}
 \end{table}%
 \section{Progettazione}
-Dopo aver individuato i requisiti che descrivono i flussi da costruire, si è passati alla progettazione dei flussi. Come spiegato nel capitolo precedente i flussi conversazionali non sono altro che un insieme di blocco che asseconda del tipo di appartenenza svolgono determinate funzioni. Grazie a ciò, la progettazione dei due flussi è iniziata con l'inserimento dei blocchi corretti e il collegamento tra di essi, ottenendo così due diagrammi che rappresentano i due flussi dove viene mostrato che passi deve fare il bot Azzurra durante la conversazione con l'utente umano. Successivamente si sono progettati i metodi da aggiungere a quelli esistenti per poter creare i messaggi nel modo corretto.\\
+Dopo aver individuato i requisiti che descrivono i flussi da costruire, si è passati alla progettazione dei flussi. Come spiegato nel capitolo precedente i flussi conversazionali non sono altro che un insieme di blocco che asseconda del tipo di appartenenza svolgono determinate funzioni. Grazie a ciò, la progettazione dei due flussi è iniziata con l'inserimento dei blocchi corretti e il collegamento tra di essi, ottenendo così due diagrammi che rappresentano i due flussi dove viene mostrato che passi deve fare il \gls{bot}\ap{[G]} Azzurra durante la conversazione con l'utente umano. Successivamente si sono progettati i metodi da aggiungere a quelli esistenti per poter creare i messaggi nel modo corretto.\\
 Di seguito vengono illustrati i diagrammi dei flussi fatti.
 
 \subsection{Gestione delle prenotazioni dei posti}
@@ -112,7 +112,7 @@ Nei seguenti diagrammi viene mostrato l'insieme dei blocchi che fanno parte del 
 
 La Figura~\ref{fig:ins} rappresenta il ramo del flusso Deskbook dedicato all'inserimento di una nuova prenotazione. È così composto:
 \begin{enumerate}
-	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un \gls{QR code}\ap{[g]};
 	\item Nel caso in cui l'utente voglia inserire una nuova prenotazione, attraverso un blocco ASK viene chiesta la data che vuole inserire per la prenotazione. Viene progettato che l'inserimento della data viene fatta attraverso il DATEPICKER;
 	\item Successivamente tramite un blocco ASK viene chiesta l'ora di inizio per la prenotazione. L'inserimento dell'ora avviene tramite il TIMEPICKER;
 	\item Viene rifatta la stessa operazione del punto precedente ma chiedendo la data di terminazione della prenotazione;
@@ -126,7 +126,7 @@ La Figura~\ref{fig:ins} rappresenta il ramo del flusso Deskbook dedicato all'ins
 	\item Viene chiesto all'utente, attraverso un blocco ASK, di scegliere uno dei posti a sedere liberi;
 	\item Viene contattato Azzurra.io con il blocco CALLFUN per inserire la nuova prenotazione;
 	\item Se avviene un errore nell'inserimento viene eseguito il punto 6;
-	\item Se l'operazione va a buon fine viene comunicato all'utente l'esito positivo dell'operazione, ricordandogli i dati della prenotazione e di scansionare il QR code per riscattare il posto a sedere. Il flusso poi termina.
+	\item Se l'operazione va a buon fine viene comunicato all'utente l'esito positivo dell'operazione, ricordandogli i dati della prenotazione e di scansionare il \gls{QR code}\ap{[g]} per riscattare il posto a sedere. Il flusso poi termina.
 \end{enumerate}
 
 \begin{figure}[h]
@@ -137,7 +137,7 @@ La Figura~\ref{fig:ins} rappresenta il ramo del flusso Deskbook dedicato all'ins
 
 La Figura~\ref{fig:vis} rappresenta il ramo del flusso Deskbook dedicato alla visualizzazione delle prenotazioni. È così composto:
 \begin{enumerate}
-	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un \gls{QR code}\ap{[g]};
 	\item Nel caso in cui l'utente voglia visualizzare le sue prenotazione, viene chiesto attraverso un blocco ASK se vuole sapere le prenotazione del giorno corrente o del giorno successivo o di un altro giorno;
 	\item Nel caso l'utente voglia vedere le sue prenotazioni del giorno corrente o del giorno successivo verrà fatta una richiesta a Azzurra.io per ottenere le prenotazioni della data inserita dall'utente. La richiesta viene fatta attraverso il blocco CALLFUN;
 	\item Se invece l'utente vuole vedere le sue prenotazioni di una data diversa dal giorno corrente o successivo, attraverso un blocco ASK viene chiesta la data che vuole inserire per la visualizzazione. L'inserimento della data viene fatta attraverso il DATEPICKER, successivamente si esegue il punto 3 per la richiesta;
@@ -147,14 +147,14 @@ La Figura~\ref{fig:vis} rappresenta il ramo del flusso Deskbook dedicato alla vi
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.27]{chatbot/chatbot3.png}
-	\caption{Diagramma per lo scansionamento del QR code del flusso DeskBooking}\label{fig:qrcode}
+	\caption{Diagramma per lo scansionamento del \gls{QR code}\ap{[g]} del flusso DeskBooking}\label{fig:qrcode}
 \end{figure}
 
-La Figura~\ref{fig:qrcode} rappresenta il ramo del flusso Deskbook dedicato allo scansionamento del QR code. È così composto:
+La Figura~\ref{fig:qrcode} rappresenta il ramo del flusso Deskbook dedicato allo scansionamento del \gls{QR code}\ap{[g]}. È così composto:
 
 \begin{enumerate}
-	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
-	\item Nel caso in cui l'utente voglia scansionare un QR code per riscattare il suo posto a sedere prenotato, viene chiesto attraverso un blocco ASK di aprire il scannerizzatore di QR code. Viene usato QRSCANNER per leggere il QR code;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un \gls{QR code}\ap{[g]};
+	\item Nel caso in cui l'utente voglia scansionare un \gls{QR code}\ap{[g]} per riscattare il suo posto a sedere prenotato, viene chiesto attraverso un blocco ASK di aprire il scannerizzatore di \gls{QR code}\ap{[g]}. Viene usato QRSCANNER per leggere il \gls{QR code}\ap{[g]};
 	\item Viene chiesto a Azzurra.io attraverso il blocco CALLFUN, se il posto a sedere può essere usato dall'utente;
 	\item Se l'esito è positivo, viene comunicato all'utente che può usufruire del posto fino al termine della prenotazione. Termina così il flusso;
 	\item Se l'esito è negativo, viene informato l'utente che non può usare il posto a sedere in quel momento. Termina così il flusso;
@@ -182,15 +182,15 @@ La Figura~\ref{fig:plan} rappresenta il ramo del flusso Planning dedicato alla v
 \end{enumerate}
 
 \section{Codifica}
-Per implementare i due flussi si sono utilizzati i \emph{framework} Angular e Ionic. Grazie a Angular si è potuto strutturare un’applicazione web come una gerarchia di componenti quindi, attraverso il linguaggio TypeScript si è gestita l'\emph{application logic} mentre con HTML e CSS si è gestita la \emph{presentation logic}. Purtroppo solo l'uso di Angular non basta per poter sviluppare un'applicazione \emph{mobile} e non web, si è quindi usato Cordova, un \emph{framework} che permette di sviluppare un'applicazione mobile multi-piattaforma, quindi sia per Android e sia per iOS, con tecnologie web e inoltre, offre API per accedere alle funzionalità native del dispositivo, ad'esempio la fotocamera. Infatti, Cordova incapsula l'applicazione web e la esegue localmente all’interno di un’applicazione nativa che può interagire con le funzionalità del dispositivo. Per sfruttare le funzionalità di Angular e di Cordova assieme, è stato usato il \emph{framework} Ionic che permette di creare un ambiente integrato che semplifica lo sviluppo di applicazioni offrendo inoltre, componenti grafiche ottimizzate per i dispositivi \emph{mobile}.\\
+Per implementare i due flussi si sono utilizzati i \emph{framework} Angular e Ionic. Grazie a Angular si è potuto strutturare un’applicazione web come una gerarchia di componenti quindi, attraverso il linguaggio TypeScript si è gestita l'\emph{application logic} mentre con HTML e CSS si è gestita la \emph{presentation logic}. Purtroppo solo l'uso di Angular non basta per poter sviluppare un'applicazione \emph{mobile} e non web, si è quindi usato Cordova, un \emph{framework} che permette di sviluppare un'applicazione mobile multi-piattaforma, quindi sia per Android e sia per iOS, con tecnologie web e inoltre, offre \gls{api}\ap{[G]} per accedere alle funzionalità native del dispositivo, ad'esempio la fotocamera. Infatti, Cordova incapsula l'applicazione web e la esegue localmente all’interno di un’applicazione nativa che può interagire con le funzionalità del dispositivo. Per sfruttare le funzionalità di Angular e di Cordova assieme, è stato usato il \emph{framework} Ionic che permette di creare un ambiente integrato che semplifica lo sviluppo di applicazioni offrendo inoltre, componenti grafiche ottimizzate per i dispositivi \emph{mobile}.\\
 
 Per quanto riguarda la codifica, per prima cosa si è implementato una configurazione JSON per ogni flusso, dove si sono codificati i vari blocchi progettati, utilizzando la sintassi spiegata nel precedente capitolo. Una volta scritte le due configurazioni si è dovuto aggiornare il \emph{main flow} aggiungendo nel primo blocco che viene eseguito, cioè un blocco ASK dove viene chiesto che funzionalità si vuole eseguire, due BlockItem per indicare le due nuove funzionalità offerte dai due flussi prodotti. Oltre alle due nuove scelte, nel \emph{main flow} sono stati aggiunti due blocchi JUMP per permettere di mandare in esecuzione i due nuovi flussi quando l'utente ne richiede l'esecuzione subito dopo la selezione della funzionalità desiderata da parte dell'utente.\\
 
-Per poter creare i tre Widget, DATEPICKER, TIMEPICKER e QRSCANNER, nel createActions() ho aggiunto tre metodi per ognuno dei tre Widget, che vengono chiamati da createActions() in base al tipo di Widget da creare. In questi tre nuovi metodi viene impostato il testo che devono mostrare e nel caso dei DATEPICKER, TIMEPICKER viene impostato anche il formato del giorno e dell'ora. Per ognuno di questi metodi ho creato un metodo specifico per ogni Widget che si occupa della creazione e dell'apertura, in particolare per il metodo che crea il QRSCANNER, \_openQRcode(), viene utilizzato il ModalController di Ionic per creare la classe dove è definita l'interfaccia grafica e i metodi per il funzionamento di QRSCANNER. Il ModalController di Ionic permette di aprire una nuova finestra sopra a quella corrente per visualizza la componente Ionic definita nella nuova finestra, in questo caso la classe che implementa il lettore di QR code. Una volta finito di usare la nuova finestra può essere chiusa e ritornare alla finestra precedente che sarà nello stato in cui era prima dell'apertura della nuova finestra. Ho dovuto perciò, implementare la classe che gestisce il lettore QR code, denominata CameraComponent, dove al suo interno richiama il plugin di Cordova, QR Scanner. QR Scanner è un API che permette di accedere alla fotocamera del dispositivo e di scansionare i QR code. Vengono perciò definiti due metodi in CameraComponent, un metodo per l'apertura della fotocamera e la lettura del QR code e per la chiusura della fotocamera che dopo la chiusura, invia l'eventuale valore letto al ModalController. Nel CameraComponent viene definito anche il suo aspetto grafico mostrato nella Figura~\ref{fig:qrc}.\\
+Per poter creare i tre Widget, DATEPICKER, TIMEPICKER e QRSCANNER, nel createActions() ho aggiunto tre metodi per ognuno dei tre Widget, che vengono chiamati da createActions() in base al tipo di Widget da creare. In questi tre nuovi metodi viene impostato il testo che devono mostrare e nel caso dei DATEPICKER, TIMEPICKER viene impostato anche il formato del giorno e dell'ora. Per ognuno di questi metodi ho creato un metodo specifico per ogni Widget che si occupa della creazione e dell'apertura, in particolare per il metodo che crea il QRSCANNER, \_openQRcode(), viene utilizzato il ModalController di Ionic per creare la classe dove è definita l'interfaccia grafica e i metodi per il funzionamento di QRSCANNER. Il ModalController di Ionic permette di aprire una nuova finestra sopra a quella corrente per visualizza la componente Ionic definita nella nuova finestra, in questo caso la classe che implementa il lettore di \gls{QR code}\ap{[g]}. Una volta finito di usare la nuova finestra può essere chiusa e ritornare alla finestra precedente che sarà nello stato in cui era prima dell'apertura della nuova finestra. Ho dovuto perciò, implementare la classe che gestisce il lettore \gls{QR code}\ap{[g]}, denominata CameraComponent, dove al suo interno richiama il plugin di Cordova, QR Scanner. QR Scanner è un \gls{api}\ap{[G]} che permette di accedere alla fotocamera del dispositivo e di scansionare i \gls{QR code}\ap{[g]}. Vengono perciò definiti due metodi in CameraComponent, un metodo per l'apertura della fotocamera e la lettura del \gls{QR code}\ap{[g]} e per la chiusura della fotocamera che dopo la chiusura, invia l'eventuale valore letto al ModalController. Nel CameraComponent viene definito anche il suo aspetto grafico mostrato nella Figura~\ref{fig:qrc}.\\
  
-  Nel ChatComponent ho implementato il metodo \_initGenericQRCode() il quale aspetta di ricevere il valore letto dal lettore di QR code, che una volta che lo riceve, richiama il metodo sendReply() di AzzurraService per dare inizio al il processo di creazione del messaggio dell'utente umano spiegato nel capitolo precedente. \\
+  Nel ChatComponent ho implementato il metodo \_initGenericQRCode() il quale aspetta di ricevere il valore letto dal lettore di \gls{QR code}\ap{[g]}, che una volta che lo riceve, richiama il metodo sendReply() di AzzurraService per dare inizio al il processo di creazione del messaggio dell'utente umano spiegato nel capitolo precedente. \\
   
-  Per quanto riguarda i metodi per il DATEPICKER e per il TIMEPICKER, essi sono molto simili a quelli per gestire il lettore QR code, l'unica differenza è che i metodi analogi a \_openQRcode() quindi \_openDatePicker() e \_openTimePicker() non utilizzano il ModalComponent ma viene utilizzato l'ion-datetime, una componente grafico offerto da Ionic che può essere configurato per chiedere una data oppure un intervallo temporale, il risultato viene mostrato nella Figura~\ref{fig:date} e nella Figura~\ref{fig:time}. Quindi in questi due metodi ho definito come si devono presentare i due \emph{picker} e quindi non c'è stato nemmeno bisogno di un \emph{component} apposito che li gestisca come per il QRSCANNER. 
+  Per quanto riguarda i metodi per il DATEPICKER e per il TIMEPICKER, essi sono molto simili a quelli per gestire il lettore \gls{QR code}\ap{[g]}, l'unica differenza è che i metodi analogi a \_openQRcode() quindi \_openDatePicker() e \_openTimePicker() non utilizzano il ModalComponent ma viene utilizzato l'ion-datetime, una componente grafico offerto da Ionic che può essere configurato per chiedere una data oppure un intervallo temporale, il risultato viene mostrato nella Figura~\ref{fig:date} e nella Figura~\ref{fig:time}. Quindi in questi due metodi ho definito come si devono presentare i due \emph{picker} e quindi non c'è stato nemmeno bisogno di un \emph{component} apposito che li gestisca come per il QRSCANNER. 
 \section{Risultati}
 \begin{figure}[h]
 	\begin{center}
@@ -210,7 +210,7 @@ Nella Figura~\ref{fig:planning} viene mostrata la chat tra Azzurra e l'utente pe
 	\end{center}
 \end{figure}\clearpage
 
-Nella Figura~\ref{fig:QRc} viene mostrata la chat tra Azzurra e l'utente per la richiesta di visualizzazione del prenotazione dell'utente (prima figura) e la richiesta di scannerizzare il QR code per usufruire del posto prenotato (seconda figura).\\
+Nella Figura~\ref{fig:QRc} viene mostrata la chat tra Azzurra e l'utente per la richiesta di visualizzazione del prenotazione dell'utente (prima figura) e la richiesta di scannerizzare il \gls{QR code}\ap{[g]} per usufruire del posto prenotato (seconda figura).\\
 
 \begin{figure}[h]
 	\begin{center}

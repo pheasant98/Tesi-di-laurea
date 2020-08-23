@@ -6,15 +6,15 @@
 \chapter{Azzurra Flow Engine}
 \label{cap:flow engine}
 %**************************************************************
-\intro{Nel seguente capitolo verrà illustrato prima di tutto la struttura di un flusso conversazionale e successivamente il funzionamento del Azzurra Flow Engine la conseguente generazione dei messaggi da parte del bot Azzurre e dell'utente umano}\\
+\intro{Nel seguente capitolo verrà illustrato prima di tutto la struttura di un flusso conversazionale e successivamente il funzionamento del Azzurra Flow Engine la conseguente generazione dei messaggi da parte del \gls{bot}\ap{[G]} Azzurre e dell'utente umano}\\
 
 %*************************************************************
 
 \section{Cos'è}
-Un elemento cardine dell'architettura di Azzurra è Azzurra Flow Engine. Esso è un motore conversazionale in grado di ricevere in input flussi conversazionali, implementati attraverso file JSON, che risiedono nel database di Azzurra.io. Essi vengono mandati in input a Azzurra Flow Engine quando il bot Azzurra ne fa richiesta. Questi file sono codificati secondo una certa struttura fatta dai cosiddetti blocchi conversazionali e da altri campi che verranno illustrati in seguito. Tornando su Azzurra Flow Engine come scritto, riceve in input il file di conversazione in JSON e grazie ai metodi che ha disposizione è in grado di interpretare i file JSON ricevuti e generare i messaggi che il bot Azzurra deve fare visualizzare all'utente nella \emph{chat}.
+Un elemento cardine dell'architettura di Azzurra è Azzurra Flow Engine. Esso è un motore conversazionale in grado di ricevere in input flussi conversazionali, implementati attraverso file JSON, che risiedono nel database di Azzurra.io. Essi vengono mandati in input a Azzurra Flow Engine quando il \gls{bot}\ap{[G]} Azzurra ne fa richiesta. Questi file sono codificati secondo una certa struttura fatta dai cosiddetti blocchi conversazionali e da altri campi che verranno illustrati in seguito. Tornando su Azzurra Flow Engine come scritto, riceve in input il file di conversazione in JSON e grazie ai metodi che ha disposizione è in grado di interpretare i file JSON ricevuti e generare i messaggi che il \gls{bot}\ap{[G]} Azzurra deve fare visualizzare all'utente nella \emph{chat}.
 
 \section{Flussi di conversazione}
-I flussi di conversazione o conversazionali sono degli elementi fondamentali per la conversazione tra il bot e l'utente umano. Essi sono delle configurazioni in JSON, dove ogni configurazione contiene un flusso di conversazione, e ogni flusso è un possibile ramo di conversazione che può essere fatto tra il bot Azzurra e l'utente umano. Ogni configurazione contiene perciò dei particolari comandi che permettono al bot di sapere quali messaggi deve mostrare all'utente umano e come comportarsi in base alle sue scelte. Ogni configurazione ha un id che contiene un codice univoco in modo tale da poter identificare ogni flusso di conversazione. Inoltre, l'esecuzione dei flussi di conversazione prevede che all'inizio ci sia l'esecuzione di un cosiddetto \emph{main flow}, in modo simile a come avviene per i programmi software, cioè c'è una funzione detta \emph{main} che viene eseguita per prima all'avvio del programma. Per indicare quale tra l'insieme dei flussi sia il \emph{main} si utilizza il campo isMainFlow dandogli il valore \emph{true}.
+I flussi di conversazione o conversazionali sono degli elementi fondamentali per la conversazione tra il \gls{bot}\ap{[G]} e l'utente umano. Essi sono delle configurazioni in JSON, dove ogni configurazione contiene un flusso di conversazione, e ogni flusso è un possibile ramo di conversazione che può essere fatto tra il \gls{bot}\ap{[G]} Azzurra e l'utente umano. Ogni configurazione contiene perciò dei particolari comandi che permettono al \gls{bot}\ap{[G]} di sapere quali messaggi deve mostrare all'utente umano e come comportarsi in base alle sue scelte. Ogni configurazione ha un id che contiene un codice univoco in modo tale da poter identificare ogni flusso di conversazione. Inoltre, l'esecuzione dei flussi di conversazione prevede che all'inizio ci sia l'esecuzione di un cosiddetto \emph{main flow}, in modo simile a come avviene per i programmi software, cioè c'è una funzione detta \emph{main} che viene eseguita per prima all'avvio del programma. Per indicare quale tra l'insieme dei flussi sia il \emph{main} si utilizza il campo isMainFlow dandogli il valore \emph{true}.
 Oltre a questi campi esistono altri campi che sono:\\
 \begin{itemize}
 	\item \textbf{Shortcuts "shortcuts"};
@@ -23,7 +23,7 @@ Oltre a questi campi esistono altri campi che sono:\\
 \end{itemize}
 Tutti e tre verranno illustrati nelle seguenti sottosezioni.
 \subsection{Shortcuts “shortcuts”}
-Il campo shortcuts è il campo dedicato per le cosiddette "scorciatoie" cioè, tra le funzionalità che il bot offre all'utente c'è anche la possibilità di visualizzare un menu dove vengono mostrate tutte le funzionalità offerte dal bot e scegliere direttamente quelle eseguire in ogni momento.
+Il campo shortcuts è il campo dedicato per le cosiddette "scorciatoie" cioè, tra le funzionalità che il \gls{bot}\ap{[G]} offre all'utente c'è anche la possibilità di visualizzare un menu dove vengono mostrate tutte le funzionalità offerte dal \gls{bot}\ap{[G]} e scegliere direttamente quelle eseguire in ogni momento.
 
 \begin{figure}[htbp]
 	\centering
@@ -116,7 +116,7 @@ Oltre a campi del tipo BLOCK ha i seguenti campi in più:
 
 \subsubsection{SAY}
 
-Il blocco di conversazione SAY ha la funzione di mostrare all'utente un messaggio a video attraverso il quale si comunica l'esito della operazione precedente e il risultato da essa ricavata. Perciò l'utente richiede l'esecuzione di una qualche operazione, viene eseguita e una volta conclusa il bot risponderà all'utente con il risultato ricavato precedentemente.
+Il blocco di conversazione SAY ha la funzione di mostrare all'utente un messaggio a video attraverso il quale si comunica l'esito della operazione precedente e il risultato da essa ricavata. Perciò l'utente richiede l'esecuzione di una qualche operazione, viene eseguita e una volta conclusa il \gls{bot}\ap{[G]} risponderà all'utente con il risultato ricavato precedentemente.
 
 \begin{figure}[htbp]
 	\centering
@@ -187,7 +187,7 @@ Nel campo target non viene indicato l'id del blocco successivo ma, l'id del \emp
 
 \subsubsection{CALLFUNC}
 
-Il blocco di conversazione CALLFUNC è il blocco attraverso il quale, il bot (l'applicazione mobile) può richiedere l’esecuzione di chiamate ad API (interne o esterne). Attraverso un WebSocket, che mantiene una connessione tra il bot e Azzurra.io, quest’ultima richiama, a sua volta, delle API di AWMS (o esterne ad AWMS) per ottenere i dati richiesti dell’utente o per salvare dati. 
+Il blocco di conversazione CALLFUNC è il blocco attraverso il quale, il \gls{bot}\ap{[G]} (l'applicazione mobile) può richiedere l’esecuzione di chiamate ad \gls{api}\ap{[G]} (interne o esterne). Attraverso un \gls{WebSocket}\ap{[g]}, che mantiene una connessione tra il \gls{bot}\ap{[G]} e Azzurra.io, quest’ultima richiama, a sua volta, delle \gls{api}\ap{[G]} di \gls{AWMS}\ap{[G]} (o esterne ad \gls{AWMS}\ap{[G]}) per ottenere i dati richiesti dell’utente o per salvare dati. 
 
 %\begin{figure}[htbp]
 %	\centering
@@ -206,7 +206,7 @@ Oltre a campi del tipo BLOCK ha il seguente campo in più:
 	Se la chiamata è di tipo int ha la seguente struttura:
 	\begin{itemize}
 		\item \textbf{route}: Indica il metodo di Azzurra.io da richiamare;
-		\item \textbf{body}: Contiene il corpo della richiesta, nello specifico un \emph{template} costruito da Handlebars che verrà idratato da Azzurra.io nel caso sia una richiesta di dati o dal bot nel caso in cui debba inviare dei dati da salvare.
+		\item \textbf{body}: Contiene il corpo della richiesta, nello specifico un \emph{template} costruito da Handlebars che verrà idratato da Azzurra.io nel caso sia una richiesta di dati o dal \gls{bot}\ap{[G]} nel caso in cui debba inviare dei dati da salvare.
 	\end{itemize}
 	Se la chiamata è di tipo ext ha la seguente struttura:
 	\begin{itemize}
@@ -319,7 +319,7 @@ Per implementare le funzionalità del Azzura Flow Engine vengono utilizzate le s
 	\caption{Diagramma di sequenza del processo di generazione del messaggio del bot Azzurra}\label{fig:mxBot}
 \end{figure}
 
-Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \gls{WebSocket}, inizializzato il Flow Engine e infine, ricevuto la configurazione JSON contenente il flusso conversazionale, la generazione di un messaggio da parte del bot Azzurra prevede i seguenti passi:\\
+Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \gls{WebSocket}\ap{[g]}, inizializzato il Flow Engine e infine, ricevuto la configurazione JSON contenente il flusso conversazionale, la generazione di un messaggio da parte del \gls{bot}\ap{[G]} Azzurra prevede i seguenti passi:\\
 \begin{enumerate}
 	\item Viene inviato all’applicazione mobile il flusso conversazionale richiesto precedentemente;
 	\item Viene avviato nel FlowService il metodo start(), il quale riceve in input il flusso da eseguire. Viene verificato se il flusso ricevuto risulta essere il \emph{main flow}, in questo caso vengono inizializzate le variabili conversazionali d'ambiente utilizzate come supporto per la generazione dei messaggi, ad esempio esiste una variabile d'ambiente per indicare il giorno corrente o il formato della data da utilizzare;
@@ -332,7 +332,7 @@ Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \gls
 	\item Nel metodo \_processBlock() viene eseguito il blocco che riceve in input, in questo caso il blocco da eseguire è il primo blocco del flusso come detto nel punto precedente. In questo metodo si verifica innanzitutto se c'è un blocco da eseguire, se non c'è viene emesso un segnale che informa che il flusso di conversazione è terminato, mentre se c'è un blocco allora si imposta questo blocco come quello in esecuzione e si verifica di che tipo è il blocco.\\
 	A seconda del tipo del blocco vengono eseguite le seguenti istruzioni:
 	\begin{itemize}
-		\item \textbf{Caso SAY}: Viene eseguito il metodo \_processSay() ricevendo in input il blocco corrente. Il metodo prende il valore salvato nel campo text e le eventuali variations del blocco, generando il testo del messaggio da mostrare attraverso il metodo \_renderText(). Vengono generati eventuali BlockItems attraverso il metodo \_buildSayItems() il quale controlla il sourceType e in base al valore che ha, genera gli BlockItems. Tornando in \_processSay(), se presenti vengono anche eseguite le widgetOptions attraverso il metodo \_processWidgetOptions() e creati gli eventuali BlockAttachment. Infine, viene emesso il nuovo messaggio creato per il bot Azzurra e si passa all'esecuzione del prossimo blocco;
+		\item \textbf{Caso SAY}: Viene eseguito il metodo \_processSay() ricevendo in input il blocco corrente. Il metodo prende il valore salvato nel campo text e le eventuali variations del blocco, generando il testo del messaggio da mostrare attraverso il metodo \_renderText(). Vengono generati eventuali BlockItems attraverso il metodo \_buildSayItems() il quale controlla il sourceType e in base al valore che ha, genera gli BlockItems. Tornando in \_processSay(), se presenti vengono anche eseguite le widgetOptions attraverso il metodo \_processWidgetOptions() e creati gli eventuali BlockAttachment. Infine, viene emesso il nuovo messaggio creato per il \gls{bot}\ap{[G]} Azzurra e si passa all'esecuzione del prossimo blocco;
 		\item \textbf{Caso ASK}: Viene eseguito il metodo \_processAsk ricevendo in input il blocco corrente. Il metodo salva il nome della variabile contenuta nel campo var, che contiene la risposta dell'utente. Analogamente per quanto accede per il blocco SAY viene creato il testo della domanda e attraverso il metodo \_buildQuestions() vengono creati gli BlockItems delle possibili scelte. Inoltre, vengono processati gli eventuali widgetOptions. Infine, viene emesso il nuovo messaggio creato per il bot, il quale rimane in attesa della risposta dell'utente umano quando verrà visualizzato il messaggio;
 		\item \textbf{Caso JUMP}: Viene eseguito il metodo \_processJump() ricevendo in input il blocco corrente. Richiama il metodo \_getFlow() pasandogli l'identificativo del flusso da eseguire attraverso il campo target. Il metodo citato richiede ad Azzurra.io il flusso che ha l'identificativo uguale a quello ricevuto in input, e una volta ricevuto comincia l'esecuzione del nuovo flusso conversazionale richiamando start();
 		\item \textbf{Caso IF}: Viene eseguito il metodo \_processIf() passando in input il blocco corrente. Valuta la condizione attraverso \_manageConditions(), e in base al risultato stabilisce quale sarà il blocco di conversazione successivo da eseguire;
@@ -348,12 +348,12 @@ Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \gls
 	\item Nel AzzuraService c'è un ascoltatore che riceve i segnali mandati dai metodi di FlowService, perciò con la notifica inviata al punto precedente AzzuraService ha il messaggio che è stato appena creato;
 	\item AzzuraService emettere a sua volta il nuovo messaggio appena ricevuto, verso l'ascoltatore presente in ChatComponent;
 	\item Quando ChatComponent riceve il messaggio eseguirà il metodo createMessage() di ChatService passandogli il messaggio ricevuto. Questo metodo si occuperà di far creare il messaggio grafico nel modo corretto.
-	Innanzitutto, verifica chi ha emesso il messaggio, se è stato l'utente umano o il bot Azzurra. Nel caso in cui il messaggio sia del bot Azzurra viene indicato il testo da mostrare estraendolo dal messaggio ricevuto in input e aggiunto lo sprite di Azzurra per indicare graficamente che il messaggio viene dal bot;
+	Innanzitutto, verifica chi ha emesso il messaggio, se è stato l'utente umano o il \gls{bot}\ap{[G]} Azzurra. Nel caso in cui il messaggio sia del \gls{bot}\ap{[G]} Azzurra viene indicato il testo da mostrare estraendolo dal messaggio ricevuto in input e aggiunto lo sprite di Azzurra per indicare graficamente che il messaggio viene dal bot;
 	\item Nel caso in cui il messaggio preveda delle azioni da parte dell'utente umano, ovvero ci siano dei Widget, viene chiamato il metodo createAction() passandogli sempre il messaggio. In questo metodo viene verificato che tipo di Widget deve essere creato, per ogni Widget c'è un corrispondente metodo che ne imposta il testo da far visualizzare quando l'utente interagisce con esso, tale testo potrebbe essere un testo di default o un testo indicato nel campo widgetOptions inoltre nel caso del DATEPICKER o TIMEPICKER, viene impostato il formato di visualizzazione del giorno e dell'ora;
 	\item Nel caso rappresentato dalla Figura~\ref{fig:mxBot}, viene chiamato il metodo \_createQRcodeAction()
 	 il quale imposta il testo da mostrare e chiama il metodo \_openQRcode();
 	\item \_openQRcode() Richiama il metodo create() per creare e aprire il Widget QRCODE;
-	\item In \_openQRcode() viene chiamato il metodo create() che permette di utilizzare il ModalController di Ionic il quale crea una nuova finestra grafica con dentro la classe che gestisce il lettore di QR code. Si crea quindi graficamente il Widget. I corrispondenti metodi \emph{open} per DATEPICKER e TIMEPICKER non utilizzano il ModalController ma utilizzano una componente grafica messa a disposizione da Ionic, perciò in questi metodi viene configurato il componente grafico senza richiamare nessuna classe;
+	\item In \_openQRcode() viene chiamato il metodo create() che permette di utilizzare il ModalController di Ionic il quale crea una nuova finestra grafica con dentro la classe che gestisce il lettore di \gls{QR code}\ap{[g]}. Si crea quindi graficamente il Widget. I corrispondenti metodi \emph{open} per DATEPICKER e TIMEPICKER non utilizzano il ModalController ma utilizzano una componente grafica messa a disposizione da Ionic, perciò in questi metodi viene configurato il componente grafico senza richiamare nessuna classe;
 	\item Terminata la creazione il messaggio viene ritornato il messaggio costruito a ChatComponent;
 	\item Con onNewMessage() viene inserito nella \emph{chat} il nuovo messaggio;
 	\item Il nuovo messaggio viene inviato a Azzurra.io, per essere memorizzato, attraverso il metodo addNewMessageToCache();
@@ -385,5 +385,5 @@ La generazione di un messaggio da parte dell’utente umano prevede le seguenti 
 	\item Viene notificato agli ascoltatori l'evento descritto al punto precedente;
 	\item ChatComponent riceve il messaggio e chiama il metodo createMessage() di ChatService passandogli il messaggio ricevuto. Questo metodo si occuperà di far creare il messaggio grafico nel modo corretto. In questo caso il messaggio e di tipo umano perciò verrà creato secondo una certa specifica;
 	\item Viene ritornato il messaggio a ChatComponent;
-	\item Infine, per visualizzare il messaggio sulla \emph{chat}, vengono rifatte le stesse operazioni che erano state fatte per il messaggio del bot Azzurra.
+	\item Infine, per visualizzare il messaggio sulla \emph{chat}, vengono rifatte le stesse operazioni che erano state fatte per il messaggio del \gls{bot}\ap{[G]} Azzurra.
 \end{enumerate}
