@@ -14,7 +14,7 @@
 \subsection{Descrizione del problema}
 Durante lo stage è stato deciso, di comune accordo con il tutor aziendale, di costruire due flussi conversazionali per il bot Azzurra, nello specifico:
 \begin{itemize}
-	\item \textbf{DeskBooking}: Questo flusso conversazionale consiste nel gestire le prenotazioni di un posto a sedere. Deve esserci la possibilità di richiedere una nuova prenotazione, visualizzare la lista delle proprie prenotazioni e infine, visto che è richiesto, che per riscattare il posto a sedere, quando si sta per iniziare a usufruire del posto si deve scannerizzare un QR code, messo nel posto a sedere, per poter verificare se chi ha scansionato il QR code ha veramente diritto a usufruire del posto, c'è perciò bisogno di integrare un lettore di QR code in Azzurra per poter fare il controllo. Perciò, si deve poter aprire la fotocamera, scannerizzare il QR code che verrà usato per controllare se il lavoratore può usufruire del posto dopo il controllo, comunicare l'esito della verifica al lavoratore;
+	\item \textbf{DeskBooking}: Questo flusso conversazionale consiste nel gestire le prenotazioni di un posto a sedere. Deve esserci la possibilità di richiedere una nuova prenotazione, visualizzare la lista delle proprie prenotazioni e infine, visto che è richiesto, che per riscattare il posto a sedere, quando si sta per iniziare a usufruire del posto, di scannerizzare un QR code, messo nel posto a sedere, per poter verificare se chi ha scansionato il QR code ha veramente diritto a usufruire del posto. C'è perciò bisogno di integrare un lettore di QR code in Azzurra per poter fare il controllo. Perciò, si deve poter aprire la fotocamera, scannerizzare il QR code che verrà usato per controllare se il lavoratore può usufruire del posto e dopo il controllo, comunicare l'esito della verifica al lavoratore;
 	\item \textbf{Planning}: Questo flusso conversazionale consiste nel far visualizzare al lavoratore il lavoro che deve svolgere. Deve esserci la possibilità di richiedere la visualizzazione del lavoro pianificato di uno specifico giorno oppure la possibilità di vedere il lavoro pianificato per tutta la settimana;
 \end{itemize}
 \subsection{Requisiti}
@@ -25,14 +25,14 @@ Ogni requisito sarà strutturato come segue:
 	\begin{itemize}
 		\item \textbf{Importanza:}
 		\begin{itemize}
-			\item \textbf{1}: Requisito obbligatorio, ovvero irrinunciabile per almeno uno degli stakeholder
-			\item \textbf{2}: Requisito desiderabile, ovvero non strettamente necessario ma che porta valore aggiunto riconoscibile
-			\item \textbf{3}: Requisito opzionale, ovvero relativamente utile oppure contrattabile più avanti nel progetto
+			\item \textbf{1}: Requisito obbligatorio;
+			\item \textbf{2}: Requisito desiderabile, ovvero non strettamente necessario ma che porta valore aggiunto riconoscibile;
+			\item \textbf{3}: Requisito opzionale, ovvero relativamente utile.
 		\end{itemize}
 		\item \textbf{Tipologia:}
 		\begin{itemize}
 			\item \textbf{F}: Funzionale, definisce una funzione di un sistema di uno o più dei suoi componenti
-			\item \textbf{Q}: Qualitativo, definisce un requisito per garantire la qualità per un certo aspetto del progetto
+			\item \textbf{Q}: Qualitativo, definisce un requisito per garantire la qualità per un certo aspetto del prodotto
 			\item \textbf{P}: Prestazionale, definisce un requisito che garantisce efficienza prestazionale nel prodotto
 			\item \textbf{V}: Vincolo, definisce un requisito volto a far rispettare un dato vincolo
 		\end{itemize}
@@ -81,8 +81,8 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 		\hline	
 		R1F18 & Il lavoratore, per ogni prenotazione, deve poter visualizzare la stanza della prenotazione.\\
 		R1F19 & Il lavoratore, per ogni prenotazione, deve poter visualizzare il posto della prenotazione.\\	
-		R1F20 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio di conferma se può usufruire del posto a sedere.\\
-		R1F21 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio d'errore se non può usufruire del posto a sedere.\\
+		R1F20 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio di conferma che lo informa che può usufruire del posto a sedere.\\
+		R1F21 & Il lavoratore, dopo avere scannerizzato il QR code del posto a sedere, deve ricevere un messaggio d'errore che lo informa che non può usufruire del posto a sedere.\\
 		R1F22 & Il lavoratore deve poter visualizzazione la pianificazione di uno specifico giorno.\\
 		R1F23 & Il lavoratore deve poter visualizzazione la pianificazione della settimana corrente.\\
 		R1F24 & Il lavoratore deve poter inserire la data del giorno in cui vuole vederne la pianificazione del lavoro a lui assegnato.\\
@@ -102,7 +102,7 @@ Dopo aver individuato i requisiti che descrivono i flussi da costruire, si è pa
 Di seguito vengono illustrati i diagrammi dei flussi fatti.
 
 \subsection{Gestione delle prenotazioni dei posti}
-Nei seguenti diagrammi viene mostrato l'insieme dei blocchi che fanno parte del flusso conversazionale \textbf{DeskBooking}. Per comodità il flusso invece di usare un unico diagramma molto grande si è deciso di rappresentare il flusso attraverso tre diagrammi più piccoli.
+Nei seguenti diagrammi viene mostrato l'insieme dei blocchi che fanno parte del flusso conversazionale DeskBooking. Per comodità il flusso invece di usare un unico diagramma molto grande si è deciso di rappresentare il flusso attraverso tre diagrammi più piccoli.
 
 \begin{figure}[h]
 	\centering
@@ -110,21 +110,21 @@ Nei seguenti diagrammi viene mostrato l'insieme dei blocchi che fanno parte del 
 	\caption{Diagramma per l'inserimento di una nuova prenotazione del flusso DeskBooking}\label{fig:ins}
 \end{figure}
 
-La Figura~\ref{fig:ins} rappresenta il ramo del flusso \textbf{Deskbook} dedicato all'inserimento di una nuova prenotazione. È così composto:
+La Figura~\ref{fig:ins} rappresenta il ramo del flusso Deskbook dedicato all'inserimento di una nuova prenotazione. È così composto:
 \begin{enumerate}
-	\item Il flusso inizia con un blocco \textbf{ASK} che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
-	\item Nel caso in cui l'utente voglia inserire una nuova prenotazione, attraverso un blocco \textbf{ASK} viene chiesta la data che vuole inserire per la prenotazione. Viene progettato che l'inserimento della data viene fatta attraverso il \textbf{DATEPICKER};
-	\item Successivamente tramite un blocco \textbf{ASK} viene chiesta l'ora di inizio per la prenotazione. L'inserimento dell'ora avviene tramite il \textbf{TIMEPICKER};
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
+	\item Nel caso in cui l'utente voglia inserire una nuova prenotazione, attraverso un blocco ASK viene chiesta la data che vuole inserire per la prenotazione. Viene progettato che l'inserimento della data viene fatta attraverso il DATEPICKER;
+	\item Successivamente tramite un blocco ASK viene chiesta l'ora di inizio per la prenotazione. L'inserimento dell'ora avviene tramite il TIMEPICKER;
 	\item Viene rifatta la stessa operazione del punto precedente ma chiedendo la data di terminazione della prenotazione;
-	\item Terminato il punto precedente, l'utente ha inserito l'intervallo di tempo all'interno del quale desidera effettuare una prenotazione di un posto a sedere. Attraverso il blocco \textbf{CALLFUN} viene chiesto a \textbf{Azzurra.io} quali stanze con posti liberi sono disponibili per la data e l'intervallo inseriti dall'utente;
-	\item Se non ci sono stanze con posti liberi o l'operazione di richiesta va in errore, attraverso un blocco \textbf{SAY} viene informato l'utente della situazione e ricomincia l'esecuzione dall'inizio del flusso;
-	\item Se invece ci sono stanze con posti liberi, attraverso il blocco \textbf{PROC} vengono formattati i dati ricevuti in modo da poterli mostrare in una forma adatta alla situazione. In questo caso viene chiesto di creare una mappa con chiave contenente il nome della stanza e il numero dei posti, mentre come valore l'identificativo della stanza. Quando si vorrà mostrare questi dati, verrà solo mostrato la chiave dei dati;
-	\item Tramite il blocco \textbf{ASK} vengono mostrate le stanze disponibili mostrando i dati secondo la formattazione fatta al punto precedente;
+	\item Terminato il punto precedente, l'utente ha inserito l'intervallo di tempo all'interno del quale desidera effettuare una prenotazione di un posto a sedere. Attraverso il blocco CALLFUN viene chiesto a Azzurra.io quali stanze con posti liberi sono disponibili per la data e l'intervallo inseriti dall'utente;
+	\item Se non ci sono stanze con posti liberi o l'operazione di richiesta va in errore, attraverso un blocco SAY viene informato l'utente della situazione e ricomincia l'esecuzione dall'inizio del flusso;
+	\item Se invece ci sono stanze con posti liberi, attraverso il blocco PROC vengono formattati i dati ricevuti in modo da poterli mostrare in una forma adatta alla situazione. In questo caso viene chiesto di creare una mappa con chiave contenente il nome della stanza e il numero dei posti, mentre come valore l'identificativo della stanza. Quando si vorrà mostrare questi dati, verrà solo mostrato la chiave dei dati;
+	\item Tramite il blocco ASK vengono mostrate le stanze disponibili mostrando i dati secondo la formattazione fatta al punto precedente;
 	\item L'utente sceglie la stanza è viene controllato se nel frattempo è ancora disponibile e chiede quali posti a sedere sono liberi;
 	\item Se avviene un errore di connessione o non ci sono più posti liberi si torna al punto 6 spiegato precedentemente;
-	\item I dati ricevuti vengono formattati attraverso il blocco \textbf{PROC} creando la mappa con chiave contenente ora di inizio, orario di terminazione, nome stanza e nome posto a sedere, mentre come valore conterrà l'identificativo del posto a sedere, l'orario di inizio e di fine;
-	\item Viene chiesto all'utente, attraverso un blocco \textbf{ASK}, di scegliere uno dei posti a sedere liberi;
-	\item Viene contattato \textbf{Azzurra.io} con il blocco \textbf{CALLFUN} per inserire la nuova prenotazione;
+	\item I dati ricevuti vengono formattati attraverso il blocco PROC creando la mappa con chiave contenente ora di inizio, orario di terminazione, nome stanza e nome posto a sedere, mentre come valore conterrà l'identificativo del posto a sedere, l'orario di inizio e di fine;
+	\item Viene chiesto all'utente, attraverso un blocco ASK, di scegliere uno dei posti a sedere liberi;
+	\item Viene contattato Azzurra.io con il blocco CALLFUN per inserire la nuova prenotazione;
 	\item Se avviene un errore nell'inserimento viene eseguito il punto 6;
 	\item Se l'operazione va a buon fine viene comunicato all'utente l'esito positivo dell'operazione, ricordandogli i dati della prenotazione e di scansionare il QR code per riscattare il posto a sedere. Il flusso poi termina.
 \end{enumerate}
@@ -135,12 +135,12 @@ La Figura~\ref{fig:ins} rappresenta il ramo del flusso \textbf{Deskbook} dedicat
 	\caption{Diagramma per la visualizzazione delle prenotazioni del flusso DeskBooking}\label{fig:vis}
 \end{figure}
 
-La Figura~\ref{fig:vis} rappresenta il ramo del flusso \textbf{Deskbook} dedicato alla visualizzazione delle prenotazioni. È così composto:
+La Figura~\ref{fig:vis} rappresenta il ramo del flusso Deskbook dedicato alla visualizzazione delle prenotazioni. È così composto:
 \begin{enumerate}
-	\item Il flusso inizia con un blocco \textbf{ASK} che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
-	\item Nel caso in cui l'utente voglia visualizzare le sue prenotazione, viene chiesto attraverso un blocco \textbf{ASK} se vuole sapere le prenotazione del giorno corrente o del giorno successivo o di un altro giorno;
-	\item Nel caso l'utente voglia vedere le sue prenotazioni del giorno corrente o del giorno successivo verrà fatta una richiesta a \textbf{Azzurra.io} per ottenere le prenotazioni della data inserita dall'utente. La richiesta viene fatta attraverso il blocco \textbf{CALLFUN};
-	\item Se invece l'utente vuole vedere le sue prenotazioni di una data diversa dal giorno corrente o successivo, attraverso un blocco \textbf{ASK} viene chiesta la data che vuole inserire per la visualizzazione. L'inserimento della data viene fatta attraverso il \textbf{DATEPICKER}, successivamente si esegue il punto 3 per la richiesta;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
+	\item Nel caso in cui l'utente voglia visualizzare le sue prenotazione, viene chiesto attraverso un blocco ASK se vuole sapere le prenotazione del giorno corrente o del giorno successivo o di un altro giorno;
+	\item Nel caso l'utente voglia vedere le sue prenotazioni del giorno corrente o del giorno successivo verrà fatta una richiesta a Azzurra.io per ottenere le prenotazioni della data inserita dall'utente. La richiesta viene fatta attraverso il blocco CALLFUN;
+	\item Se invece l'utente vuole vedere le sue prenotazioni di una data diversa dal giorno corrente o successivo, attraverso un blocco ASK viene chiesta la data che vuole inserire per la visualizzazione. L'inserimento della data viene fatta attraverso il DATEPICKER, successivamente si esegue il punto 3 per la richiesta;
 	\item Se ci sono prenotazioni queste vengono mostrate all'utente, se invece avviene un errore o non ci sono prenotazioni fatte da lui, verrà avvisato di tale evento. Dopo questo passo il flusso termina\\
 \end{enumerate}
 
@@ -150,18 +150,18 @@ La Figura~\ref{fig:vis} rappresenta il ramo del flusso \textbf{Deskbook} dedicat
 	\caption{Diagramma per lo scansionamento del QR code del flusso DeskBooking}\label{fig:qrcode}
 \end{figure}
 
-La Figura~\ref{fig:qrcode} rappresenta il ramo del flusso \textbf{Deskbook} dedicato allo scansionamento del QR code. È così composto:
+La Figura~\ref{fig:qrcode} rappresenta il ramo del flusso Deskbook dedicato allo scansionamento del QR code. È così composto:
 
 \begin{enumerate}
-	\item Il flusso inizia con un blocco \textbf{ASK} che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
-	\item Nel caso in cui l'utente voglia scansionare un QR code per riscattare il suo posto a sedere prenotato, viene chiesto attraverso un blocco \textbf{ASK} di aprire il scannerizzatore di QR code. Viene usato \textbf{QRSCANNER} per leggere il QR code;
-	\item Viene chiesto a \textbf{Azzurra.io} attraverso il blocco \textbf{CALLFUN}, se il posto a sedere può essere usato dall'utente;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un QR code;
+	\item Nel caso in cui l'utente voglia scansionare un QR code per riscattare il suo posto a sedere prenotato, viene chiesto attraverso un blocco ASK di aprire il scannerizzatore di QR code. Viene usato QRSCANNER per leggere il QR code;
+	\item Viene chiesto a Azzurra.io attraverso il blocco CALLFUN, se il posto a sedere può essere usato dall'utente;
 	\item Se l'esito è positivo, viene comunicato all'utente che può usufruire del posto fino al termine della prenotazione. Termina così il flusso;
 	\item Se l'esito è negativo, viene informato l'utente che non può usare il posto a sedere in quel momento. Termina così il flusso;
 \end{enumerate}
 
 \subsection{Visualizzazione della pianificazione}
-Nel seguente diagramma viene mostrato l'insieme dei blocchi che fanno parte del flusso conversazionale \textbf{Planning}.
+Nel seguente diagramma viene mostrato l'insieme dei blocchi che fanno parte del flusso conversazionale Planning.
 
 \begin{figure}[h]
 	\centering
@@ -169,57 +169,60 @@ Nel seguente diagramma viene mostrato l'insieme dei blocchi che fanno parte del 
 	\caption{Diagramma per l'inserimento di una nuova prenotazione del flusso DeskBooking}\label{fig:plan}
 \end{figure}
 
-La Figura~\ref{fig:plan} rappresenta il ramo del flusso \textbf{Planning} dedicato alla visione della pianificazione del lavoro da svolgere.
+La Figura~\ref{fig:plan} rappresenta il ramo del flusso Planning dedicato alla visione della pianificazione del lavoro da svolgere.
 \begin{enumerate}
-	\item Il flusso inizia con un blocco \textbf{ASK} che chiede all'utente di quale giorno vuole vedere la pianificazione. L'inserimento della data viene fatta attraverso il \textbf{DATEPICKER};
-	\item Viene fatta richiesta a \textbf{Azzurra.io}, utilizzando il blocco \textbf{CALLFUN}, di trovare la pianificazione del giorno indicato dall'utente;
-	\item Se non viene trovato nulla allora l'utente viene avvisato tramite un blocco \textbf{SAY} che non c'è niente di pianificato e il flusso termina;
-	\item Se invece c'è una pianificazione disponibile per il giorno indicato dall'utente, viene visualizzata attraverso un blocco \textbf{SAY};
-	\item Dopo il punto precedentemente descritto viene chiesto con un blocco \textbf{SAY} se si vuole sapere la pianificazione di tutta la settimana;
+	\item Il flusso inizia con un blocco ASK che chiede all'utente di quale giorno vuole vedere la pianificazione. L'inserimento della data viene fatta attraverso il DATEPICKER;
+	\item Viene fatta richiesta a Azzurra.io, utilizzando il blocco CALLFUN, di trovare la pianificazione del giorno indicato dall'utente;
+	\item Se non viene trovato nulla allora l'utente viene avvisato tramite un blocco SAY che non c'è niente di pianificato e il flusso termina;
+	\item Se invece c'è una pianificazione disponibile per il giorno indicato dall'utente, viene visualizzata attraverso un blocco SAY;
+	\item Dopo il punto precedentemente descritto viene chiesto con un blocco SAY se si vuole sapere la pianificazione di tutta la settimana;
 	\item Se l'utente risponde no il flusso termina;
-	\item Se l'utente risponde sì viene fatta richiesta a \textbf{Azzurra.io}, utilizzando il blocco \textbf{CALLFUN}, di trovare la pianificazione della settimana corrente;
+	\item Se l'utente risponde sì viene fatta richiesta a Azzurra.io, utilizzando il blocco CALLFUN, di trovare la pianificazione della settimana corrente;
 	\item Se la richiesta va buon fine viene mostrata la pianificazione della settimana, altrimenti viene mostrato un messaggio. In entrambi i casi il flusso poi termina.
 \end{enumerate}
 
 \section{Codifica}
 Per implementare i due flussi si sono utilizzati i \emph{framework} Angular e Ionic. Grazie a Angular si è potuto strutturare un’applicazione web come una gerarchia di componenti quindi, attraverso il linguaggio TypeScript si è gestita l'\emph{application logic} mentre con HTML e CSS si è gestita la \emph{presentation logic}. Purtroppo solo l'uso di Angular non basta per poter sviluppare un'applicazione \emph{mobile} e non web, si è quindi usato Cordova, un \emph{framework} che permette di sviluppare un'applicazione mobile multi-piattaforma, quindi sia per Android e sia per iOS, con tecnologie web e inoltre, offre API per accedere alle funzionalità native del dispositivo, ad'esempio la fotocamera. Infatti, Cordova incapsula l'applicazione web e la esegue localmente all’interno di un’applicazione nativa che può interagire con le funzionalità del dispositivo. Per sfruttare le funzionalità di Angular e di Cordova assieme, è stato usato il \emph{framework} Ionic che permette di creare un ambiente integrato che semplifica lo sviluppo di applicazioni offrendo inoltre, componenti grafiche ottimizzate per i dispositivi \emph{mobile}.\\
 
-Per quanto riguarda la codifica, per prima cosa si è implementato una configurazione JSON per ogni flusso, dove si sono codificati i vari blocchi progettati, utilizzando la sintassi spiegata nel precedente capitolo. Una volta scritte le due configurazioni si è dovuto aggiornare il \emph{main flow} aggiungendo nel primo blocco che viene eseguito, cioè un blocco \textbf{ASK} dove viene chiesto che funzionalità si vuole eseguire, due \textbf{BlockItem} per indicare le due nuove funzionalità offerte dai due flussi prodotti. Oltre alle due nuove scelte, nel \emph{main flow} sono stati aggiunti due blocchi \textbf{JUMP} per permettere di mandare in esecuzione i due nuovi flussi quando l'utente ne richiede l'esecuzione subito dopo la selezione della funzionalità desiderata da parte dell'utente.\\
+Per quanto riguarda la codifica, per prima cosa si è implementato una configurazione JSON per ogni flusso, dove si sono codificati i vari blocchi progettati, utilizzando la sintassi spiegata nel precedente capitolo. Una volta scritte le due configurazioni si è dovuto aggiornare il \emph{main flow} aggiungendo nel primo blocco che viene eseguito, cioè un blocco ASK dove viene chiesto che funzionalità si vuole eseguire, due BlockItem per indicare le due nuove funzionalità offerte dai due flussi prodotti. Oltre alle due nuove scelte, nel \emph{main flow} sono stati aggiunti due blocchi JUMP per permettere di mandare in esecuzione i due nuovi flussi quando l'utente ne richiede l'esecuzione subito dopo la selezione della funzionalità desiderata da parte dell'utente.\\
 
- Successivamente era necessario creare i metodi per gestire le componenti grafiche dei \textbf{WIDGET}, in questo caso \textbf{DATEPICKER}, \textbf{TIMEPICKER} e \textbf{QRSCANNER}. Quindi, nel metodo \textbf{createActions()} di \textbf{ChatService}, utilizzato per la gestione dei \textbf{WIDGET}, si sono aggiunti i metodi per impostare il testo che devono mostrare i tre \textbf{WIDGET} citati prima. Inoltre, ognuno dei tre metodi chiamano i metodi dedicati per la creazione dei \textbf{WIDGET}, anche questi metodi non esistevano e sono stati creati, in particolare per il metodo che crea il \textbf{QRSCANNER}, \textbf{\_openQRcode()}, viene utilizzato il ModalController di Ionic per creare la classe dove è definita l'interfaccia grafica e i metodi per il funzionamento di \textbf{QRSCANNER}. Il ModalController di Ionic permette di aprire una nuova finestra sopra a quella corrente per visualizza la componente Ionic definita nella nuova finestra, in questo caso la classe che implementa il lettore di QR code. Una volta finito di usare la nuova finestra può essere chiusa e ritornare alla finestra precedente che sarà nello stato in cui era prima dell'apertura della nuova finestra. Riguardo invece alla classe che gestisce il lettore QR code, denominata CameraComponent, al suo interno richiama il plugin di Cordova, QR Scanner. QR Scanner è un API che permette di accedere alla fotocamera del dispositivo e di scansionare i QR code. Vengono perciò definiti due metodi in \textbf{CameraComponent}, un metodo per l'apertura della fotocamera e la lettura del QR code e per la chiusura della fotocamera che dopo la chiusura, invia l'eventuale valore letto al ModalController. Nel \textbf{CameraComponent} viene definito anche il suo aspetto grafico mostrato nella Figura~\ref{fig:qrc}.\\
+Per poter creare i tre Widget, DATEPICKER, TIMEPICKER e QRSCANNER, nel createActions() ho aggiunto tre metodi per ognuno dei tre Widget, che vengono chiamati da createActions() in base al tipo di Widget da creare. In questi tre nuovi metodi viene impostato il testo che devono mostrare e nel caso dei DATEPICKER, TIMEPICKER viene impostato anche il formato del giorno e dell'ora. Per ognuno di questi metodi ho creato un metodo specifico per ogni Widget che si occupa della creazione e dell'apertura, in particolare per il metodo che crea il QRSCANNER, \_openQRcode(), viene utilizzato il ModalController di Ionic per creare la classe dove è definita l'interfaccia grafica e i metodi per il funzionamento di QRSCANNER. Il ModalController di Ionic permette di aprire una nuova finestra sopra a quella corrente per visualizza la componente Ionic definita nella nuova finestra, in questo caso la classe che implementa il lettore di QR code. Una volta finito di usare la nuova finestra può essere chiusa e ritornare alla finestra precedente che sarà nello stato in cui era prima dell'apertura della nuova finestra. Ho dovuto perciò, implementare la classe che gestisce il lettore QR code, denominata CameraComponent, dove al suo interno richiama il plugin di Cordova, QR Scanner. QR Scanner è un API che permette di accedere alla fotocamera del dispositivo e di scansionare i QR code. Vengono perciò definiti due metodi in CameraComponent, un metodo per l'apertura della fotocamera e la lettura del QR code e per la chiusura della fotocamera che dopo la chiusura, invia l'eventuale valore letto al ModalController. Nel CameraComponent viene definito anche il suo aspetto grafico mostrato nella Figura~\ref{fig:qrc}.\\
  
-  Nel \textbf{ChatComponent} invece viene implementato il metodo \textbf{\_initGenericQRCode()} il quale aspetta di ricevere il valore letto dal lettore di QR code, che una volta che lo riceve, richiama il metodo \textbf{sendReply()} di \textbf{AzzurraService} per dare inizio al il processo di creazione del messaggio dell'utente umano spiegato nel capitolo precedente. \\
+  Nel ChatComponent ho implementato il metodo \_initGenericQRCode() il quale aspetta di ricevere il valore letto dal lettore di QR code, che una volta che lo riceve, richiama il metodo sendReply() di AzzurraService per dare inizio al il processo di creazione del messaggio dell'utente umano spiegato nel capitolo precedente. \\
   
-  Per quanto riguarda i metodi per il \textbf{DATEPICKER} e per il \textbf{TIMEPICKER}, essi sono molto simili a quelli per gestire il lettore QR code, l'unica differenza è che i metodi analogi a \textbf{\_openQRcode()} quindi \textbf{\_openDatePicker()} e \textbf{\_openTimePicker()} non utilizzano il ModalComponent ma si utilizzano l'ion-datetime, una componente grafico offerto da Ionic che può essere configurata per chiedere una data oppure un intervallo temporale, il risultato viene mostrato nella Figura~\ref{fig:date} e nella Figura~\ref{fig:time}. Quindi in questi due metodi viene definito come si devono presentare i due \emph{picker} e quindi non c'è nemmeno bisogno di un component apposito che li gestisca come per \textbf{QRSCANNER}.
+  Per quanto riguarda i metodi per il DATEPICKER e per il TIMEPICKER, essi sono molto simili a quelli per gestire il lettore QR code, l'unica differenza è che i metodi analogi a \_openQRcode() quindi \_openDatePicker() e \_openTimePicker() non utilizzano il ModalComponent ma viene utilizzato l'ion-datetime, una componente grafico offerto da Ionic che può essere configurato per chiedere una data oppure un intervallo temporale, il risultato viene mostrato nella Figura~\ref{fig:date} e nella Figura~\ref{fig:time}. Quindi in questi due metodi ho definito come si devono presentare i due \emph{picker} e quindi non c'è stato nemmeno bisogno di un \emph{component} apposito che li gestisca come per il QRSCANNER. 
 \section{Risultati}
-
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[scale=0.17]{DB1.png}
-		\includegraphics[scale=0.17]{DB2.png}
-		\includegraphics[scale=0.17]{DB3.png}
-		\caption{Prenotazione}\label{fig:DB}
-	\end{center}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale=0.17]{qrc.png}
-		\caption{Prenotazione}\label{fig:QRc}
-	\end{center}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale=0.17]{visDB.png}
-		\caption{Prenotazione}\label{fig:visDB}
-	\end{center}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale=0.17]{day.png}
+		\includegraphics[scale=0.17]{day.png}\hfil
 		\includegraphics[scale=0.17]{week.png}
-		\caption{Prenotazione}\label{fig:planning}
+		\caption{Richiesta di visualizzazione della pianificazione}\label{fig:planning}
 	\end{center}
 \end{figure}
+
+Nella Figura~\ref{fig:planning} viene mostrata la chat tra Azzurra e l'utente per la visualizzazione della pianificazione, sia per singolo giorno (prima figura) sia per tutta la settimana(seconda figura).\\
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.17]{qrc.png}\hfil
+		\includegraphics[scale=0.17]{visDB.png}
+		\caption{Richiesta di visualizzazione delle prenotazioni e scannerizzazione di un QR code}\label{fig:QRc}
+	\end{center}
+\end{figure}\clearpage
+
+Nella Figura~\ref{fig:QRc} viene mostrata la chat tra Azzurra e l'utente per la richiesta di visualizzazione del prenotazione dell'utente (prima figura) e la richiesta di scannerizzare il QR code per usufruire del posto prenotato (seconda figura).\\
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.165]{DB1.png}\hfill
+		\includegraphics[scale=0.165]{DB2.png}\hfill
+		\includegraphics[scale=0.165]{DB3.png}
+		\caption{Richiesta di inserimento di una nuova prenotazione}\label{fig:DB}
+	\end{center}
+\end{figure}
+
+Nella Figura~\ref{fig:QRc} viene mostrata la chat tra Azzurra e l'utente per la richiesta di inserimento di una nuova prenotazione. Viene perciò richiesto il giorno e l'intervallo di tempo in cui fare la prenotazione, viene chiesto in quale stanza deve essere il posto da prenotare e infine, viene chiesto quale posto a sedere vuole prenotare tra quelli disponibili secondo i parametri inseriti dall'utente.
+
+\section{Considerazioni}
+I risultati ottenuti sono stati in linea con quanto ci si aspettava. Dai risultati precedentemente elencati si sono fatte delle considerazioni su come essi potessero essere migliorati in termini di \emph{user experience}. Come scritto l'architettura che supporta Azzurra permette di tenere lo storico dei messaggi e lo stato della conversazione, per una certa durata, in modo da rendere migliore l'interazione tra utente e Azzurra. Un ulteriore miglioramento che può essere adottato è l'introduzione dei comandi vocali. Al momento l'inserimento dei dati da parte dell'utente avviene tramite comandi \emph{touch} cioè, l'utente tocca sullo schermo l'opzione che desiderata. Avvolte l'interazione tramite comandi \emph{touch} può risultare limitante per alcuni utenti ad'esempio persone con limitazioni alla vista oppure banalmente il \emph{device} dell'utente in cui c'è applicazione \emph{mobile} risulta essere troppo piccolo e l'utente ha difficoltà a premere i bottini giusti insomma, persone che per qualsiasi motivo hanno l'impossibilità o la difficoltà a usare le mani per inserire le loro scelte. Grazie ai comandi vocali queste persone riuscirebbero a interagire con Azzurra facilmente sostituendo l'uso delle mani con l'uso della voce. Dalla possibile introduzione dei comandi vocali nascono però altre considerazione. Il riconoscimento vocale deve essere sufficientemente accurato da capire ciò che dice l'utente perché altrimenti può provocare una sensazione negativa di irritazione o frustrazione nell'utente dovuta al fatto che ciò che dice non viene capito dall'applicazione e quindi non offrire una buona \emph{user experience}. In sintesi un possibile modo per migliorare l'\emph{user experience} dell'applicazione è l'introduzione dei comandi vocali ma, tale introduzione deve essere ben implementata valutandone i rischi e costi da affrontare.
+
