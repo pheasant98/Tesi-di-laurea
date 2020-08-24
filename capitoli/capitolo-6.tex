@@ -35,25 +35,28 @@ Per implementare i \emph{test} \gls{test e2e} sia per la \emph{dashboard} di \gl
 	\item \textbf{Protractor};
 	\item \textbf{Cucumber}.
 \end{itemize}
-Selenium è un framework utilizzato per testare le applicazioni web. Selenio permette di eseguire i \emph{test} in modo automatizzato nei browser web, ciò possibile grazie a un insieme di \gls{api}\ap{[g]} detto \emph{API WebDriver}. Queste \gls{api}\ap{[g]} sono uno standard W3C che rappresentano un'interfaccia di controllo remoto che consente di manipolare elementi del DOM nelle pagine Web e di comandare il comportamento dei programmi utente. Inoltre, fornisce un protocollo per il trasferimento dei dati per varie piattaforme come:
+Selenium è un framework utilizzato per testare le applicazioni web. Selenio permette di  automatizzare l'esecuzione dei \emph{test} all'interno dei browser web. Ciò è possibile grazie a un insieme di \gls{api}\ap{[g]} detto \emph{API WebDriver}. Queste \gls{api}\ap{[g]} sono uno standard W3C che rappresentano un'interfaccia di controllo remoto che consente di manipolare elementi del DOM nelle pagine Web e di comandare il comportamento dei programmi utente. Inoltre, fornisce un protocollo (noto come JSON Wire Protocol) per il trasferimento dei dati per varie piattaforme che permettono di eseguire i \emph{test} automatizzati sui browser web come:
 \begin{itemize}
-	\item GeckoDriver (Mozilla Firefox)
-	\item ChromeDriver (Google Chrome)
-	\item SafariDriver (Apple Safari)
-	\item InternetExplorerDriver (MS InternetExplorer)
-	\item MicrosoftWebDriver o EdgeDriver (MS Edge)
-	\item OperaChromiumDriver (Opera)
+	\item GeckoDriver per Mozilla Firefox;
+	\item ChromeDriver per Google Chrome;
+	\item SafariDriver per Apple Safari;
+	\item InternetExplorerDriver per Microsoft Internet Explorer;
+	\item MicrosoftWebDriver o EdgeDriver per Microsoft Edge;
+	\item OperaChromiumDriver per Opera.
 \end{itemize}
-Selenium per eseguire i test si comporta come se fosse un server HTTP infatti, riceve delle richieste HTTP che rappresentano i \emph{test} da eseguire nell'applicazione web e grazie all'utilizzo delle \emph{API WebDriver} riesce a farle eseguire sui browser web dove c'è l'applicazione web. Grazie alla standardizzazione delle \gls{api}\ap{[g]} permette di eseguire \emph{test} scritti in diversi linguaggi.
+Selenium per eseguire i \emph{test} utilizza un architettura client/server infatti, Selenium utilizza un server web dove espone l'\emph{API WebDriver} come API REST. Perciò rimane in ascolto per la ricezione dei comandi sotto forma di richieste HTTP contenenti i comandi da eseguire che compongono i \emph{test}. Quando arrivano le richieste le esegue su un browser web e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} permette di eseguire \emph{test} scritti in diversi linguaggi.
 
-Protractor è un framework di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore dei attributi della applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che si presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.
+Protractor è un framework di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore dei attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.
 
 \begin{figure}[h] 
 	\begin{center}
 		\includegraphics[scale=0.3]{report.png}
-		\caption{Report dei test}\label{fig:testDoc}
+		\caption{Report dei test prodotto da Cucumber}\label{fig:testDoc}
 	\end{center}
 \end{figure}
-Cucumber è uno strumento che permette di definire i passi vari passi che deve fare un \emph{test} automatizzato per simulare azioni da parte dell'utente. Questi passi vengono dichiarati attraverso il linguaggio offerto Gherkin, un linguaggio di facile comprensione. Quindi grazie a Cucumber vengono definiti i cosidetti \emph{step} cioè i passi che devono essere fatti all'interno del \emph{test}, l'insieme dei test definisce lo scenario di test, ad esempio un scenario di test può essere il processo di autenticazioni e gli \emph{step} sono l'inserimento dei dati e l'invio. I vari step vengono poi implementati in un linguaggio di programmazione, in questo caso TypeScript utilizzando i metodi offerti da Protractor. Quando vengono eseguiti i \emph{test} Cucumber controlla Selenium sta eseguendo le azioni specificate all’interno di un browser. Al termine dell'esecuzione Cucumber riesce a stabilire quale ha avuto esito dei \emph{test} inoltre, produce dei \emph{report} sui test appena eseguiti documentandone l'esito e la struttura come mostrato in Figura~\ref{fig:testDoc}.
+
+Infine, Cucumber è uno strumento che permette di definire i vari passi che deve fare un \emph{test} automatizzato per simulare le azioni di un utente. Questi passi vengono dichiarati attraverso il linguaggio Gherkin, un linguaggio di facile comprensione. Quindi grazie a Cucumber vengono definiti i cosiddetti \emph{step} cioè i passi che devono essere fatti all'interno del \emph{test}, l'insieme dei \emph{step} definisce lo scenario dei test, ad esempio un scenario di test può essere il processo di autenticazioni e gli \emph{step} sono l'inserimento dei dati e l'invio. I vari \emph{step} vengono poi implementati in un linguaggio di programmazione, in questo caso TypeScript utilizzando i metodi offerti da Protractor. Quando vengono eseguiti i \emph{test} Cucumber controlla se Selenium sta eseguendo le azioni specificate all’interno di un browser web. Al termine dell'esecuzione Cucumber riesce a stabilire l'esito per ogni \emph{test} inoltre, produce dei \emph{report} sui test appena eseguiti documentandone l'esito e la struttura come mostrato in Figura~\ref{fig:testDoc}.
+\clearpage
+Per l'applicazione \emph{mobile} si è continuato a utilizzare Protractor e Cucumber ma al posto di Selenium si è utilizzato Appium. Viene utilizzato Appium perché offre l'automazione dei \emph{test} per applicazioni native, web mobile e ibride con la particolarità di essere multi-piattaforma cioè può eseguire le applicazioni sia su iOS, Android e Windows Phone. Selenium invece non permette l'esecuzione di \emph{test} su dispositivi \emph{mobile} ma solo su browser web.
 
 \section{Test eseguiti}
