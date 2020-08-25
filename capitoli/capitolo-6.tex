@@ -6,7 +6,7 @@
 \chapter{Testing}
 \label{cap:test}
 %**************************************************************
-\intro{Nel seguente capitolo verranno descritte le tecnologie utilizzate per costruire una test-suite per Azzurra e verrà esposto il piano di \emph{test} stabilito inserendo i risultati ottenuti.}
+\intro{Nel seguente capitolo verranno descritte le tecnologie utilizzate per costruire una test-suite per l'applicazione mobile e verrà esposto il piano di \emph{test} stabilito con il tutor aziendale inserendo i risultati ottenuti.}
 \section{Test End to End}
 Il \emph{test End-to-End} è una metodologia di \emph{testing} dell'interfaccia grafica che viene vista dagli utenti dell'applicazione. Ha lo scopo di testare in modo automatizzato se, tutti flussi di esecuzione dell'applicazione, dall'inizio fino alla fine, si stanno comportando come progettato, senza che vengano rilevati degli errori che andrebbero a inficiare sulla qualità dell’applicazione stessa. Perciò il \emph{test} \gls{test e2e} consiste nel simulare degli scenari utente reali ad esempio interazioni attraverso clic sui bottoni da parte degli utenti, in modo da verificare che l'applicazione si comporti nel modo corretto garantendo che vengano soddisfati i requisiti di alto livello del prodotto. Quindi il \emph{test} \gls{test e2e} verifica l'intera applicazione su tutte le possibili interazione che l'utente può fare, testando inoltre, se vengono trasmesse le informazioni corrette tra le varie componenti dell'applicazione garantendo che l'applicazione funzioni come un unico sistema coerente. Un esempio di \emph{test} \gls{test e2e} possono essere la simulazione dei passi che l'utente deve fare per autenticarsi nell'applicazione, quindi il \emph{test} può essere così composto:
 \begin{enumerate}
@@ -35,7 +35,7 @@ Per implementare i \emph{test} \gls{test e2e} sia per la \emph{dashboard} di \gl
 	\item \textbf{Protractor};
 	\item \textbf{Cucumber}.
 \end{itemize}
-Selenium è un framework utilizzato per testare le applicazioni web. Selenio permette di  automatizzare l'esecuzione dei \emph{test} all'interno dei browser web. Ciò è possibile grazie a un insieme di \gls{api}\ap{[g]} detto \emph{API WebDriver}. Queste \gls{api}\ap{[g]} sono uno standard W3C che rappresentano un'interfaccia di controllo remoto che consente di manipolare elementi del DOM nelle pagine Web e di comandare il comportamento dei programmi utente. Inoltre, fornisce un protocollo (noto come JSON Wire Protocol) per il trasferimento dei dati per varie piattaforme che permettono di eseguire i \emph{test} automatizzati sui browser web come:
+Selenium è un \gls{framework}\ap{[g]} che permette di automatizzare l'esecuzione dei \emph{test} all'interno dei \gls{browser web}\ap{[g]}. Ciò è possibile grazie a un insieme di \gls{api}\ap{[g]} detto API WebDriver. Queste \gls{api}\ap{[g]} sono uno standard W3C che rappresentano un'interfaccia di controllo remoto che consente di manipolare elementi del DOM nelle pagine web e di comandare il comportamento dei programmi utente. Inoltre, fornisce un protocollo, noto come JSON Wire Protocol, per il trasferimento dei dati per varie piattaforme che permettono di automatizzare i \emph{test} sui \gls{browser web}\ap{[g]} come:
 \begin{itemize}
 	\item GeckoDriver per Mozilla Firefox;
 	\item ChromeDriver per Google Chrome;
@@ -44,19 +44,77 @@ Selenium è un framework utilizzato per testare le applicazioni web. Selenio per
 	\item MicrosoftWebDriver o EdgeDriver per Microsoft Edge;
 	\item OperaChromiumDriver per Opera.
 \end{itemize}
-Selenium per eseguire i \emph{test} utilizza un architettura client/server infatti, Selenium utilizza un server web dove espone l'\emph{API WebDriver} come API REST. Perciò rimane in ascolto per la ricezione dei comandi sotto forma di richieste HTTP contenenti i comandi da eseguire che compongono i \emph{test}. Quando arrivano le richieste le esegue su un browser web e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} permette di eseguire \emph{test} scritti in diversi linguaggi.
+Selenium per eseguire i \emph{test} utilizza un architettura client-server infatti, Selenium utilizza un server web dove espone l'API WebDriver come API REST. Perciò rimane in ascolto per la ricezione dei comandi che compongono i \emph{test}, sotto forma di richieste HTTP. Quando arrivano le richieste le esegue su un \gls{browser web}\ap{[g]} e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} e l'utilizzo di un architettura client-server è possibile eseguire \emph{test} scritti in diversi linguaggi purché supportino l'invio di richieste HTTP.
 
-Protractor è un framework di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore dei attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.
+Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore dei attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.
 
 \begin{figure}[h] 
 	\begin{center}
-		\includegraphics[scale=0.3]{report.png}
+		\includegraphics[height=20cm, width=13cm]{report.png}
 		\caption{Report dei test prodotto da Cucumber}\label{fig:testDoc}
 	\end{center}
 \end{figure}
 
-Infine, Cucumber è uno strumento che permette di definire i vari passi che deve fare un \emph{test} automatizzato per simulare le azioni di un utente. Questi passi vengono dichiarati attraverso il linguaggio Gherkin, un linguaggio di facile comprensione. Quindi grazie a Cucumber vengono definiti i cosiddetti \emph{step} cioè i passi che devono essere fatti all'interno del \emph{test}, l'insieme dei \emph{step} definisce lo scenario dei test, ad esempio un scenario di test può essere il processo di autenticazioni e gli \emph{step} sono l'inserimento dei dati e l'invio. I vari \emph{step} vengono poi implementati in un linguaggio di programmazione, in questo caso TypeScript utilizzando i metodi offerti da Protractor. Quando vengono eseguiti i \emph{test} Cucumber controlla se Selenium sta eseguendo le azioni specificate all’interno di un browser web. Al termine dell'esecuzione Cucumber riesce a stabilire l'esito per ogni \emph{test} inoltre, produce dei \emph{report} sui test appena eseguiti documentandone l'esito e la struttura come mostrato in Figura~\ref{fig:testDoc}.
+Infine, Cucumber permette di definire i vari passi che deve fare un \emph{test} automatizzato per simulare le azioni di un utente. Questi passi vengono dichiarati attraverso il linguaggio Gherkin, un linguaggio di facile comprensione. Quindi grazie a Cucumber vengono dichiarati i cosiddetti \emph{step} cioè i passi che devono essere fatti all'interno del \emph{test}, l'insieme dei \emph{step} definisce lo scenario dei test, ad esempio un scenario di test può essere il processo di autenticazioni e gli \emph{step} sono l'inserimento dei dati e l'invio. I vari \emph{step} vengono poi implementati in un linguaggio di programmazione, in questo caso TypeScript utilizzando i metodi offerti da Protractor. Il fatto che vengano dichiarati i passi che il \emph{test} permettono a Cucumber di supportare la BDD. Quando vengono eseguiti i \emph{test} Cucumber controlla se Selenium sta eseguendo le azioni specificate all’interno di un \gls{browser web}\ap{[g]}. Al termine dell'esecuzione Cucumber riesce a stabilire l'esito per ogni \emph{test} inoltre, produce dei \emph{report} sui \emph{test} appena eseguiti documentandone l'esito e la struttura come mostrato in Figura~\ref{fig:testDoc}.
 \clearpage
-Per l'applicazione \emph{mobile} si è continuato a utilizzare Protractor e Cucumber ma al posto di Selenium si è utilizzato Appium. Viene utilizzato Appium perché offre l'automazione dei \emph{test} per applicazioni native, web mobile e ibride con la particolarità di essere multi-piattaforma cioè può eseguire le applicazioni sia su iOS, Android e Windows Phone. Selenium invece non permette l'esecuzione di \emph{test} su dispositivi \emph{mobile} ma solo su browser web.
+Per l'applicazione \emph{mobile} si è continuato a utilizzare Protractor e Cucumber ma al posto di Selenium si è utilizzato Appium. Viene utilizzato Appium perché offre l'automazione dei \emph{test} per applicazioni native, web mobile e ibride, con la particolarità di essere multi-piattaforma cioè può eseguire i \emph{test} sia su \gls{iOS}\ap{[g]} e \gls{Android}\ap{[g]}. Selenium invece non permette l'esecuzione di \emph{test} su dispositivi \emph{mobile} ma solo su \gls{browser web}\ap{[g]}. Appium utilizza la stessa architettura client-server di Selenium inoltre da esso ne prende anche l'utilizzo dell'API WebDriver in particolare viene utilizzato una variante per il \emph{mobile} del protocollo JSON Wire Protocol noto con il nome di Mobile JSON Wire Protocol. 
 
+\begin{figure}[h] 
+	\begin{center}
+		\includegraphics[scale=0.5]{appiumServer.png}
+		\caption{Schermata del server Appium}\label{fig:appiumServer}
+	\end{center}
+\end{figure}
+
+Di conseguenza Appium permette di utilizzare qualsiasi linguaggio o \gls{framework}\ap{[g]} che supporti l'invio di richieste HTTP inoltre, non è necessario compilare alcun codice o \gls{framework}\ap{[g]} specifico di Appium perché grazie al Mobile JSON Wire Protocol utilizza i framework per l'automazione dei \emph{test} come UIAutomator per\gls{Android}\ap{[g]} e XCTest per \gls{iOS}\ap{[g]}. 
+
+\section{Convezione}
+Su suggerimento del tutor aziendale si è struttura la \emph{test-suite} da me implementata, nel seguente modo:\\
+\begin{center}
+\begin{forest}
+	for tree={font=\sffamily, grow'=0,
+		folder indent=.9em, folder icons,
+		edge=densely dotted}
+	[e2e
+	[test%, this folder size=20pt
+	[feature%, this folder size=20pt
+	[spec.feature, is file]
+	]
+	[step\_definition%, this folder size=20pt
+	[spec.e2e-spec.ts, is file]
+	]
+	[pages%, this folder size=20pt
+	[specs.po.ts, is file]
+	]
+	]
+	]
+\end{forest}
+\end{center}
+\begin{itemize}
+	\item \textbf{feature}: Contiene i file.feature dove vengono indicati gli scenari e gli \emph{step} dei \emph{test} scritti nell'linguaggio Gherkin;
+	\item \textbf{step\_definition}: Contiene i file.e2e-spec.ts dove vengono implementati gli \emph{step}, utilizzando i metodi dei file.po.ts. Esiste un file.e2e-spec.ts per ogni file.feature;
+	\item \textbf{pages}: Contiene le cosiddette PageObject, le PageObject sono un design pattern che permettono di scrivere \emph{test} più puliti. Infatti queste PageObject contengono metodi che vengono spesso riutilizzati da più \emph{test} e inoltre, estraggono gli elementi dalla vista. Adottando questo design pattern si ha il vantaggio che se il modello dell'applicazione cambia sarà sufficiente aggiornare solo la pageObject e inoltre si ha il vantaggio di non avere duplicazione del codice. Solitamente si creano più pageObject con metodi tra loro affini.
+\end{itemize}
 \section{Test eseguiti}
+In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emph{test} \gls{test e2e} che debbano testare l'intera applicazione \emph{mobile} quindi, non solo Azzurra ma anche le sezioni Questionario e Profilo. Per ogni \emph{test} viene, assegnato un codice composto dalla lettera \textbf{T} e da un numero progressivo, riportata una descrizione e l'esito del \emph{test}.
+\begin{table}[h]%
+	\rowcolors{2}{grigetto}{white}
+	\centering
+	\begin{tabularx}{\textwidth}{|c|X|c|}
+		\hline	
+		\rowcolor{giallo}
+		\intest{Codice} &  \intest{Descrizione} & \intest{Esito}\\	
+		\hline			
+		T1 & a & Superato\\
+		T2 & a & Superato\\
+		T3 & a & Superato\\
+		T4 & a & Superato\\
+		T5 & a & Superato\\
+		T6 & a & Superato\\
+		T7 & a & Superato\\
+		T8 & a & Superato\\
+		T9 & a & Superato\\
+		T10 & a & Superato\\
+	\end{tabularx} \hbox{}
+	\caption{Tabella del tracciamento dei test \gls{test e2e}}
+\end{table}%

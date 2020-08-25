@@ -17,7 +17,7 @@ Lo stage è stato costruito inserendo le seguenti parti:
 
 \begin{itemize}
 	\item Nella prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di \emph{e-learning} Udeny, offerte dall'azienda;
-	\item La seconda parte era dedicata allo studio del funzionamento dell'architettura del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS}\ap{[g]};
+	\item La seconda parte era dedicata allo studio del funzionamento dell'\gls{architettura}\ap{[g]} del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS}\ap{[g]};
 	\item La terza parte era dedicata all'analisi, progettazione e implementazione dei flussi di conversazione per il \gls{bot}\ap{[g]} Azzurra;
 	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di Azzurra;
 	\item La quinta parte sulle basi che si era imparato nella seconda parte, era previsto lo sviluppo di una test-suite di \gls{test e2e}\ap{[g]}, con l'obiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione mobile funzionassero in modo corretto;
@@ -189,7 +189,7 @@ Nella seconda settimana è stato deciso di svolgere al posto di test d'unità ne
 \subsection{Tecnologie}
 
 \subsubsection*{HTML}
-L'HTML è un linguaggio di markup per la strutturazione delle pagine web. Nato per la formattazione e impaginazione di documenti ipertestuali disponibili nel web 1.0, oggi è utilizzato principalmente per il disaccoppiamento della struttura logica di una pagina web. Attualmente HTML5 è l'ultima versione di HTML la quale porta una sintassi più semplice e un pieno supporta anche a browser più datati.
+L'HTML è un \gls{linguaggio di markup}\ap{[g]} per la strutturazione delle pagine web. Nato per la formattazione e impaginazione di documenti ipertestuali disponibili nel web 1.0, oggi è utilizzato principalmente per il disaccoppiamento della struttura logica di una pagina web. Attualmente HTML5 è l'ultima versione di HTML la quale porta una sintassi più semplice e un pieno supporta anche a browser più datati.
 
 \subsubsection*{CSS}
 È un linguaggio usato per definire la formattazione di documenti HTML, XHTML e XML ad esempio i siti web e relative pagine web. Permette una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo anche il riutilizzo di codice e facilita la manutenzione. Le specifiche CSS3 sono costituite da sezioni separate dette "moduli" e hanno differenti stati di avanzamento e stabilità.
@@ -198,16 +198,16 @@ L'HTML è un linguaggio di markup per la strutturazione delle pagine web. Nato p
 È un linguaggio di programmazione open source che estende la sintassi di JavaScript in modo che qualunque programma scritto in JavaScript sia anche in grado di funzionare con TypeScript senza nessuna modifica. Come JavaScript è un linguaggio di programmazione orientato agli oggetti e agli eventi, comunemente utilizzato nella programmazione Web lato client per la creazione, in siti web e applicazioni web, di effetti dinamici interattivi tramite funzioni di script invocate da eventi innescati a loro volta in vari modi dall'utente sulla pagina web in uso.
 
 \subsubsection*{Angular 2+}
-Angular è un framework open source per lo sviluppo di applicazioni web con licenza MIT, sviluppato principalmente da Google. Angular è l'evoluzione di AngularJS infatti , è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili. Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript. Angular è stato progettato per fornire uno strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi \emph{smartphone} e \emph{tablet}. Inoltre le applicazioni sviluppate in Angular vengono eseguite interamente dal web browser dopo essere state scaricate dal web server. Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente. 
+Angular è un framework open source per lo sviluppo di applicazioni web con \gls{licenza MIT}\ap{[g]}, sviluppato principalmente da Google. Angular è l'evoluzione di AngularJS infatti , è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili. Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript. Angular è stato progettato per fornire uno strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi \emph{smartphone} e \emph{tablet}. Inoltre le applicazioni sviluppate in Angular vengono eseguite interamente dal \gls{browser web}\ap{[g]} dopo essere state scaricate dal web server. Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente. 
 
 \subsubsection*{Ionic}
 Ionic è un SDK open source completo per lo sviluppo di app mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come CSS, HTML5 e Sass. In particolare, le app mobili possono essere costruite con queste tecnologie Web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
 
 \subsubsection*{Protractor}
-Protractor è un framework di \emph{test} \gls{test e2e} per applicazioni Angular e AngularJS. Protractor esegue \emph{test} sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
+Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e}\ap{[g]} per applicazioni Angular e AngularJS. Protractor esegue \emph{test} sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
 
 \subsubsection*{Appium}
-Appium è un framework open source che permette di eseguire in modo automatizzato script per testare applicazioni native, applicazioni web mobile e applicazioni ibride su Android o iOS utilizzando un \gls{api}\ap{[g]} detto \emph{WebDriver}.
+Appium è un \gls{framework}\ap{[g]} open source che permette di eseguire in modo automatizzato script per testare un'\gls{applicazione nativa}\ap{[g]} o un'\gls{applicazione web mobile}\ap{[g]} o un'\gls{applicazione ibrida}\ap{[g]} su \gls{Android}\ap{[g]} o \gls{iOS}\ap{[g]} utilizzando un \gls{api}\ap{[g]} detto \emph{WebDriver}.
 
 \subsubsection*{Cucumber}
 Cucumber è un strumento che permette di creare \emph{test} automatizzati con una specifica non ambigua scritta nel linguaggio Gherkin e documenta come si comporta effettivamente il sistema.
