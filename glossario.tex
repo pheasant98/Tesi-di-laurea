@@ -7,15 +7,33 @@
 \newacronym[description={\glslink{apig}{Application Program Interface}}]
     {api}{API}{Application Program Interface}
     
-\newacronym[description={\glslink{AWMSg}{Advanced Workforce Management System}}]
-{AWMS}{AWMS}{Advanced Workforce Management System}
+\newacronym[description={Advanced Workforce Management System}]
+	{AWMS}{AWMS}{Advanced Workforce Management System}
 
 \newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
     {uml}{UML}{Unified Modeling Language}
+    
 \newacronym[description={Test End to End}]
-{test e2e}{E2E}{test End to End}
+	{test e2e}{E2E}{test End to End}
+
 \newacronym[description={Internazionalizzazione}]
-{i18n}{i18n}{internazionalizzazione}
+	{i18n}{i18n}{internazionalizzazione}
+
+\newacronym[description={\glslink{JSONg}{JavaScript Object Notation}}]
+	{JSON}{JSON}{JavaScript Object Notation}
+	
+\newacronym[description={\glslink{restg}{Representational State Transfer}}]
+	{rest}{REST}{Representational State Transfer}	
+
+\newacronym[description={\glslink{httpg}{Hyper Text Transfer Protocol}}]
+	{http}{HTTP}{Hyper Text Transfer Protocol}	
+	
+\newacronym[description={HyperText Markup Language}]
+	{HTML}{HTML}{HyperText Markup Language}	
+	
+\newacronym[description={Cascading Style Sheets}]
+	{CSS}{CSS}{Cascading Style Sheets}	
+	
 
 %**************************************************************
 % Glossario
@@ -27,7 +45,7 @@
     name=\glslink{api}{API},
     text=Application Program Interface,
     sort=api,
-    description={In informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
+    description={In informatica con il termine \emph{Application Programming Interface (API)} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
 }
 
 \newglossaryentry{umlg}
@@ -36,14 +54,6 @@
     text=UML,
     sort=uml,
     description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
-}
-
-\newglossaryentry{AWMSg}
-{
-	name=\glslink{AWMS}{AWMS},
-	text=Advanced Workforce Management System,
-	sort=AWMS,
-	description={È una soluzione software che utilizza algoritmi di \gls{machine learning}, per risolvere uno dei problemi cardine di un \gls{plant manager} ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore}
 }
 
 \newglossaryentry{Electrolux}
@@ -59,7 +69,7 @@
 	name={Machine learning},
 	text=Machine learning,
 	sort=machine learning,
-	description={Nell'ambito dell'informatica, l'apprendimento automatico è una variante alla programmazione tradizionale nella quale in una macchina si predispone l'abilità di apprendere qualcosa dai dati in maniera autonoma, senza istruzioni esplicite}
+	description={Nell'ambito dell'informatica, (ing.apprendimento automatico) l'apprendimento automatico è una variante alla programmazione tradizionale nella quale in una macchina si predispone l'abilità di apprendere qualcosa dai dati in maniera autonoma, senza istruzioni esplicite}
 }
 
 \newglossaryentry{plant manager}
@@ -67,7 +77,7 @@
 	name={Plant manager},
 	text=Plant manager,
 	sort=plant manager,
-	description={Detto anche responsabile di stabilimento, è colui che presiede e organizza le operazioni quotidiane degli impianti di produzione aziendali, di cui deve assicurare il funzionamento ottimale ed efficiente. Si occupa dei lavoratori, assegnando funzioni e ruoli, definendo orari di lavoro e produzione, formando i neo assunti. Raccoglie e analizza i dati di produzione per trovare eventuali spazi di miglioramento. Si occupa della sicurezza dei lavoratori e quella degli impianti; monitora le apparecchiature di produzione e, in caso di necessità, della loro riparazione o sostituzione}
+	description={È colui (ing.responsabile di stabilimento) che presiede e organizza le operazioni quotidiane degli impianti di produzione aziendali, di cui deve assicurare il funzionamento ottimale ed efficiente. Si occupa dei lavoratori, assegnando funzioni e ruoli, definendo orari di lavoro e produzione, formando i neo assunti. Raccoglie e analizza i dati di produzione per trovare eventuali spazi di miglioramento. Si occupa della sicurezza dei lavoratori e quella degli impianti; monitora le apparecchiature di produzione e, in caso di necessità, della loro riparazione o sostituzione}
 }
 
 \newglossaryentry{bot}
@@ -175,13 +185,57 @@
 	description={La Licenza MIT è una licenza di software libero. È una licenza permissiva, cioè permette il riutilizzo nel software proprietario sotto la condizione che la licenza sia distribuita con tale software}
 }
 
-\newglossaryentry{JSON}{ 
+\newglossaryentry{JSONg}{ 
 	name=\glslink{JSON}{JSON},
-	text=JSON,
+	text=JavaScript Object Notation,
 	sort=JSON,
-	description={ È un semplice formato adatto all'interscambio di dati fra applicazioni client/server. Risulta essere facile da comprendere e da scrivere per le persone mentre per le macchine risulta essere un formato leggero e veloce da analizzare}
+	description={In informatica con il termine \emph{JavaScript Object Notation (JSON)}(ing.Notazione degli oggetti JavaScript) ai intende un formato testuale standard, usato per rappresentare dati strutturati basati sulla sintassi degli oggetti in JavaScript. È comunemente utilizzato per l'interscambio di dati fra applicazioni client/server. Risulta essere facile da comprendere e da scrivere per le persone mentre per le macchine risulta essere un formato leggero e veloce da analizzare}
 }
 
+\newglossaryentry{pooling}{ 
+	name={Pooling},
+	text=pooling,
+	sort=pooling,
+	description={In informatica con il termine pooling si intende una procedura attraverso la quale periodicamente viene eseguita una operazione. Nel caso delle comunicazioni tra client e server il pooling è la richiesta periodica del client di dati al server per controllare sei i dati che ha sono aggiornati}
+}
+
+\newglossaryentry{client}{ 
+	name={Client},
+	text=client,
+	sort=client,
+	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che accede ai servizi o alle risorse messe a dispozione da un'altra componente detta server, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione}
+}
+
+\newglossaryentry{server}{ 
+	name={Server},
+	text=server,
+	sort=server,
+	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che offre dei servizi o dalle risorse a un'altri componenti presenti nella rete detti client, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione}
+}
+
+
+
+\newglossaryentry{httpg}{ 
+	name=\glslink{http}{HTTP},
+	text=Hyper Text Transfer Protocol,
+	sort=http,
+	description={In informatica con il termine \emph{Hyper Text Transfer Protocol (HTTP)} (ing. protocollo di trasferimento di un ipertesto)si intende un insieme di regole e norme che regolano la trasmissione e la comunicazione d'informazione nella rete Internet. Questo trasmissione d'informazioni avviene sotto forma di scambi di messaggi tipicamente tra il client che puo essere un \gls{browser web}\ap{[g]}, e un server}
+}
+
+
+\newglossaryentry{open-source}{ 
+	name={Open-source},
+	text=open-source,
+	sort=open-source,
+	description={in informatica con il termine open-source (ing. sorgente libero) si intende un \emph{software} per cui chi lo ha sviluppato rinuncia alla propretà del software dando libero accesso a tutto il codice sorgente a chiunque, e quindi è permesso a tutti di contribuire nello sviluppo del codice al fine di migliorarlo, aggiungere nuove funzionalità o  correggere errori all'interno del codice}
+}
+
+\newglossaryentry{restg}{ 
+	name=\glslink{rest}{REST},
+	text=Representational State Transfer,
+	sort=rest,
+	description={In informatica con il termine \emph{Representational State Transfer (REST)} (ing. trasferimento di stato rappresentativo) si intende un approccio architetturale alla creazione di web \gls{api}\ap{[g]} basato sul protocollo di comunicazione \gls{http}\ap{[g]}. Viene imposto che le \gls{api}\ap{[g]} devono permettere di accedere a delle risorse attraverso un indirizzo di rete, utilizzare il formato \gls{JSON}\ap{[g]} e XML, non avere uno stato cioè non deve essere memorizzato cioè che è stato fatto e infine, utilizzare i metodi del \gls{http}\ap{[g]}, GET, POST, PUT, DELETE}
+}
 \begin{comment}
 \newglossaryentry{e2eg}
 {
@@ -191,15 +245,20 @@
 	description={Con il termine test end-to-end (end-to-end testing) si intende quell’attività di testing dell’interfaccia grafica vista dagli utenti del programma dall’inizio fino alla fine. In altre parole rappresenta una metodologia utilizzata per verificare se il flusso di un’applicazione si sta comportando come progettato dall’inizio fino alla fine senza che vengano rilevati dei errori che andrebbero a inficiare sulla qualità dell’applicazione stessa}
 }
 
-Parole da aggiungere
 
-http
-pooling
-client
-server
-Client/Server
-SDK -> acronimo HTML e CSS http
-open-source
-JSON
-API REST
+
+\newglossaryentry{AWMSg}
+{
+name=\glslink{AWMS}{AWMS},
+text=Advanced Workforce Management System,
+sort=AWMS,
+description={È una soluzione software che utilizza algoritmi di \gls{machine learning}, per risolvere uno dei problemi cardine di un \gls{plant manager} ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore}
+}
+
+
+Parole da aggiungere
+url
+architettura Client/Server
+SDK -> acronimo 
+
 \end{comment}

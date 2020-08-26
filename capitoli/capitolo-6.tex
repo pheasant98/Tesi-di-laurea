@@ -44,7 +44,7 @@ Selenium è un \gls{framework}\ap{[g]} che permette di automatizzare l'esecuzion
 	\item MicrosoftWebDriver o EdgeDriver per Microsoft Edge;
 	\item OperaChromiumDriver per Opera.
 \end{itemize}
-Selenium per eseguire i \emph{test} utilizza un’architettura client-server infatti, Selenium utilizza un server web dove espone l'API WebDriver come API REST. Perciò rimane in ascolto per la ricezione dei comandi che compongono i \emph{test}, sotto forma di richieste HTTP. Quando arrivano le richieste le esegue su un \gls{browser web}\ap{[g]} e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} e l'utilizzo di un architettura client-server è possibile eseguire \emph{test} scritti in diversi linguaggi purché supportino l'invio di richieste HTTP.
+Selenium per eseguire i \emph{test} utilizza un’architettura client-server infatti, Selenium utilizza un server web dove espone l'API WebDriver come API \gls{rest}\ap{[g]}. Perciò rimane in ascolto per la ricezione dei comandi che compongono i \emph{test}, sotto forma di richieste HTTP. Quando arrivano le richieste le esegue su un \gls{browser web}\ap{[g]} e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} e l'utilizzo di un architettura client-server è possibile eseguire \emph{test} scritti in diversi linguaggi purché supportino l'invio di richieste HTTP.
 
 Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore degli attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.\\
 
@@ -97,7 +97,7 @@ Su suggerimento del tutor aziendale si è struttura la \emph{test-suite} da me i
 	\item \textbf{pages}: Contiene le cosiddette PageObject, le PageObject sono un design pattern che permettono di scrivere \emph{test} più puliti. Infatti, queste PageObject contengono metodi che vengono spesso riutilizzati da più \emph{test} e inoltre, estraggono gli elementi dalla vista. Adottando questo design pattern si ha il vantaggio che se il modello dell'applicazione cambia sarà sufficiente aggiornare solo la pageObject e inoltre si ha il vantaggio di non avere duplicazione del codice. Solitamente si creano più pageObject con metodi tra loro affini.
 \end{itemize}
 \section{Test eseguiti}
-In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emph{test} \gls{test e2e} che debbano testare l'intera applicazione \emph{mobile} quindi, non solo Azzurra ma anche le sezioni Questionario e Profilo. Inoltre sono stati testati anche alcuni aspetti della \emph{dashboard} di \gls{AWMS}\ap{[g]}. Per ogni \emph{test} viene assegnato un codice composto dalla lettera \textbf{T}, da una seconda lettera che può essere \textbf{M} nel caso in cui il \emph{test} sia per l'applicazione \emph{mobile}, oppure la lettera \textbf{D} se il \emph{test} è per la \emph{dashboard}. Infine il codice termina con un numero progressivo. Nella tabella sottostante per ogni \emph{test} viene riportato il suo codice, una descrizione e l'esito del \emph{test}.
+In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emph{test} \gls{test e2e} che debbano testare l'intera applicazione \emph{mobile} quindi, non solo Azzurra ma anche le sezioni Questionario e Profilo. Inoltre sono stati testati anche alcuni aspetti della \emph{dashboard} di \gls{AWMS}. Per ogni \emph{test} viene assegnato un codice composto dalla lettera \textbf{T}, da una seconda lettera che può essere \textbf{M} nel caso in cui il \emph{test} sia per l'applicazione \emph{mobile}, oppure la lettera \textbf{D} se il \emph{test} è per la \emph{dashboard}. Infine il codice termina con un numero progressivo. Nella tabella sottostante per ogni \emph{test} viene riportato il suo codice, una descrizione e l'esito del \emph{test}.
 \begin{table}[h]%
 	\rowcolors{2}{grigetto}{white}
 	\centering
@@ -114,7 +114,7 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TM6 & Testare nella sezione Questionari, se la prima finestra del Questionario della salute (vedi la prima immagine della Figura~\ref{fig:queSlide}) abbia i vari bottoni dei sintomi tutti cliccabili. & Superato\\
 		\hline
 	\end{tabularx} \hbox{}
-	\caption{Tabella del tracciamento dei test \gls{test e2e}}
+	\caption{Tabella del tracciamento dei test E2E}
 \end{table}%
 
 \begin{table}[h]%
@@ -141,7 +141,7 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TM20 & Testare nella sezione Azzurra, nella funzionalità "Gestione assenze" si possa richiedere l'inserimento di una nuova assenza. & Superato\\
 		\hline
 	\end{tabularx} \hbox{}
-	\caption{Tabella del tracciamento dei test \gls{test e2e}}
+	\caption{Tabella del tracciamento dei test E2E}
 \end{table}%
 
 \begin{table}[h]%
@@ -167,5 +167,5 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TD31 & Testare nella sezione Safety che la funzionalità di ricerca produca risultati coerenti con quanto si sta cercando. & Superato \\
 		\hline
 	\end{tabularx} \hbox{}
-	\caption{Tabella del tracciamento dei test \gls{test e2e}}
+	\caption{Tabella del tracciamento dei test E2E}
 \end{table}%

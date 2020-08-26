@@ -6,11 +6,11 @@
 \label{cap:archittettura del sistema AWMS}
 %**************************************************************
 
-\intro{In questo capitolo verranno descritti tutte le componenti dell'architettura \gls{AWMS}\ap{[g]} e le varie operazioni di comunicazione tra le varie componenti.}\\
+\intro{In questo capitolo verranno descritti tutte le componenti dell'architettura \gls{AWMS} e le varie operazioni di comunicazione tra le varie componenti.}\\
 
 
 \section{Descrizione}
-Come scritto precedentemente, dietro all'applicazione mobile c'è tutta un'architettura di sistema che permette la comunicazione tra la piattaforma \gls{AWMS}\ap{[g]} e l'applicazione mobile con Azzurra.
+Come scritto precedentemente, dietro all'applicazione mobile c'è tutta un'architettura di sistema che permette la comunicazione tra la piattaforma \gls{AWMS} e l'applicazione mobile con Azzurra.
  
  \begin{figure}[h]
  	\begin{center}
@@ -21,7 +21,7 @@ Come scritto precedentemente, dietro all'applicazione mobile c'è tutta un'archi
 La figura precedente illustra come è composta l'architettura, dove ogni componente verrà descritta nelle successive sotto sezioni.
 \begin{trivlist}
 	\item \subsection{AWMS Dashboard}
-	È il pannello di controllo attraverso il quale un project manager può interagire con la piattaforma \gls{AWMS}\ap{[g]} per poter pianificare il lavoro da svolgere, cioè assegnare un compito alla persona più idonea. Il pannello di controllo è una applicazione web che è stata sviluppata in Angular.
+	È il pannello di controllo attraverso il quale un project manager può interagire con la piattaforma \gls{AWMS} per poter pianificare il lavoro da svolgere, cioè assegnare un compito alla persona più idonea. Il pannello di controllo è una applicazione web che è stata sviluppata in Angular.
 	\begin{figure}[h] 
 		\begin{center}
 			\includegraphics[height=8cm,width=13cm]{dashboardAWMS.png}
@@ -30,7 +30,7 @@ La figura precedente illustra come è composta l'architettura, dove ogni compone
 	\end{figure}
 	 	La dashboard per comunicare con il back-end, utilizza delle \gls{api}\ap{[g]} che il back-end espone, quindi per una ragione di sicurezza, back-end e l'applicazione web cioè il front-end, comunicano attraverso \gls{api}\ap{[g]} con in più l'utilizzo del protocollo di comunicazione HTTPS che cripta la comunicazione. Nella Figura~\ref{fig:arch} viene mostrato il caso in cui il front-end utilizza \gls{api}\ap{[g]} per l'invio di notifiche push, questo perché è previsto che una volta il team leader sceglie il lavoratore più idoneo per un certo lavoro, il lavoratore deve essere avvisato, cosi sarà compito del front-end avvisare il back-end che c'è stata una nuova assegnazione e che questa assegnazione deve essere comunicata al diretto interessato attraverso un notifica sull'applicazione mobile con all'interno Azzurra.
 	\item \subsection{AWMS backend}
-	Come dice il suo nome, AWMS Backend rappresenta il backend del sistema. AWMS Backend è sviluppato usando lo strumento CakePHP, un framework per lo sviluppo di applicazioni web scritto in PHP. Al suo interno risiede il database che contiene tutte le informazioni sui lavoratori e tra questi quindi, i dati da mostrare nei messaggi di Azzurracome ad esempio il piano di lavoro che ha il lavoratore in uno specifico giorno, qualora ne venga fatta richiesta. Il database utilizza come DBMS PostgreSQL. \\
+	Come dice il suo nome, AWMS Backend rappresenta il backend del sistema. AWMS Backend è sviluppato usando lo strumento CakePHP, un framework per lo sviluppo di applicazioni web scritto in PHP. Al suo interno risiede il database che contiene tutte le informazioni sui lavoratori e tra questi quindi, i dati da mostrare nei messaggi di Azzurra come ad esempio il piano di lavoro che ha il lavoratore in uno specifico giorno, qualora ne venga fatta richiesta. Il database utilizza come DBMS PostgreSQL. \\
 	Come detto al punto precedente, per comunicare con il backend, esso espone delle \gls{api}\ap{[g]} per la comunicazione infatti, esiste un \gls{api}\ap{[g]} per l'invio di notifiche push ma esiste anche un \gls{api}\ap{[g]}, utilizzata da Azzurra.io, per la richiesta di informazioni sul lavoratore necessarie per completare il flusso di conversazione. Quindi questa \gls{api}\ap{[g]} permetterà di richiedere dati al backend che li andrà a cercare nel suo database interno che se l'interrogazione al database da esito positivo, ritornerà le informazioni richieste a Azzurra.io. Il backend si trova all'interno della rete interna dell'azienda che ha acquistato la soluzione di AzzurroDigitale, anche Azzurra.io è all'interno della rete, perciò tra queste due componenti avviene attraverso il protocollo di comunicazione HTTP. Il backend ha la possibilità di comunicare direttamente con Azzurra.io quando deve inviare una notifica push e ha necessità di sapere quali utenti sono attivi, cioè hanno una connessione aperta con Azzurra.io. Per gli utenti invece che non hanno una connessione aperte con Azzurra.io e quindi non sono attivi l'invio della notifica verrà fatto utilizzando i servizi offerti da Firebase, la cui comunicazione tra backend e Firebase avviene tramite HTTPS perché Firebase è un servizio esterno.\\
 	La gestione l'invio delle notifiche push verrà comunque tratta in modo più dettagliato più avanti nel seguente capitolo.
 	\item \subsection{Azzurra.io}
@@ -93,7 +93,7 @@ La figura precedente illustra come è composta l'architettura, dove ogni compone
 \section{Operazioni}
 Nella seguente sezione verranno descritte le principali operazioni tra le varie componenti dell'architettura.
 \subsection{Creazione di una connessione attreverso WebSocket}
-Come spiegato in precedenza, la comunicazione tra l'applicazione mobile e Azzurra.io avviene attraverso l'utilizzo di \gls{WebSocket}\ap{[g]}. Grazie a ciò si ha un canale di comunicazione a due vie cioè, sia l'applicazione mobile e sia Azzurra.io possono inviare dati o richieste, le modifiche ai flussi conversazionali già esistenti o l'aggiunta di nuovi flussi, verranno comunicate all'applicazione mobile in tempo reale, aggiornando perciò i dati posseduti dell'applicazione. Infine, utilizzando una connessione tramite \gls{WebSocket}\ap{[g]}, risulta essere più efficiente e performante rispetto al pooling perché il server non viene continuamente contatto da inutili richieste.
+Come spiegato in precedenza, la comunicazione tra l'applicazione mobile e Azzurra.io avviene attraverso l'utilizzo di \gls{WebSocket}\ap{[g]}. Grazie a ciò si ha un canale di comunicazione a due vie cioè, sia l'applicazione mobile e sia Azzurra.io possono inviare dati o richieste, le modifiche ai flussi conversazionali già esistenti o l'aggiunta di nuovi flussi, verranno comunicate all'applicazione mobile in tempo reale, aggiornando perciò i dati posseduti dell'applicazione. Infine, utilizzando una connessione tramite \gls{WebSocket}\ap{[g]}, risulta essere più efficiente e performante rispetto al \gls{pooling}\ap{[g]} perché il server non viene continuamente contatto da inutili richieste.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[scale=0.8]{Connection-WebSocket.PNG}
@@ -170,12 +170,12 @@ Nel caso in cui il \gls{plant manager}\ap{[g]} abbia bisogno di mandare una comu
 \end{figure}\\
 Nella Figura~\ref{fig:push} viene mostrato come avviene l'invio delle notifiche, di seguito ne vengono descritti i passi:
 \begin{enumerate}
-	\item Il \gls{plant manager}\ap{[g]} crea il messaggio da inviare attraverso l'interazione con la dashboard di \gls{AWMS}\ap{[g]};
+	\item Il \gls{plant manager}\ap{[g]} crea il messaggio da inviare attraverso l'interazione con la dashboard di \gls{AWMS};
 	\item La dashboard invia al backend il messaggio da inviare e a quali utenti registrati nel sistema, mandare il messaggio, viene perciò mandato oltre al messaggio anche i codici identificativi dei destinatari;
 	\item Il backend si connette ad Azzurra.io e gli invia il messaggio e la lista degli utenti a cui deve mandare la notifica. Quindi l'invio della notifica viene delegato a Azzurra.io; 
 	\item Azzurra.io controlla sulla sua tabella User Map, quali utenti che devo ricevere il messaggio sono attualmente connessi al socket, oppure invece non lo sono. Si specifica inoltre che vengono considerati utenti connessi o attivi tutti gli utenti che sono connessi e che hanno l’applicazione in foreground. Gli utenti che sono connessi al socket, ma hanno l’applicazione in background vengono trattati come utenti non connessi;
 	\item Per gli utenti connessi al socket, Azzurra.io invierà la notifica ai dispositivi connessi in cui verrà visualizzata sotto forma di messaggio da parte di Azzurra;
 	\item Nel caso in cui ci siano alcuni utenti non connessi a Azzurra.io tra i destinatari del messaggio, Azzurra.io effettua una richiesta HTTP ad AWMS Backend, specificando gli utenti che non è riuscita a contattare, e il messaggio che avrebbe dovuto recapitare;
 	\item Il backend una volta ricevuta la lista degli utenti a cui non è stato possibile mandare la notifica, contatterà attraverso un \gls{api}\ap{[g]} di Firebase, quest'ultimo per richiedere l'invio della notifica agli utenti della lista appena ricevuta. Si specifica che Firebase sarà in grado di farlo solo se i dispositivi dei destinatari si sono sottoscritti al servizio di Firebase per la ricezione di notifiche push;
-	\item Firebase ricevuta la lista d'utenti a cui inviare la notifica e il testo del messaggio, invierà la notifica push ai destinatari.
+	\item Firebase ricevuta la lista d'utenti a cui inviare la notifica e il testo del messaggio, invierà la \gls{notifica push}\ap{[g]} ai destinatari.
 \end{enumerate}
