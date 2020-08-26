@@ -46,7 +46,7 @@ Selenium è un \gls{framework}\ap{[g]} che permette di automatizzare l'esecuzion
 \end{itemize}
 Selenium per eseguire i \emph{test} utilizza un’architettura client-server infatti, Selenium utilizza un server web dove espone l'API WebDriver come API REST. Perciò rimane in ascolto per la ricezione dei comandi che compongono i \emph{test}, sotto forma di richieste HTTP. Quando arrivano le richieste le esegue su un \gls{browser web}\ap{[g]} e risponde con una risposta HTTP che rappresenta il risultato dell'esecuzione del comando. Grazie alla standardizzazione delle \gls{api}\ap{[g]} e l'utilizzo di un architettura client-server è possibile eseguire \emph{test} scritti in diversi linguaggi purché supportino l'invio di richieste HTTP.
 
-Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore degli attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.
+Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e} per applicazioni Angular2+ e AngularJS. Protractor offre un insieme di "localizzatori" cioè metodi che permettono di ricavare gli elementi o il valore degli attributi dall'applicazione web, ma anche di simulare dei \emph{click} come se fosse un utente umano. Per funzionare Protractor all'inizio richiede che sia presente un server Selenium in modo da mandare richieste HTTP per eseguire i \emph{test} \gls{test e2e}.\\
 
 \begin{figure}[h] 
 	\begin{center}
@@ -112,7 +112,8 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TM4 & Testare che il messaggio in primo piano che avvisa della nuova versione disponibile, sia interagitile, cioè che si possa cliccare i suoi bottoni. & Superato\\
 		TM5 & Testare che una volta che l'utente sia autenticato, se è il suo primo accesso, possa chiudere la finestra che contiene la guida per l'utilizzo dell'applicazione, la quale appare al primo accesso che si fa nell'applicazione. & Superato\\
 		TM6 & Testare nella sezione Questionari, se la prima finestra del Questionario della salute (vedi la prima immagine della Figura~\ref{fig:queSlide}) abbia i vari bottoni dei sintomi tutti cliccabili. & Superato\\
-			\end{tabularx} \hbox{}
+		\hline
+	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei test \gls{test e2e}}
 \end{table}%
 
@@ -138,6 +139,7 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TM18 & Testare nella sezione Azzurra, nella funzionalità "pianificazione" si possa visualizzare la pianificazione in uno specifico giorno. & Superato\\
 		TM19 & Testare nella sezione Azzurra, nella funzionalità "Pianificazione" si possa visualizzare la pianificazione della settimana corrente. & Superato\\
 		TM20 & Testare nella sezione Azzurra, nella funzionalità "Gestione assenze" si possa richiedere l'inserimento di una nuova assenza. & Superato\\
+		\hline
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei test \gls{test e2e}}
 \end{table}%
@@ -163,6 +165,7 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 		TD31 & Testare nella sezione Task che la funzionalità di ricerca produca risultati coerenti con quanto si sta cercando. & Superato \\
 		TD32 & Testare nella sezione Safety che tutti i bottoni siano cliccabili e nel caso in cui aprano delle nuove finestre, queste possano essere chiuse. & Superato \\
 		TD31 & Testare nella sezione Safety che la funzionalità di ricerca produca risultati coerenti con quanto si sta cercando. & Superato \\
+		\hline
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei test \gls{test e2e}}
 \end{table}%
