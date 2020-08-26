@@ -115,7 +115,7 @@ Sec-WebSocket-Protocol: chat
 Sec-WebSocket-Version: 13		
 Origin: http://AzzurraIo.com
 	\end{lstlisting}
-	Il codice soprastante rappresenta un esempio di \\emph{WebSocket handshake request} inviata dal client al server. Il client inserisce una stringa casuale codifica in base64 nel campo \emph{Sec-WebSocket-Key} alla quelle viene poi aggiunta una stringa fissa.
+	Il codice soprastante rappresenta un esempio di \emph{WebSocket handshake request} inviata dal client al server. Il client inserisce una stringa casuale codifica in base64 nel campo \emph{Sec-WebSocket-Key} alla quelle viene poi aggiunta una stringa fissa.
 	\item Se il server, in questo caso Azzurra.io supporta la connessione tramite \gls{WebSocket}\ap{[g]} allora rispondere mettendo nel campo \emph{Sec-WebSocket-Accept} la risposta cioè, l'hash della stringa contenuta in \emph{Sec-WebSocket-Key} utilizzando la funzione di hashing SHA-1. Infine, viene tutto codificato in base64. Una volta arrivata la risposta al client, esso controllerà se la risposta contiene la stringa corretta. Tutte queste operazioni hanno lo scopo di evitare di aprire più connessioni multiple ma non da nessuna garanzia di autenticazione.
 	Nel seguente codice viene riportato un esempio di risposta da parte del server.\\
 	\begin{lstlisting}

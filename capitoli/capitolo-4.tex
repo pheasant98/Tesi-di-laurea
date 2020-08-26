@@ -300,6 +300,18 @@ Ha la seguente struttura:
 	\item \textbf{type}: Indica se contiene un PDF o una immagine, nel caso di un'immagine indica se è in formato JPG o in JPEG oppure in PNG.
 \end{itemize}	
 
+\section{Gestione dell'internazionalizzazione di AWMS}
+Per il sistema \gls{AWMS}\ap{[g]} è stata implementata la gestione dell'\gls{i18n}. Infatti per rendere tutto il sistema, sia lato backend sia lato Azzurra, adattabile a più lingue, sono stati definiti un insieme di testi multi-lingua. Per gestire questi testi multi-lingua è stato progettato di utilizzare un \emph{template engine} al fine di ottenere la parametrizzazione dei testi. \\
+Un \emph{template engine} non è altro che un programma che prevede la definizione di blocchi detti \emph{template} spesso scritti in HTML, che hanno la caratteristica di avere dei segnaposto detti \emph{placeholders}, che vengono sostituiti dai dati da visualizzare. In questi blocchi perciò  viene definito il testo scritto in una specifica lingua e in quali punti del testo devono essere inseriti i dati per la visualizzazione. Per la sostituzione dei \emph{placeholders} solitamente il \emph{template engine} utilizza file JSON, in cui i segnaposti sono solitamente rappresentati dai campi che compongono l’oggetto salvato nel file JSON, i quali andranno a sostituire i segnaposti con i loro valori che rappresentano i dati da visualizzare. Quindi il \emph{template engine} definisce dei template che vengono "idratati" cioè, vengono sostituiti i \emph{placeholders} con dati veri. Chiaramente i \emph{template} vengono riutilizzanti anche se i dati visualizzati variano. Vengono perciò definiti \emph{template} di testi "localizzati" cioè scritti in un delle lingue supportate dal sistema \gls{AWMS}\ap{[g]}.\\
+ Un \emph{template engine} può essere facilmente implementato in JavaScript ma come scelta progettuale di è stato deciso di utilizzare \emph{Handlebars}. \emph{Handlebars} è un estensione del \emph{template engine} \emph{mustache} perché, per indicare i \emph{placehorders} all'interno dei \emph{template} utilizza le doppie parentesi graffe le quali racchiudono la parola da sostituire. È stato scelto di utilizzare \emph{Handlebars} perché garantisce delle performance migliori infatti, permette di compilare i \emph{template}, riducendo il tempo di \emph{rendering} quando un blocco di codice viene creato più di una volta. Inoltre \emph{Handlebars} permette di utilizzare i cosiddetti "Helpers" che permettono l'esecuzione di funzionalità che vanno a manipolare la formattazione del testo. Infine, un’altra caratteristica avanzata di \emph{Handlebars} è il supporto ai "Partials". Con tale termine si indica la possibilità di innestare \emph{template} l’uno dentro l’altro, permettendone la riusabilità e la realizzazione di codice più ordinato.\\
+ 
+ Nel lato backend ciascun testo "localizzato" è persistito in apposite tabelle di un \emph{database}.\\
+ 
+ Nel lato \gls{bot}\ap{[g]} Azzurra come spiegato in precedenza, nel campo text dei blocchi conversazionali, c'è un oggetto che contiene un attributo per ogni lingua disponibile contente del testo nella corrispondente lingua, e un attributo default che contiene il testo di default. Quindi Il flow engine, interpretando ciascun blocco conversazionale, effettua un processamento dei testi scegliendo, se presenti, quelli relativi alla lingua dell'utente.\\
+ 
+ Durante lo stage un parte del tempo è stata dedicata allo studio di \emph{Handlebars} e alla scrittura dei \emph{template} che in molti casi, richiedevano l'inserimento dei \emph{placeholders } con la sintassi \emph{mustache}.
+ 
+
 \section{Funzionamento di Azzurra Flow Engine}
 L'Azzurra Flow Engine è l'elemento in grado di interpretare i dati contenuti nelle configurazioni JSON. Grazie a esso è possibile eseguire il corretto flusso della conversazione e generare i messaggi da mostrare nella \emph{chat} dell'applicazione mobile. 
 \subsection{Messaggio del bot Azzurra}
@@ -385,3 +397,4 @@ La generazione di un messaggio da parte dell’utente umano prevede le seguenti 
 	\item Viene ritornato il messaggio a ChatComponent;
 	\item Infine, per visualizzare il messaggio sulla \emph{chat}, vengono rifatte le stesse operazioni che erano state fatte per il messaggio del \gls{bot}\ap{[g]} Azzurra.
 \end{enumerate}
+
