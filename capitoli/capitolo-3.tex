@@ -31,7 +31,9 @@ La figura precedente illustra come è composta l'\gls{architettura}\ap{[g]}, dov
 	 	La \emph{dashboard} per comunicare con il back-end, utilizza delle \gls{api}\ap{[g]} che il back-end espone, quindi per una ragione di sicurezza, back-end e l'applicazione web cioè il front-end, comunicano attraverso \gls{api}\ap{[g]} con in più l'utilizzo del protocollo di comunicazione HTTPS che cripta la comunicazione. Nella Figura~\ref{fig:arch} viene mostrato il caso in cui il front-end utilizza \gls{api}\ap{[g]} per l'invio di una \gls{notifica push}\ap{[g]}, questo perché è previsto che quando il \gls{plant manager}\ap{[g]} sceglie il lavoratore più idoneo per un certo lavoro, quest'ultimo deve essere avvisato. Perciò sarà compito del front-end avvisare il back-end che c'è stata una nuova assegnazione e che questa assegnazione deve essere comunicata al diretto interessato attraverso un notifica sull'applicazione \emph{mobile} con all'interno Azzurra.
 	\item \subsection{AWMS backend}
 	Come dice il suo nome, AWMS Backend rappresenta il back-end del sistema. AWMS Backend è stato sviluppato usando la tecnologia CakePHP, un \gls{framework}\ap{[g]} per lo sviluppo di applicazioni web scritto in PHP. Al suo interno risiede il database che contiene tutte le informazioni sui lavoratori e tra questi quindi, i dati da mostrare nei messaggi di Azzurra come ad esempio il piano di lavoro che ha il lavoratore in uno specifico giorno, qualora ne venga fatta richiesta. Il database utilizza come DBMS PostgreSQL. \\
+	
 	Come scritto nel punto precedente, per comunicare con lui, espone delle \gls{api}\ap{[g]} per la comunicazione infatti, esiste un \gls{api}\ap{[g]} per l'invio di una \gls{notifica push}\ap{[g]} ma esiste anche un \gls{api}\ap{[g]}, utilizzata da Azzurra.io, per la richiesta di informazioni sul lavoratore necessarie per completare il flusso di conversazione. Quindi questa \gls{api}\ap{[g]} permetterà di richiedere dati al back-end che li cercherà nel suo database interno. Se l'interrogazione al database da esito positivo, ritornerà le informazioni richieste a Azzurra.io. Il back-end si trova all'interno della rete interna dell'azienda che ha acquistato la soluzione di AzzurroDigitale, anche Azzurra.io è all'interno della rete, perciò tra queste due componenti avviene attraverso il protocollo di comunicazione \gls{http}\ap{[g]}\glsfirstoccur. Il back-end ha la possibilità di comunicare direttamente con Azzurra.io quando deve inviare una \gls{notifica push}\ap{[g]} e ha necessità di sapere quali utenti sono attivi, cioè hanno una connessione aperta con Azzurra.io. Per gli utenti invece che non hanno una connessione aperte con Azzurra.io e quindi non sono attivi l'invio della notifica verrà fatto utilizzando i servizi offerti da Firebase, la cui comunicazione tra back-end e Firebase avviene tramite HTTPS perché Firebase è un servizio esterno.\\
+	
 	La gestione dell'invio di una \gls{notifica push}\ap{[g]} verrà comunque trattato in modo più dettagliato più avanti nel seguente capitolo.
 	\item \subsection{Azzurra.io}
 	Azzurra.io è una componente strategica per il funzionamento del \gls{bot}\ap{[g]} Azzurra. Azzurra.io è sviluppata attraverso il \gls{framework}\ap{[g]} NestJS. Al suo interno ha due database con DBMS PostgreSQL. Il primo database contiene i flussi di conversazione che indicano al \gls{bot}\ap{[g]} la sequenza di passi che deve seguire durante la conversazione con l'utente umano, la struttura dei flussi conversazionali verrà spiegata in modo dettagliato al capitolo successivo. Il secondo database permette di memorizzare i messaggi fatti tra il \gls{bot}\ap{[g]} Azzurra e l'utente umano. La scelta di adottare quest'ultimo database è dettata dalle seguenti motivazioni:
@@ -45,8 +47,8 @@ La figura precedente illustra come è composta l'\gls{architettura}\ap{[g]}, dov
 		\item Per evitare che vengano fatte un numero elevato di richieste al back-end si è deciso di distribuire le informazioni in diverse componenti della rete, infatti il \gls{bot}\ap{[g]} per sapere che flusso conversazionale deve seguire per genere i messaggi per la conversazione con l'utente umano, chiede a Azzurra.io e non al back-end. Il backend però verrà contattato quando il \gls{bot}\ap{[g]} Azzurra ha bisogno di dati sul lavoratore da mostrare, questa richiesta però sarà fatta inizialmente a Azzurra.io che si prenderà carico di richiedere le informazioni al backend e di ritornarle all'applicazione. Quindi il backend sarà contattato solo dalla \emph{dashboard} e da Azzurra.io per il caso descritto precedentemente o per il processo di autenticazione dell'utente, diminuendo il carico sul back-end.
 	\end{itemize}
 	
-	\item\subsection{Applicazione mobile}
-	L'ultimo componente dell'\gls{architettura}\ap{[g]} è l'applicazione \emph{mobile}. Essa è sviluppata attraverso il \gls{framework}\ap{[g]} Angular2+ e Ionic. L'applicazione \emph{mobile} è in realtà un'\gls{applicazione ibrida}\ap{[g]}, questo perché viene sviluppata con tecnologie web, nello specifico \gls{HTML}, \gls{CSS} e TypeScript, e viene eseguita in un dispositivo \emph{mobile} grazie a Ionic utilizzando Cordova. Inoltre, Ionic offre componenti ottimizzate per il \emph{mobile}. All'interno dell'applicazione \emph{mobile} risiede il \gls{bot}\ap{[g]} Azzurra. Oltre al \gls{bot}\ap{[g]} Azzurra esistono altre due sezioni, la sezione Questionario e la sezione Profilo. 
+	\item\subsection{Applicazione mobile AWMS}
+	L'ultimo componente dell'\gls{architettura}\ap{[g]} è l'applicazione \emph{mobile} \gls{AWMS}. Essa è sviluppata attraverso il \gls{framework}\ap{[g]} Angular2+ e Ionic. L'applicazione \emph{mobile} è in realtà un'\gls{applicazione ibrida}\ap{[g]}, questo perché viene sviluppata con tecnologie web, nello specifico \gls{HTML}, \gls{CSS} e TypeScript, e viene eseguita in un dispositivo \emph{mobile} grazie a Ionic e a Cordova. All'interno dell'applicazione \emph{mobile} risiede il \gls{bot}\ap{[g]} Azzurra. Oltre al \gls{bot}\ap{[g]} Azzurra esistono altre due sezioni, la sezione Questionario e la sezione Profilo. 
 	
 	\begin{figure}[h]
 		\centering
@@ -92,9 +94,34 @@ La figura precedente illustra come è composta l'\gls{architettura}\ap{[g]}, dov
 		\item Visualizzare avvisi da parte dell'azienda;
 		\item Sapere qual'è il menu del giorno della mensa aziendale;
 		\item Poter effettuare prenotazioni di un posto a sedere in una sala riunioni e visualizzare le proprie prenotazioni, inoltre utilizzare un scannerizzatore \gls{QR code}\glsfirstoccur per riscattare il posto prenotato.
-	\end{itemize}	
-	
-\end{trivlist}
+	\end{itemize}
+\end{trivlist}	
+\subsubsection{Gestione modalità offline}	
+Nell'ambito dello sviluppo di un'applicazione \emph{mobile}, un aspetto importante è la gestione della modalità \emph{offline}. Per gestione della modalità \emph{offline} si intende permette agli utenti di continuare ad utilizzare l'applicazione in assenza di connettività e quindi l'impossibilità di comunicare con il back-end. Quali e quante funzionalità e con quali e quante limitazioni alle stesse si verificano quando si è \emph{offline}, è una scelta di progettazione e comporta uno sforzo più o meno significativo visto che esistono diverse modalità per ottenere quanto richiesto. Nel caso dell'applicazione \emph{mobile} \gls{AWMS} in assenza di connettività sono state scelte le seguenti limitazioni e funzionalità:
+\begin{itemize}
+	\item Quando c'è assenza di connettività viene avvisato l'utente di tale evento, attraverso un messaggio che comparirà sopra l'\emph{header} dell'applicazione;
+	\item Vengono garantite un insieme minimo di funzionalità anche in caso di assenza di connettività, nello specifico viene garantita all'utente la possibilità di spostarsi tra le sezioni dell'applicazione accedendo solo ad alcune pagine informative quali la "Informazioni personali", la "Privacy policy", le "Istruzioni di utilizzo" dell'applicazione.
+\end{itemize}
+
+La gestione della modalità \emph{offline} verterà principalmente su due aspetti:
+\begin{itemize}
+	\item stato della connessione;
+	\item persistenza locale dei dati.
+\end{itemize}
+\subsubsection{Stato della connessione}
+Poter sapere lo stato della connessione per il funzionamento dell'applicazione \emph{mobile} è fondamentale. Inoltre, è importante tenere conto che la connettività nel tempo cambia infatti, può accadere che l'utente sia connesso all'inizio ma ad un certo punto perde la connessione. Vi è quindi la necessità non solo di sapere lo stato della connessione all'inizio ma anche i cambiamenti nello stato della connettività. Solitamente per determinare lo stato della connessione si accede direttamente sullo strato nativo del \emph{device}. Per fare ciò è stato scelto di utilizzare il plugin di Cordova, Network Information, che oltre a determinare lo stato della connessione, è in grado di rilevare cambiamenti dello stato in maniera agevole.
+
+\subsubsection{Persistenza locale dei dati}
+Il poter salvare dei dati in locale offre la possibilità di poter garantire l'esecuzioni di alcune funzioni anche in assenza di connettività. Esistono diverse possibilità per la memorizzazione locale dei dati, più o meno sicure, più o meno efficienti.\\
+
+Per l'applicazione \emph{mobile} \gls{AWMS} è stato scelto di utilizzare SQLite. SQLite è un DBMS file-based memorizzato sul \emph{device} sul quale viene installata l'applicazione. La capacità del database (dimensione massima) dipende dalla memoria a disposizione nel \emph{device} offrendo quindi un buon supporto per la memorizzazione e l'esecuzione delle comuni operazioni sui dati.\\
+
+L'applicazione \emph{mobile} essendo una \gls{applicazione ibrida}\ap{[g]} costruita con Ionic, è stato scelto di utilizzare Ionic Storage che si compone di un plugin di Cordova, per la gestione dei database SQLite.\\
+
+Utilizzando Ionic Storage è possibile quindi memorizzare delle coppie chiave-valore dove il valore può essere di qualsiasi tipo,
+dalle semplici stringhe o interi fino a degli oggetti \gls{JSON}\ap{[g]}. I dati memorizzati localmente rimarranno disponibili sino alla disinstallazione dell'applicazione o alla formattazione del \emph{device}.
+
+
 \section{Operazioni}
 Nella seguente sezione verranno descritte le principali operazioni tra le varie componenti dell'\gls{architettura}\ap{[g]}.
 \subsection{Creazione di una connessione attreverso WebSocket}

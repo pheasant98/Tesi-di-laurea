@@ -51,7 +51,7 @@ L'azienda AzzurroDigitale offre come principale servizio, la piattaforma di gest
 		\end{center}
 	\end{figure}
 
-\gls{AWMS} è una soluzione software che utilizza algoritmi di \gls{machine learning}\glsfirstoccur, per risolvere uno dei problemi cardine di un \gls{plant manager}\glsfirstoccur ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore. Per permettere il funzionamento della pianificazione, la piattaforma estrae da dei database interni all'azienda che ha acquistato la soluzione, dati sui lavoratori che ne descrivono le competenze che possiedono. Viene perciò registrato uno storico per ogni lavoratore che se nel tempo acquisirà nuove competenze queste verranno indicate nei dati dei database, aggiornandoli. In base perciò, ai dati estratti dalla piattaforma viene scelto il miglior candidato per un determinato compito. \gls{AWMS} offre la possibilità di pianificare il lavoro per il giorno successivo ma anche gestire situazioni impreviste, come ad esempio l'assenza di un lavoratore.
+\gls{AWMS} è una soluzione \emph{software} che utilizza algoritmi di \gls{machine learning}\glsfirstoccur, per risolvere uno dei problemi cardine di un \gls{plant manager}\glsfirstoccur ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore. Per permettere il funzionamento della pianificazione, la piattaforma estrae da dei database interni all'azienda che ha acquistato la soluzione, dati sui lavoratori che ne descrivono le competenze che possiedono. Viene perciò registrato uno storico per ogni lavoratore che se nel tempo acquisirà nuove competenze queste verranno indicate nei dati dei database, aggiornandoli. In base perciò, ai dati estratti dalla piattaforma viene scelto il miglior candidato per un determinato compito. \gls{AWMS} offre la possibilità di pianificare il lavoro per il giorno successivo ma anche gestire situazioni impreviste, come ad esempio l'assenza di un lavoratore.
 
 \subsection{Il progetto Azzurra.flow}
 
@@ -69,7 +69,7 @@ Il progetto Azzurra.flow nasce dalla esigenza, da parte dell'azienda AzzurroDigi
 		\caption{Logo del bot Azzurra}
 	\end{center}
 \end{figure}
-Il progetto include non solo lo sviluppo dell'applicazione mobile con Azzurra ma, un motore conversazionale in grado di poter generare una conversazione con il lavoratore, attraverso dei flussi di conversazione, anche essi da sviluppare, che indicano che cosa deve fare Azzurra, dopo essere stati interpretati dal motore conversazionale. Inoltre questi flussi devono essere memorizzati in un preciso posto perciò, è stato progettato che sia un database contenuto nella nuova componente Azzurra.io, la quale ha il compito di non solo di tenere memorizzati i flussi conversazionili esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi generare, ma di fare da tramite tra l'applicazione con all'interno Azzurra e \gls{AWMS} tutto attraverso una comunicazione tramite \gls{WebSocket}\glsfirstoccur.
+Il progetto include non solo lo sviluppo dell'applicazione mobile con Azzurra ma, un motore conversazionale denominato Azzurra Flow Engine, in grado di poter generare una conversazione con il lavoratore, attraverso dei flussi di conversazione, anche essi da sviluppare, che indicano che cosa deve fare Azzurra, dopo che i flussi sono stati interpretati dal motore conversazionale. Inoltre questi flussi devono essere memorizzati in un preciso posto perciò, è stato progettato che sia un database contenuto nella nuova componente Azzurra.io, la quale ha il compito di non solo di tenere memorizzati i flussi conversazionili esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi generare, ma di fare da tramite tra l'applicazione con all'interno Azzurra e \gls{AWMS}, tutto attraverso una comunicazione tramite \gls{WebSocket}\glsfirstoccur.
 %**************************************************************
 \section{Organizzazione del testo}
 Il capitolo trattato attualmente è l'introduzione del documento, dove si è spiegato brevemente l'ambito di lavoro e il progetto sul quale si è svolto lo stage.\\
@@ -78,7 +78,7 @@ Di seguito il documento sarà organizzato nella seguente struttura:
     
     \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] descrive in modo dettagliato lo stage svolto, indicandone obiettivi, pianificazione, strumenti e tecnologie utilizzate. Infine, verranno esposte le motivazioni per cui ho scelto di svolgere questo stage.
     
-    \item[{\hyperref[cap:archittettura del sistema AWMS]{Il terzo capitolo}}] descrive l'architettura del sistema \gls{AWMS} che permette il funzionamento di Azzurra.
+    \item[{\hyperref[cap:archittettura del sistema AWMS]{Il terzo capitolo}}] descrive l'\gls{architettura}\ap{[g]} del sistema \gls{AWMS} che permette il funzionamento di Azzurra.
     
     \item[{\hyperref[cap:flow engine]{Il quarto capitolo}}] approfondisce il funzionamento del motore conversazionale di Azzurra, indicando perciò come avviene una conversazione.
     

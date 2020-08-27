@@ -330,7 +330,7 @@ Per implementare le funzionalità del Azzura Flow Engine vengono utilizzate le s
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[height=20cm, width=14cm]{sd_bot_mx2.png}
-	\caption{Diagramma di sequenza del processo di generazione del messaggio del bot Azzurra}\label{fig:mxBot}
+	\caption{Diagramma di sequenza per la generazione di un messaggio di Azzurra}\label{fig:mxBot}
 \end{figure}
 
 Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \gls{WebSocket}\ap{[g]}, inizializzato il Flow Engine e infine, ricevuto la configurazione JSON contenente il flusso conversazionale, la generazione di un messaggio da parte del \gls{bot}\ap{[g]} Azzurra prevede i seguenti passi:\\
@@ -383,7 +383,7 @@ La generazione di un messaggio da parte dell’utente umano prevede le seguenti 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[height=11cm, width=13cm]{sd_human_mx.png}
-	\caption{Diagramma di sequenza del processo di generazione del messaggio del bot Azzurra}\label{fig:mxHuman}
+	\caption{Diagramma di sequenza per la generazione di un messaggio dell'utente}\label{fig:mxHuman}
 \end{figure}
 \begin{enumerate}
 	\item Quando l'utente esegue un'azione che genera una risposta da parte sua, il ChatService emette il valore della risposta ogni volta che un Widget la riceve;

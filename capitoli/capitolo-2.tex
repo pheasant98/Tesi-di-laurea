@@ -11,21 +11,21 @@
 
 %**************************************************************
 \section{Descrizione dello stage}
-Lo stage era legato al progetto interno dell'azienda denominato "Azzurra.flow". Tale progetto nasceva dall'esigenza dell'azienda AzzurroDigitale di offrire un prodotto più completo ai propri clienti da affiancare alla soluzione \gls{AWMS}. Perciò era previsto di implementare un’applicazione mobile che potesse comunicare con la piattaforma \gls{AWMS}, dando un mezzo di supporto al lavoratore di una azienda manifatturiera. All'interno di essa doveva essere implementato una \emph{chat bot} con un \gls{bot}\ap{[g]} denominato "Azzurra" che offra funzionalità di supporto al lavoratore. All'interno del progetto era anche previsto le implementazioni necessarie per la comunicazione tra \gls{AWMS} e l'applicazione mobile, quindi la gestione di una connessione \gls{WebSocket}\ap{[g]} e la creazione della componente Azzurra.io, la quale ha il compito di tenere memorizzati i flussi conversazionali esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi devono essere generati, e di fare da tramite tra l'applicazione mobile e \gls{AWMS}.\\
+Lo stage era legato al progetto interno dell'azienda denominato "Azzurra.flow". Tale progetto nasceva dall'esigenza dell'azienda AzzurroDigitale di offrire un prodotto più completo ai propri clienti, da affiancare alla soluzione \gls{AWMS}. Perciò era previsto di implementare un’applicazione \emph{mobile} che potesse comunicare con la piattaforma \gls{AWMS}, dando un mezzo di supporto al lavoratore di una azienda manifatturiera. All'interno di essa doveva essere implementato una \emph{chat bot} con un \gls{bot}\ap{[g]} denominato "Azzurra" che offra funzionalità di supporto al lavoratore. All'interno del progetto era anche previsto le implementazioni necessarie per la comunicazione tra \gls{AWMS} e l'applicazione \emph{mobile}, quindi la gestione di una connessione attraverso \gls{WebSocket}\ap{[g]} e la creazione della componente Azzurra.io, la quale ha il compito di tenere memorizzati i flussi conversazionali esistenti e di inviarli a Azzurra quando li richiede, per sapere che messaggi devono essere generati. Inoltre Azzurra.io ha il compito di fare da tramite tra l'applicazione \emph{mobile} e \gls{AWMS}.\\
 Partendo dal progetto "Azzurra.flow" è stato creato lo stage da me sostenuto, composto da attività che andassero a contribuire allo sviluppo del progetto. \\
 Lo stage è stato costruito inserendo le seguenti parti:
 
 \begin{itemize}
 	\item Nella prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di \emph{e-learning} Udeny, offerte dall'azienda;
-	\item La seconda parte era dedicata allo studio del funzionamento dell'\gls{architettura}\ap{[g]} del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS};
-	\item La terza parte era dedicata all'analisi, progettazione e implementazione dei flussi di conversazione per il \gls{bot}\ap{[g]} Azzurra;
+	\item La seconda parte era dedicata allo studio del funzionamento dell'\gls{architettura}\ap{[g]} del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema, quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS};
+	\item La terza parte era dedicata all'analisi, progettazione e implementazione di alcuni flussi di conversazione per il \gls{bot}\ap{[g]} Azzurra;
 	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di Azzurra;
-	\item La quinta parte sulle basi che si era imparato nella seconda parte, era previsto lo sviluppo di una test-suite di \gls{test e2e}\ap{[g]}, con l'obiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione mobile funzionassero in modo corretto;
-	\item Infine, nella sesta parte era dedicata allo studio di alcuni aspetti dell'applicazione mobile che sono:
+	\item La quinta parte sulle basi che si era imparato nella seconda parte, era previsto lo sviluppo di una test-suite di \gls{test e2e}\ap{[g]}, con l'obiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione \emph{mobile} funzionassero in modo corretto;
+	\item Infine, nella sesta parte era dedicata allo studio di alcuni aspetti dell'applicazione \emph{mobile} che sono:
 		\begin{itemize}
 			\item La gestione delle notifiche push;
-			\item Il template engine multi-lingua;
-			\item La gestione comportamenti mobile app in condizioni di mancanza di connettività.
+			\item Il \emph{template} engine multi-lingua;
+			\item La gestione comportamenti \emph{mobile} app in condizioni di mancanza di connettività.
 		\end{itemize}
 \end{itemize}
 
@@ -35,7 +35,8 @@ Lo stage è stato costruito inserendo le seguenti parti:
 \section{Obiettivi}
 
 \subsection{Classificazione}
-Piano di lavoro per il progetto di stage dell'anno accademico 2019/2020 svolto presso AzzurroDigitale, dove si farà riferimento ai requisiti secondo le seguenti notazioni:
+Di seguito viene riportato il piano di lavoro per il progetto di stage dell'anno accademico 2019/2020 svolto presso l'azienda AzzurroDigitale.
+Si farà riferimento ai requisiti secondo le seguenti notazioni:
 \begin{itemize}
 	\item \textit{OB-x} per i requisiti obbligatori, vincolanti in quanto obiettivo primario richiesto dal committente;
 	\item \textit{OD-x} per i requisiti desiderabili, non vincolanti o strettamente necessari,
@@ -45,7 +46,7 @@ Piano di lavoro per il progetto di stage dell'anno accademico 2019/2020 svolto p
 Dove x è un numero progressivo intero maggiore di zero.
 
 \subsection{Definizione degli obiettivi}
-Si prevede lo svolgimento dei seguenti obiettivi:
+Era previsto lo svolgimento dei seguenti obiettivi:
 \subsubsection*{Obbligatori}
 \begin{itemize}
  \item \textbf{OB-1}: competenza nello sviluppo delle singole attività identificate con i linguaggi PHP e Typescript.
@@ -58,7 +59,7 @@ Si prevede lo svolgimento dei seguenti obiettivi:
 
 %**************************************************************
 \section{Prodotti attesi}
-Durante lo stage era atteso lo sviluppo dei seguenti deliverable:
+Durante lo stage era atteso lo sviluppo dei seguenti \emph{deliverable}:
 \begin{itemize}
 	\item \textbf{Analisi tecnica}: Descrizione dell’analisi svolta e soluzione identificata, sarà redatta sulla piattaforma documentale aziendale Confluence;
 	\item \textbf{Software}: Implementazione software della soluzione identificata, redatta con l’IDE di sviluppo identificato per il progetto e depositata sul repository GitLab di riferimento.
@@ -66,12 +67,12 @@ Durante lo stage era atteso lo sviluppo dei seguenti deliverable:
 
 %**************************************************************
 \section{Modalità di svolgimento del lavoro}
-Lo stage è stato svolto in presenza negli uffici di AzzurroDigitale rispettando tutte le norme sul distanziamento sociale. L'orario di lavoro è stato dalle 9:00 fino alle 13:00 e dalle 14:00 fino alle 18:00. Durante lo stage sono stato inserito in un gruppo di sviluppatori, i quali fornivano una azione di supporto e guida nel caso in cui sorgevano difficoltà nel proseguimento delle attività di stage. Nonostante ciò ero comunque seguito anche dal mio tutor aziendale non che team leader del gruppo di sviluppatori, il quale esplicitava i task che dovevo realizzare e gli obiettivi attesi nello svolgimento di ogni task. 
+Lo stage è stato svolto in presenza negli uffici di AzzurroDigitale rispettando tutte le norme sul distanziamento sociale. L'orario di lavoro è stato dalle 9:00 fino alle 13:00 e dalle 14:00 fino alle 18:00. Durante lo stage sono stato inserito in un gruppo di sviluppatori, i quali fornivano una azione di supporto e guida nel caso in cui sorgevano difficoltà nel proseguimento delle attività di stage. Nonostante ciò ero comunque seguito anche dal mio tutor aziendale non che team leader del gruppo di sviluppatori, il quale esplicitava i \emph{task} che dovevo realizzare e gli obiettivi attesi nello svolgimento di ogni \emph{task}. 
 
 Durante lo stage per gestire le attività di progetto è stato utilizzato il modello agile \gls{SCRUM}\glsfirstoccur, modello adottato dall'azienda per gestire i propri progetti.
 Vi erano quindi le seguenti attività:
 \begin{itemize}
-	\item \emph{Daily meeting} mattutino, della durata di circa 15 minuti, dove vengono discussi i task della giornata, ed eventuali problemi bloccanti;
+	\item \emph{Daily meeting} mattutino, della durata di circa 15 minuti, dove vengono discussi i \emph{task} della giornata, ed eventuali problemi bloccanti;
 	\item \emph{Weekly review} dove vengono analizzate e discusse le attività che dovevo svolgere nella settimana successiva.
 \end{itemize}
 
@@ -79,8 +80,8 @@ Infine, durante lo stage era mio compito redirige un registro su cui, quotidiana
 
 \section{Pianificazione del lavoro}
 
-Di seguito viene mostrato in dettaglio la pianificazione delle attività per i mesi di Luglio, Agosto e Settembre 2020.
-Per ognuna delle seguenti attività si dovrà:
+Di seguito viene mostrato in dettaglio la pianificazione delle attività per i mesi di Luglio, Agosto e Settembre.
+Per ognuna delle seguenti attività è stato chiesto di:
 \begin{itemize}
 	\item Leggere e comprendere l’analisi funzionale;
 	\item Analizzare, progettare e documentare la soluzione tecnica identificata;
@@ -101,7 +102,7 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 \begin{itemize}
 	\item \textbf{Formazione NestJS}: corso Udemy + review di alcuni componenti di “Azzurra” già sviluppati;
 	\item \textbf{End-to-end testing}: (Selemium + Protractor + Cucumber) lato frontend;
-	\item \textbf{End-to-end testing}: (Appium + Protractor + Cucumber) lato mobile app.
+	\item \textbf{End-to-end testing}: (Appium + Protractor + Cucumber) lato \emph{mobile} app.
 \end{itemize}
 
 \item \subsubsection{Terza Settimana 13/07-17/07 (40 ore)}
@@ -127,7 +128,7 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 \item \subsubsection{Sesta Settimana 03/08-07/08 (40 ore)}
 \begin{itemize}
 	\item Contributi alla redazione della Solution Design di “Azzurra”;
-	\item Implementazione Push Notifications (lato mobile App);
+	\item Implementazione Push Notifications (lato \emph{mobile} App);
 	\item Implementazione Push Notifications (lato backend).
 \end{itemize}
 
@@ -139,7 +140,7 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 
 \item \subsubsection{Ottava Settimana 24/08-28/08 (40 ore)}
 \begin{itemize}
-	\item Gestione comportamenti mobile app in condizioni di mancanza di connettività (corner cases, messaggi di feedback, landing pages).
+	\item Gestione comportamenti \emph{mobile} app in condizioni di mancanza di connettività (corner cases, messaggi di feedback, landing pages).
 \end{itemize}
 
 \item \subsubsection{Nona Settimana 31/08-01/09 (16 ore)}
@@ -160,7 +161,7 @@ Di seguito viene riportata una tabella riassuntiva della pianificazione:
 	\hline			
 	24 &  01/07/2020 - 03/07/2020 & Studio delle tecnologie, Angular 2+ e Ionic, da utilizzare durante lo stage.\\
 
-	40 &  06/07/2020 - 10/07/2020 & Studio di componenti del dell'architettura di sistema di Azzurra, creazione di \emph{test} per la \emph{dashboard} di \gls{AWMS} e per l'applicazione mobile. \\
+	40 &  06/07/2020 - 10/07/2020 & Studio di componenti del dell'architettura di sistema di Azzurra, creazione di \emph{test} per la \emph{dashboard} di \gls{AWMS} e per l'applicazione \emph{mobile}. \\
 
 	40 &  13/07/2020 - 17/07/2020 & Continuazione studio delle componenti del sistema di Azzurra e analisi, progettazione e implementazione di flussi conversazionali.\\
 
@@ -170,9 +171,9 @@ Di seguito viene riportata una tabella riassuntiva della pianificazione:
 
 	40 &  03/08/2020 - 07/08/2020 & Documentazione delle componenti \gls{AWMS} e implementazione notifiche push.\\
 
-	40 &  17/08/2020 - 21/08/2020 & Progettazione, implementazione e documentazione di template engine multi-lingua.\\
+	40 &  17/08/2020 - 21/08/2020 & Progettazione, implementazione e documentazione di \emph{template engine} multi-lingua.\\
 
-	40 &  24/08/2020 - 28/08/2020 & Gestione comportamenti mobile app in condizioni di mancanza di connettività.\\
+	40 &  24/08/2020 - 28/08/2020 & Studio della gestione dei comportamenti \emph{mobile} app in condizioni di mancanza di connettività.\\
 
 	16 &  31/08/2020 - 01/09/2020 & Continuazione ottava settimana. \\
 	\hline
@@ -182,17 +183,17 @@ Di seguito viene riportata una tabella riassuntiva della pianificazione:
 \end{table}%
 
 \section{Variazioni}
-Nella seconda settimana è stato deciso di svolgere al posto di test d'unità nella parte front-end, test \gls{test e2e}\glsfirstoccur con lo scopo di esercitazione. La creazione di test \gls{test e2e}\ap{[g]} per l'applicazione mobile è stata sposta alla quinta settimana per poter testare anche i flussi di conversazione implementati per la chat con Azzurra.
+Nella seconda settimana è stato deciso di svolgere al posto di test d'unità nella parte front-end, test \gls{test e2e}\glsfirstoccur con lo scopo di esercitazione. La creazione di test \gls{test e2e}\ap{[g]} per l'applicazione \emph{mobile} è stata sposta alla quinta settimana per poter testare anche i flussi di conversazione implementati per la chat con Azzurra.
 
 \section{Strumenti e tecnologie utilizzate}
 
 \subsection{Tecnologie}
 
 \subsubsection*{HTML}
-L'\gls{HTML} è un \gls{linguaggio di markup}\glsfirstoccur per la strutturazione delle pagine web. Nato per la formattazione e impaginazione di documenti ipertestuali disponibili nel web 1.0, oggi è utilizzato principalmente per il disaccoppiamento della struttura logica di una pagina web. Attualmente HTML5 è l'ultima versione di HTML la quale porta una sintassi più semplice e un pieno supporta anche a browser più datati.
+L'\gls{HTML} è un \gls{linguaggio di markup}\glsfirstoccur per la strutturazione delle pagine web. Nato per la formattazione e impaginazione di documenti ipertestuali disponibili nel web 1.0, oggi è utilizzato principalmente per il disaccoppiamento della struttura logica di una pagina web. Attualmente \gls{HTML}5 è l'ultima versione di \gls{HTML} la quale porta una sintassi più semplice e un pieno supporta anche a browser più datati.
 
 \subsubsection*{CSS}
-Il \gls{CSS} è un linguaggio usato per definire la formattazione di documenti HTML, XHTML e XML ad esempio i siti web e relative pagine web. Permette una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo anche il riutilizzo di codice e facilita la manutenzione. Le specifiche CSS3 sono costituite da sezioni separate dette "moduli" e hanno differenti stati di avanzamento e stabilità.
+Il \gls{CSS} è un linguaggio usato per definire la formattazione di documenti \gls{HTML}, XHTML e XML ad esempio i siti web e relative pagine web. Permette una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo anche il riutilizzo di codice e facilita la manutenzione. Le specifiche \gls{CSS}3 sono costituite da sezioni separate dette "moduli" e hanno differenti stati di avanzamento e stabilità.
 
 \subsubsection*{TypeScript}
 È un linguaggio di programmazione \gls{open-source}\ap{[g]} che estende la sintassi di JavaScript in modo che qualunque programma scritto in JavaScript sia anche in grado di funzionare con TypeScript senza nessuna modifica. Come JavaScript è un linguaggio di programmazione orientato agli oggetti e agli eventi, comunemente utilizzato nella programmazione Web lato \gls{client}\glsfirstoccur per la creazione, in siti web e applicazioni web, di effetti dinamici interattivi tramite funzioni di script invocate da eventi innescati a loro volta in vari modi dall'utente sulla pagina web in uso.
@@ -201,7 +202,10 @@ Il \gls{CSS} è un linguaggio usato per definire la formattazione di documenti H
 Angular è un framework \gls{open-source}\ap{[g]} per lo sviluppo di applicazioni web con \gls{licenza MIT}\ap{[g]}, sviluppato principalmente da Google. Angular è l'evoluzione di AngularJS infatti , è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili. Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript. Angular è stato progettato per fornire uno strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi \emph{smartphone} e \emph{tablet}. Inoltre le applicazioni sviluppate in Angular vengono eseguite interamente dal \gls{browser web}\ap{[g]} dopo essere state scaricate dal web \gls{server}\ap{[g]}. Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente. 
 
 \subsubsection*{Ionic}
-Ionic è un SDK \gls{open-source}\ap{[g]} completo per lo sviluppo di app mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come CSS, HTML5 e Sass. In particolare, le app mobili possono essere costruite con queste tecnologie Web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
+Ionic è un SDK \gls{open-source}\ap{[g]} completo per lo sviluppo di applicazioni mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come \gls{CSS}, \gls{HTML}5 e Sass. In particolare, le applicazioni mobili possono essere costruite con queste tecnologie web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
+
+\subsubsection*{Apache Cordova}
+Cordova è un \gls{framework}\ap{[g]} \gls{open-source}\ap{[g]} per lo sviluppo di applicazioni \emph{mobile} multi-piattaforma, quindi sia per piattaforme \gls{Android} e sia per piattaforme \gls{iOS}. Esso consente di utilizzare tecnologie standard web come \gls{HTML}5, \gls{CSS}3 e JavaScript per lo sviluppo delle applicazioni \emph{mobile}, evitando di utilizzare il linguaggio nativo di ogni piattaforma \emph{mobile}. Inoltre, offre \gls{api}\ap{[g]} per accedere ai sensori del dispositivo come ad'esempio la fotocamera. Infatti, Cordova incapsula l'applicazione sviluppata con tecnologie web e la esegue localmente all’interno di un’applicazione nativa che può interagire con le funzionalità del dispositivo.
 
 \subsubsection*{Protractor}
 Protractor è un \gls{framework}\ap{[g]} di \emph{test} \gls{test e2e}\ap{[g]} per applicazioni Angular e AngularJS. Protractor esegue \emph{test} sulla applicazione in esecuzione in un browser reale, interagendo con essa come farebbe un utente.
@@ -213,25 +217,24 @@ Appium è un \gls{framework}\ap{[g]} gls{open-source}\ap{[g]} che permette di es
 Cucumber è un strumento che permette di creare \emph{test} automatizzati con una specifica non ambigua scritta nel linguaggio Gherkin e documenta come si comporta effettivamente il sistema.
 
 \subsubsection*{Selenium}
-Selenium è un framework gls{open-source}\ap{[g]} che viene utilizzato per automatizzare i test effettuati sui browser web cioè le applicazioni web vengono testate utilizzando un qualsiasi browser web. Selenium permette di eseguire \emph{test} scritti in vari linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala, JavaScript ecc. Grazie all'utilizzo di un set di \gls{api}\ap{[g]} detto \emph{WebDriver}, i \emph{test} possono essere eseguiti sulla maggior parte dei browser Web moderni.
+Selenium è un \gls{framework}\ap{[g]} \gls{open-source}\ap{[g]} che viene utilizzato per automatizzare i test effettuati sui browser web cioè le applicazioni web vengono testate utilizzando un qualsiasi browser web. Selenium permette di eseguire \emph{test} scritti in vari linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala, JavaScript ecc. Grazie all'utilizzo di un set di \gls{api}\ap{[g]} detto \emph{WebDriver}, i \emph{test} possono essere eseguiti sulla maggior parte dei browser Web moderni.
 
 \subsubsection*{Npm}
- Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js. Consiste in un client da linea di comando, chiamato anch'esso npm, e un database online di pacchetti pubblici e privati.
+Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js. Consiste in un client da linea di comando, chiamato anch'esso npm, e un database online di pacchetti pubblici e privati.
 
-%\subsubsection*{NestJS}
 \subsection{Strumenti}
 
 \subsubsection*{WebStorm}
-WebStorm è un ambiente di sviluppo integrato progettato per lo sviluppo web, principalmente in JavaScript e TypeScript. Supporta comunque, altri linguaggi per lo sviluppo di applicazioni web come ad esempio HTML, CSS, e PHP.
+WebStorm è un ambiente di sviluppo integrato progettato per lo sviluppo web, principalmente in JavaScript e TypeScript. Supporta comunque, altri linguaggi per lo sviluppo di applicazioni web come ad esempio \gls{HTML}, \gls{CSS}, e PHP.
 
 \subsubsection{Jira Software}
-È un software proprietario che consente il bug tracking e la gestione dei progetti agile sviluppato da Atlassian.
+È un software proprietario che consente il \emph{bug tracking} e la gestione dei progetti agile sviluppato da Atlassian.
 
 \subsubsection{Jira Confluence}
 È una piattaforma collaborativa sviluppata da Atlassian e scritta in Java, dove vengono forniti i strumenti per la scrittura e gestione della documentazione.
 
 \subsubsection{GitLab}
-È una piattaforma web gls{open-source}\ap{[g]} che permette la gestione di repository Git e di funzioni trouble ticket.
+È una piattaforma web \gls{open-source}\ap{[g]} che permette la gestione di repository Git e di funzioni trouble ticket.
 
 \section{Motivazioni personali}
 Attraverso la partecipazione all'iniziativa di StageIT, organizzata dall'Università di Padova e da Assindustria venetocentro, ho potuto entrare in contato con molte aziende del territorio.
@@ -239,10 +242,10 @@ Durante la partecipazione telematica all'evento ero alla ricerca di un’azienda
 
 \begin{itemize}
 	\item permettermi di ampliare e migliorare le mie conoscenze in Angular ma più in generale a imparare a utilizzare nuove tecnologie per lo sviluppo front-end;
-	\item che trattasse tematiche legate allo sviluppo di applicazioni mobile;
+	\item che trattasse tematiche legate allo sviluppo di applicazioni \emph{mobile};
 	\item permettermi di lavorare in un ambiente giovane e dinamico.
 	
 \end{itemize}  
 
 Confrontando con le varie aziende con cui ero entrato in contatto ho scelto di accettare lo stage proposto da AzzurroDigitale. \\
-Questo perché nella loro proposta di stage c'è tutti i tre punti elencati prima, infatti grazie a questo progetto di stage ho avuto modo di migliorarmi nell’utilizzo di Angular imparando a utilizzare i metodi offerti da lui, in modo più efficiente. Inoltre, ho avuto la possibilità di sviluppare un’applicazione mobile grazie all'utilizzo di Ionic e Cordova. Altro aspetto importante fu che quest'azienda si distingue dal fatto che per gestire i propri progetti utilizza la metodologia agile \gls{SCRUM}, una tematica mi interessava scoprire come valida alternativa al modello incrementale appresso durante il progetto del corso di Ingegneria del Software. Infine, l'azienda è una realtà giovane nata da meno di 5 anni fatta da persone giovani in cui potevo inserirmi facilmente.\\
+Questo perché nella loro proposta di stage c'è tutti i tre punti elencati prima, infatti grazie a questo progetto di stage ho avuto modo di migliorarmi nell’utilizzo di Angular imparando a utilizzare i metodi offerti da lui, in modo più efficiente. Inoltre, ho avuto la possibilità di sviluppare un’applicazione \emph{mobile} grazie all'utilizzo di Ionic e Cordova. Altro aspetto importante fu che quest'azienda si distingue dal fatto che per gestire i propri progetti utilizza la metodologia agile \gls{SCRUM}, una tematica mi interessava scoprire come valida alternativa al modello incrementale appresso durante il progetto del corso di Ingegneria del Software. Infine, l'azienda è una realtà giovane nata da meno di 5 anni fatta da persone giovani in cui potevo inserirmi facilmente.\\
