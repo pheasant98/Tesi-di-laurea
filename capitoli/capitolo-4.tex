@@ -11,7 +11,7 @@
 %*************************************************************
 
 \section{Cos'è}
-Un elemento cardine dell'architettura di Azzurra è Azzurra Flow Engine. Esso è un motore conversazionale in grado di ricevere in input flussi conversazionali, implementati attraverso configurazioni JSON, che risiedono nel database di Azzurra.io. Essi vengono mandati in input a Azzurra Flow Engine quando il \gls{bot}\ap{[g]} Azzurra ne fa richiesta. Questi file sono codificati secondo una certa struttura fatta dai cosiddetti blocchi conversazionali e da altri campi che verranno illustrati in seguito. Tornando su Azzurra Flow Engine come scritto, riceve in input la configurazione JSON e grazie ai metodi che ha disposizione è in grado di interpretare i file JSON ricevuti e generare i messaggi che il \gls{bot}\ap{[g]} Azzurra deve fare visualizzare all'utente nella \emph{chat}.
+Un elemento cardine dell'architettura di Azzurra è Azzurra Flow Engine. Esso è un motore conversazionale in grado di ricevere in input flussi conversazionali, implementati attraverso configurazioni \gls{JSON}\ap{[g]}\glsfirstoccur, che risiedono nel database di Azzurra.io. Essi vengono mandati in input a Azzurra Flow Engine quando il \gls{bot}\ap{[g]} Azzurra ne fa richiesta. Questi file sono codificati secondo una certa struttura fatta dai cosiddetti blocchi conversazionali e da altri campi che verranno illustrati in seguito. Tornando su Azzurra Flow Engine come scritto, riceve in input la configurazione JSON e grazie ai metodi che ha disposizione è in grado di interpretare i file JSON ricevuti e generare i messaggi che il \gls{bot}\ap{[g]} Azzurra deve fare visualizzare all'utente nella \emph{chat}.
 
 \section{Flussi di conversazione}
 I flussi di conversazione o conversazionali sono degli elementi fondamentali per la conversazione tra il \gls{bot}\ap{[g]} e l'utente umano. Essi sono delle configurazioni in JSON, dove ogni configurazione contiene un flusso di conversazione, e ogni flusso è un possibile ramo di conversazione che può essere fatto tra il \gls{bot}\ap{[g]} Azzurra e l'utente umano. Ogni configurazione contiene perciò dei particolari comandi che permettono al \gls{bot}\ap{[g]} di sapere quali messaggi deve mostrare all'utente umano e come comportarsi in base alle sue scelte. Ogni configurazione ha un id che contiene un codice univoco in modo tale da poter identificare ogni flusso di conversazione. Inoltre, l'esecuzione dei flussi di conversazione prevede che all'inizio ci sia l'esecuzione di un cosiddetto \emph{main flow}, in modo simile a come avviene per i programmi software, cioè c'è una funzione detta \emph{main} che viene eseguita per prima all'avvio del programma. Per indicare quale tra l'insieme dei flussi sia il \emph{main} si utilizza il campo isMainFlow dandogli il valore \emph{true}.
@@ -27,7 +27,7 @@ Il campo shortcuts è il campo dedicato per le cosiddette "scorciatoie" cioè, t
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.2]{shortcuts.png}
+	\includegraphics[scale=0.18]{shortcuts.png}
 	\caption{Menu contenente le shortcuts disponibili}
 \end{figure}
 
@@ -38,7 +38,7 @@ e al suo interno contiene i seguenti campi:
 	\item flowId: Contiene l'identificativo del flusso che la scorciatoia permette di far eseguire;
 	\item icon: Per rendere la UI più accattivante è possibile aggiungere al bottone dedicato alla scorciatoia, delle icone per ogni scorciatoia.
 \end{itemize}
-\clearpage
+
 \subsection{Configurazione "config"}
 Il campo config permette di indicare attraverso il campo startBlockId quale blocco di conversazione del flusso deve essere eseguito per primo, per tale campo ci sarà il codice identificativo del primo blocco da eseguire. Il campo configurazione viene indicato nel file con la \emph{keyword} config.
 
@@ -300,7 +300,7 @@ Ha la seguente struttura:
 	\item \textbf{type}: Indica se contiene un PDF o una immagine, nel caso di un'immagine indica se è in formato JPG o in JPEG oppure in PNG.
 \end{itemize}	
 
-\section{Gestione dell'internazionalizzazione di AWMS}
+\section{Gestione dell'internazionalizzazione di AWMS}% non so dove mettere sta roba la metto qui perchè di si
 Per il sistema \gls{AWMS} è stata implementata la gestione dell'\gls{i18n}. Infatti per rendere tutto il sistema, sia lato backend sia lato Azzurra, adattabile a più lingue, sono stati definiti un insieme di testi multi-lingua. Per gestire questi testi multi-lingua è stato progettato di utilizzare un \emph{template engine} al fine di ottenere la parametrizzazione dei testi. \\
 
 Un \emph{template engine} non è altro che un programma che prevede la definizione di blocchi detti \emph{template} spesso scritti in HTML, che hanno la caratteristica di avere dei segnaposto detti \emph{placeholders}, che vengono sostituiti dai dati da visualizzare. In questi blocchi perciò  viene definito il testo scritto in una specifica lingua e in quali punti del testo devono essere inseriti i dati per la visualizzazione. Per la sostituzione dei \emph{placeholders} solitamente il \emph{template engine} utilizza file \gls{JSON}\ap{[g]}, in cui i segnaposti sono solitamente rappresentati dai campi che compongono l’oggetto salvato nel file JSON, i quali andranno a sostituire i segnaposti con i loro valori che rappresentano i dati da visualizzare. Chiaramente i \emph{template} vengono riutilizzanti anche se i dati visualizzati variano. Vengono perciò definiti \emph{template} di testi "localizzati" cioè scritti in un delle lingue supportate dal sistema \gls{AWMS}.\\
