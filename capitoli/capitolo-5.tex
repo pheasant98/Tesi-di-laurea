@@ -41,6 +41,7 @@ Ogni requisito sarà strutturato come segue:
 \end{itemize}
 Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 \begin{table}[h]%
+	\renewcommand{\arraystretch}{1.4}
 	\rowcolors{2}{grigetto}{white}
 	\centering
 	\begin{tabularx}{\textwidth}{c X}
@@ -63,8 +64,6 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 		R1F13 & Il lavoratore deve poter visualizzare le sue prenotazioni del giorno successivo.\\
 		R1F14 & Il lavoratore deve poter visualizzare le sue prenotazioni di uno specifico giorno.\\
 		R1F15 & Il lavoratore deve poter inserire la data del giorno in cui vuole vedere le prenotazioni.\\
-		R1F15 & Il lavoratore, per ogni prenotazione, deve poter visualizzare l'ora di inizio della prenotazione.\\
-		R1F17 & Il lavoratore, per ogni prenotazione, deve poter visualizzare l'ora di terminazione della prenotazione.\\	
 		\hline	
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei requisiti}
@@ -72,13 +71,16 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 \\
 
 \begin{table}[h]%
+	\renewcommand{\arraystretch}{1.4}
 	\rowcolors{2}{grigetto}{white}
 	\centering
 	\begin{tabularx}{\textwidth}{c X}
 		\hline		
 		\rowcolor{giallo}
 		\intest{Codice} &  \intest{Descrizione} \\	
-		\hline	
+		\hline		
+		R1F15 & Il lavoratore, per ogni prenotazione, deve poter visualizzare l'ora di inizio della prenotazione.\\
+		R1F17 & Il lavoratore, per ogni prenotazione, deve poter visualizzare l'ora di terminazione della prenotazione.\\	
 		R1F18 & Il lavoratore, per ogni prenotazione, deve poter visualizzare la stanza della prenotazione.\\
 		R1F19 & Il lavoratore, per ogni prenotazione, deve poter visualizzare il posto della prenotazione.\\	
 		R1F20 & Il lavoratore, dopo avere scannerizzato il \gls{QR code}\ap{[g]} del posto a sedere, deve ricevere un messaggio di conferma che lo informa che può usufruire del posto a sedere.\\
@@ -97,6 +99,7 @@ Dopo un’analisi del problema sono stati individuati i seguenti requisiti
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei requisiti}
 \end{table}%
+\clearpage
 \section{Progettazione}
 Dopo aver individuato i requisiti che descrivono i flussi da costruire, si è passati alla progettazione dei flussi. Come spiegato nel capitolo precedente i flussi conversazionali non sono altro che un insieme di blocco che asseconda del tipo di appartenenza svolgono determinate funzioni. Grazie a ciò, la progettazione dei due flussi è iniziata con l'inserimento dei blocchi corretti e il collegamento tra di essi, ottenendo così due diagrammi che rappresentano i due flussi dove viene mostrato che passi deve fare il \gls{bot}\ap{[g]} Azzurra durante la conversazione con l'utente umano. Successivamente si sono progettati i metodi da aggiungere a quelli esistenti per poter creare i messaggi nel modo corretto.\\
 Di seguito vengono illustrati i diagrammi dei flussi fatti.
