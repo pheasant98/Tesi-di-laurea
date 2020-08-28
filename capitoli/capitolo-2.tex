@@ -17,7 +17,7 @@ Lo stage è stato costruito inserendo le seguenti parti:
 
 \begin{itemize}
 	\item Nella prima parte era stato pianificato lo studio delle tecnologie che sarebbero state utilizzate durante lo stage e nella contribuzione dello sviluppo del progetto "Azzurra.flow". Lo studio autonomo delle tecnologie era supportato da video lezioni della piattaforma di \emph{e-learning} Udeny, offerte dall'azienda;
-	\item La seconda parte era dedicata allo studio del funzionamento dell'\gls{architettura}\ap{[g]} del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte frontend del sistema, quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS};
+	\item La seconda parte era dedicata allo studio del funzionamento dell'\gls{architettura}\ap{[g]} del sistema che permette l'esecuzione di Azzurra, in particolare il funzionamento dei metodi del motore conversazionale denominato Azzurra.io e in più come esercitazione, era richiesto la creazione di alcuni \gls{test e2e}\glsfirstoccur per la parte \gls{front-end}\glsfirstoccur del sistema, quindi l'implementare di \emph{test} per la \emph{dashboard} di \gls{AWMS};
 	\item La terza parte era dedicata all'analisi, progettazione e implementazione di alcuni flussi di conversazione per il \gls{bot}\ap{[g]} Azzurra;
 	\item La quarta parte era dedicata alla stesura della documentazione per la Solution Design di Azzurra;
 	\item La quinta parte sulle basi che si era imparato nella seconda parte, era previsto lo sviluppo di una test-suite di \gls{test e2e}\ap{[g]}, con l'obiettivo di testare in modo automatizzato, se le funzionalità dell'applicazione \emph{mobile} funzionassero in modo corretto;
@@ -49,7 +49,7 @@ Dove x è un numero progressivo intero maggiore di zero.
 Era previsto lo svolgimento dei seguenti obiettivi:
 \subsubsection*{Obbligatori}
 \begin{itemize}
- \item \textbf{OB-1}: competenza nello sviluppo delle singole attività identificate con i linguaggi PHP e Typescript.
+ \item \textbf{OB-1}: competenza nello sviluppo delle singole attività identificate con i linguaggi \gls{PHP} e Typescript.
 \end{itemize}
 \subsubsection*{Desiderabili} 
 \begin{itemize}
@@ -115,7 +115,7 @@ Di seguito viene riportata la pianificazione completa, basata su 320 ore, delle 
 \item \subsubsection{Quarta Settimana 20/07-24/07  (40 ore)}
 \begin{itemize}
 	\item Contributi alla redazione della Solution Design di “Azzurra”;
-	\item Contributi alla documentazione sorgenti di “Azzurra” (frontend/backend).
+	\item Contributi alla documentazione sorgenti di “Azzurra” (frontend/\gls{back-end}\glsfirstoccur).
 \end{itemize}
 
 \item \subsubsection{Quinta Settimana 27/07-31/07 (40 ore)}
@@ -202,7 +202,7 @@ Il \gls{CSS} è un linguaggio usato per definire la formattazione di documenti \
 Angular è un framework \gls{open-source}\ap{[g]} per lo sviluppo di applicazioni web con \gls{licenza MIT}\ap{[g]}, sviluppato principalmente da Google. Angular è l'evoluzione di AngularJS infatti , è stato completamente riscritto rispetto a AngularJS e le due versioni non sono compatibili. Il linguaggio di programmazione usato per AngularJS è JavaScript mentre quello di Angular è TypeScript. Angular è stato progettato per fornire uno strumento facile e veloce per sviluppare applicazioni che girano su qualunque piattaforma inclusi \emph{smartphone} e \emph{tablet}. Inoltre le applicazioni sviluppate in Angular vengono eseguite interamente dal \gls{browser web}\ap{[g]} dopo essere state scaricate dal web \gls{server}\ap{[g]}. Questo comporta il risparmio di dover spedire indietro la pagina web al web-server ogni volta che c'è una richiesta di azione da parte dell'utente. 
 
 \subsubsection*{Ionic}
-Ionic è un SDK \gls{open-source}\ap{[g]} completo per lo sviluppo di applicazioni mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come \gls{CSS}, \gls{HTML}5 e Sass. In particolare, le applicazioni mobili possono essere costruite con queste tecnologie web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
+Ionic è un \gls{SDK \gls{open-source}\ap{[g]} completo per lo sviluppo di applicazioni mobili ibride e permette di essere utilizzato con qualsiasi framework per lo sviluppo di applicazioni web. Ionic fornisce strumenti e servizi per lo sviluppo di applicazioni web ibride mobili, desktop e progressive basate su moderne tecnologie e pratiche di sviluppo web, utilizzando tecnologie web come \gls{CSS}, \gls{HTML}5 e \gls{Sass}. In particolare, le applicazioni mobili possono essere costruite con queste tecnologie web e quindi distribuite tramite app store nativi per essere installate sui dispositivi mobili, utilizzando Cordova o Capacitor. 
 
 \subsubsection*{Apache Cordova}
 Cordova è un \gls{framework}\ap{[g]} \gls{open-source}\ap{[g]} per lo sviluppo di applicazioni \emph{mobile} multi-piattaforma, quindi sia per piattaforme \gls{Android} e sia per piattaforme \gls{iOS}. Esso consente di utilizzare tecnologie standard web come \gls{HTML}5, \gls{CSS}3 e JavaScript per lo sviluppo delle applicazioni \emph{mobile}, evitando di utilizzare il linguaggio nativo di ogni piattaforma \emph{mobile}. Inoltre, offre \gls{api}\ap{[g]} per accedere ai sensori del dispositivo come ad'esempio la fotocamera. Infatti, Cordova incapsula l'applicazione sviluppata con tecnologie web e la esegue localmente all’interno di un’applicazione nativa che può interagire con le funzionalità del dispositivo.
@@ -217,7 +217,7 @@ Appium è un \gls{framework}\ap{[g]} gls{open-source}\ap{[g]} che permette di es
 Cucumber è un strumento che permette di creare \emph{test} automatizzati con una specifica non ambigua scritta nel linguaggio Gherkin e documenta come si comporta effettivamente il sistema.
 
 \subsubsection*{Selenium}
-Selenium è un \gls{framework}\ap{[g]} \gls{open-source}\ap{[g]} che viene utilizzato per automatizzare i test effettuati sui browser web cioè le applicazioni web vengono testate utilizzando un qualsiasi browser web. Selenium permette di eseguire \emph{test} scritti in vari linguaggi di programmazione, come C\# , Groovy , Java , Perl , PHP , Python , Ruby e Scala, JavaScript ecc. Grazie all'utilizzo di un set di \gls{api}\ap{[g]} detto \emph{WebDriver}, i \emph{test} possono essere eseguiti sulla maggior parte dei browser Web moderni.
+Selenium è un \gls{framework}\ap{[g]} \gls{open-source}\ap{[g]} che viene utilizzato per automatizzare i test effettuati sui browser web cioè le applicazioni web vengono testate utilizzando un qualsiasi browser web. Selenium permette di eseguire \emph{test} scritti in vari linguaggi di programmazione, come C\# , Groovy , Java , Perl , \gls{PHP} , Python , Ruby e Scala, JavaScript ecc. Grazie all'utilizzo di un set di \gls{api}\ap{[g]} detto \emph{WebDriver}, i \emph{test} possono essere eseguiti sulla maggior parte dei browser Web moderni.
 
 \subsubsection*{Npm}
 Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js. Consiste in un client da linea di comando, chiamato anch'esso npm, e un database online di pacchetti pubblici e privati.
@@ -225,7 +225,7 @@ Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. �
 \subsection{Strumenti}
 
 \subsubsection*{WebStorm}
-WebStorm è un ambiente di sviluppo integrato progettato per lo sviluppo web, principalmente in JavaScript e TypeScript. Supporta comunque, altri linguaggi per lo sviluppo di applicazioni web come ad esempio \gls{HTML}, \gls{CSS}, e PHP.
+WebStorm è un ambiente di sviluppo integrato progettato per lo sviluppo web, principalmente in JavaScript e TypeScript. Supporta comunque, altri linguaggi per lo sviluppo di applicazioni web come ad esempio \gls{HTML}, \gls{CSS}, e \gls{PHP}.
 
 \subsubsection{Jira Software}
 È un software proprietario che consente il \emph{bug tracking} e la gestione dei progetti agile sviluppato da Atlassian.
@@ -241,7 +241,7 @@ Attraverso la partecipazione all'iniziativa di StageIT, organizzata dall'Univers
 Durante la partecipazione telematica all'evento ero alla ricerca di un’azienda che proponesse un progetto di stage con le seguenti caratteristiche:
 
 \begin{itemize}
-	\item permettermi di ampliare e migliorare le mie conoscenze in Angular ma più in generale a imparare a utilizzare nuove tecnologie per lo sviluppo front-end;
+	\item permettermi di ampliare e migliorare le mie conoscenze in Angular ma più in generale a imparare a utilizzare nuove tecnologie per lo sviluppo \gls{front-end}\ap{[g]};
 	\item che trattasse tematiche legate allo sviluppo di applicazioni \emph{mobile};
 	\item permettermi di lavorare in un ambiente giovane e dinamico.
 	

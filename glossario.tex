@@ -26,13 +26,40 @@
 	{rest}{REST}{Representational State Transfer}	
 
 \newacronym[description={\glslink{httpg}{Hyper Text Transfer Protocol}}]
-	{http}{HTTP}{Hyper Text Transfer Protocol}	
+{http}{HTTP}{Hyper Text Transfer Protocol}	
 	
 \newacronym[description={HyperText Markup Language}]
 	{HTML}{HTML}{HyperText Markup Language}	
 	
 \newacronym[description={Cascading Style Sheets}]
-	{CSS}{CSS}{Cascading Style Sheets}	
+	{CSS}{CSS}{Cascading Style Sheets}
+	
+\newacronym[description={Syntactically Awesome StyleSheets}]
+	{Sass}{Sass}{Syntactically Awesome StyleSheets}
+	
+\newacronym[description={Hypertext Preprocessor}]
+	{PHP}{PHP}{Hypertext Preprocessor}	
+	
+\newacronym[description={\glslink{urlg}{Uniform Resource Locator}}]
+	{url}{URL}{Uniform Resource Locator}	
+			
+\newacronym[description={\glslink{httpsg}{Hyper Text Transfer Protocol over Secure Socket Layer}}]
+	{https}{HTTPS}{Hyper Text Transfer Protocol over Secure Socket Layer}	
+		
+\newacronym[description={\glslink{dbmsg}{Database Management System}}]
+	{DBMS}{DBMS}{Database Management System}
+
+\newacronym[description={\glslink{domg}{Document Object Model}}]
+	{DOM}{DOM}{Document Object Model}
+
+\newacronym[description={World Wide Web Consortium}]
+	{W3C}{W3C}{World Wide Web Consortium}
+
+\newacronym[description={\glslink{gdprg}{General Data Protection Regulation}}]
+	{GDPR}{GDPR}{General Data Protection Regulation}	
+
+\newacronym[description={\glslink{sdkg}{Software Development Kit}}]
+	{SDK}{SDK}{Software Development Kit}
 	
 
 %**************************************************************
@@ -112,6 +139,7 @@
 	description={È un framework agile per la gestione del ciclo di sviluppo del software, iterativo ed incrementale, concepito per gestire progetti e prodotti software o applicazioni di sviluppo. Nel proprio manifesto prevede i seguenti punti che lo caratterizzano, le persone e le interazioni sono più importanti dei processi e dei strumenti, meglio avere da subito software funzionante che documentazione ampia, meglio una collaborazione con il cliente piuttosto che fare una negoziazione del contratto, essere in grando di rispondere ai cambiamenti piuttosto che rispettare un piano. 
 	I progetti Scrum progrediscono attraverso una serie di sprint che hanno una durata massima di un mese. Negli sprint vengono decisi quali requisiti devono essere soddisfatti, e quindi successivamente, progettati, implementati e testati}
 }
+
 \newglossaryentry{framework}{
 	name={Framework},
 	text=framework,
@@ -119,30 +147,35 @@
 	description={In informatica con il termine framework 
 	si indica un insieme di elementi software che un programmatore può usare o modificare per realizzare un programma. Rappresenta un astrazione composta da elementi universali e riutilizzabili con lo scopo di facilitare lo sviluppo di un programma e di far applicare buone norme di programmazione. Inoltre, un framework può offrire programmi di supporto, librerie, compilatori e documentazione per l'utilizzo}
 }
+
 \newglossaryentry{iOS}{
 	name={iOS},
 	text=iOS,
 	sort=iOS,
 	description={È un sistema operativo \emph{mobile} sviluppato da Apple per iPhone, iPod touch e iPad. Le versioni principali di iOS vengono distribuite ogni anno. L'attuale versione, iOS 13, è stata distribuita al pubblico il 19 settembre 2019}
 }
+
 \newglossaryentry{Android}{
 	name={Android},
 	text=Android,
 	sort=Android,
-	description={È un sistema operativo per dispositivi \emph{mobile} sviluppato da Google e basato sul kernel Linux, progettato principalmente per \emph{smartphone} e \emph{tablet}, interfacce utente specializzate per televisori (Android TV), automobili (Android Auto), orologi da polso (Wear OS), occhiali (Google Glass). L'attuale versione è Android 11}
+	description={È un sistema operativo per dispositivi \emph{mobile} sviluppato da Google e basato sul kernel Linux, progettato principalmente per \emph{smartphone} e \emph{tablet}, interfacce utente specializzate per televisori (Android TV), automobili (Android Auto), orologi da polso (Wear OS), occhiali (Google Glass). L'attuale ultima versione è Android 11}
 }
+
 \newglossaryentry{architettura}{
 	name={Architettura},
 	text=Android,
 	sort=Android,
-	description={In informatica con il termine architettura, in questo caso intesa come architettura software, l'organizzazione fondamentale di un sistema, definita dai suoi componenti, dalle relazioni reciproche tra i componenti e con l'ambiente, e i principi che ne governano la progettazione e l'evoluzione}
+	description={In informatica con il termine architettura, in questo caso intesa come architettura \emph{software}, è l'organizzazione fondamentale di un sistema, definita dai suoi componenti, dalle relazioni reciproche tra i componenti e con l'ambiente, e i principi che ne governano la progettazione e l'evoluzione}
 }
+
 \newglossaryentry{linguaggio di markup}{
 	name={Linguaggio di markup},
 	text=linguaggio di markup,
 	sort=linguaggio di markup,
-	description={In informatica con il termine linguaggio di markup, un gruppo di regole detti marcatori, attraverso le quali vengono descritti i meccanismi di rappresentazione di un testo}
+	description={In informatica con il termine linguaggio di markup, si intende un gruppo di regole detti marcatori, attraverso le quali vengono descritti i meccanismi di rappresentazione di un testo}
 }
+
 \newglossaryentry{browser web}{
 	name={Browser web},
 	text=browser web,
@@ -161,7 +194,7 @@
 	name={Applicazione web mobile},
 	text=applicazione web mobile,
 	sort=applicazione web mobile,
-	description={In informatica si intende pagine web ottimizzate per dispositivi \emph{mobile} scritte utilizzando tecnologie web, in particolare HTML, JavaScript e CSS. Inoltre, le applicazioni web non possono accedere alle funzionalità del dispositivo ad'esempio la fotocamera}
+	description={In informatica si intende pagine web ottimizzate per dispositivi \emph{mobile} scritte utilizzando tecnologie web, in particolare \gls{HTML}, JavaScript e \gls{CSS}. Inoltre, le applicazioni web non possono accedere alle funzionalità del dispositivo ad'esempio la fotocamera}
 }
 
 \newglossaryentry{applicazione ibrida}{ %va a benzina ma anche con l'elettricità
@@ -203,17 +236,15 @@
 	name={Client},
 	text=client,
 	sort=client,
-	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che accede ai servizi o alle risorse messe a dispozione da un'altra componente detta server, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione}
+	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che accede ai servizi o alle risorse messe a dispozione da un'altra componente detta server, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione. Insieme al \gls{server}\ap{[g]} forma l'architettura client/server}
 }
 
 \newglossaryentry{server}{ 
 	name={Server},
 	text=server,
 	sort=server,
-	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che offre dei servizi o dalle risorse a un'altri componenti presenti nella rete detti client, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione}
+	description={In informatica con il termine client si intende un entita presente in un rete di comunicazione che offre dei servizi o dalle risorse a un'altri componenti presenti nella rete detti client, la cui comunicazione tra client e server è regolata da insieme di regole e norme detti protocolli di comunicazione. Insieme al \gls{client}\ap{[g]} forma l'architettura client/server}
 }
-
-
 
 \newglossaryentry{httpg}{ 
 	name=\glslink{http}{HTTP},
@@ -221,7 +252,6 @@
 	sort=http,
 	description={In informatica con il termine \emph{Hyper Text Transfer Protocol (HTTP)} (ing. protocollo di trasferimento di un ipertesto)si intende un insieme di regole e norme che regolano la trasmissione e la comunicazione d'informazione nella rete Internet. Questo trasmissione d'informazioni avviene sotto forma di scambi di messaggi tipicamente tra il client che puo essere un \gls{browser web}\ap{[g]}, e un server}
 }
-
 
 \newglossaryentry{open-source}{ 
 	name={Open-source},
@@ -234,8 +264,102 @@
 	name=\glslink{rest}{REST},
 	text=Representational State Transfer,
 	sort=rest,
-	description={In informatica con il termine \emph{Representational State Transfer (REST)} (ing. trasferimento di stato rappresentativo) si intende un approccio architetturale alla creazione di web \gls{api}\ap{[g]} basato sul protocollo di comunicazione \gls{http}\ap{[g]}. Viene imposto che le \gls{api}\ap{[g]} devono permettere di accedere a delle risorse attraverso un indirizzo di rete, utilizzare il formato \gls{JSON}\ap{[g]} e XML, non avere uno stato cioè non deve essere memorizzato cioè che è stato fatto e infine, utilizzare i metodi del \gls{http}\ap{[g]}, GET, POST, PUT, DELETE}
+	description={In informatica con il termine \emph{Representational State Transfer (REST)} (ing. trasferimento di stato rappresentativo) si intende un approccio architetturale alla creazione di web \gls{api}\ap{[g]} basato sul protocollo di comunicazione \gls{http}\ap{[g]}. Viene imposto che le \gls{api}\ap{[g]} devono permettere di accedere a delle risorse attraverso un \gls{url}\ap{[g]}, utilizzare il formato \gls{JSON}\ap{[g]} e XML, non avere uno stato cioè non deve essere memorizzato cioè che è stato fatto e infine, utilizzare i metodi del \gls{http}\ap{[g]}, GET, POST, PUT, DELETE}
 }
+
+\newglossaryentry{urlg}{ 
+	name=\glslink{url}{URL},
+	text=Uniform Resource Locator,
+	sort=url,
+	description={In informatica con il termine \emph{Uniform Resource Locator (URL)} (ing. localizzare di risorse uniformi) in intede una sequenza di caratteri che identifica univocamente l'indirizzo di una risorsa su una rete di computer, come ad esempio un documento, un'immagine, un video, tipicamente presente su un \gls{server}\ap{[g]} e resa accessibile a un \gls{client}\ap{[g]}}
+}
+
+\newglossaryentry{front-end}{ 
+	name={Front-end},
+	text=front-end,
+	sort=front-end,
+	description={in informatica con il termine front-end si intende la parte visibile all'utente di un programma e con cui egli può interagire solitamente è un'interfaccia utente. Perciò il front-end è la parte di un sistema \emph{software} che gestisce l'interazione con l'utente, ricevendo da esso un input da cui viene prodotto (dal \gls{back-end}\ap{[g]}) un output da mostrare all'utente}
+}
+
+\newglossaryentry{back-end}{ 
+	name={Back-end},
+	text=back-end,
+	sort=back-end,
+	description={in informatica con il termine back-end si intende la parte che si occuppa di ricevere in input dati inseriti dall'utenti e di eleborarli per rispondere alle richieste dell'utente. Dopo l'elaborazione dei dati il back-end produce un risultato che sarà compito del \gls{front-end}\ap{[g]} mostrarlo}
+}
+
+\newglossaryentry{httpsg}{ 
+	name=\glslink{https}{HTTPS},
+	text=Hyper Text Transfer Protocol over Secure Socket Layer,
+	sort=https,
+	description={In informatica con il termine \emph{Hyper Text Transfer Protocol over Secure Socket Layer (HTTPS)} (ing. protocollo di trasferimento di un ipertesto basato su un strato di sicurrezza) si intende un insieme di regole e norme che regolano la trasmissione e la comunicazione d'informazione nella rete Internet in modo sicuro cioè il contenuto della trasmissione non è interpretabile da entità diverse dal mittente o dal/dai destinataro/i.
+	Per la comunicazione viene utilizzato il protocollo \gls{http}\ap{[g]} all'interno di una connessione criptata dal protocollo \emph{Secure Sockets Layer (SSL)} garantendo cosi riservatezza dei dati cioè il contenuto della tramissione e visibile solo al mittente e al destinatario, integrità dei dati cioè il contenuto della trasmessione non viene alterato e autenticazione di comunica}
+}
+
+\newglossaryentry{database}{ 
+	name={Database},
+	text=database,
+	sort=database,
+	description={in informatica con il termine database (ing. base di dati) si intende un insieme di dati memmorizzati aventi una struttura ben definita i quali vengono gestiti da un \gls{DBMS}\ap{[g]}}
+}
+
+\newglossaryentry{dbmsg}{ 
+	name=\glslink{DBMS}{DBMS},
+	text=Database Management System,
+	sort=url,
+	description={In informatica con il termine \emph{Database Management System (DBMS)} (ing. sistema di gestione di basi di dati) in intede un sistema \emph{software} progettato per consentire la creazione, la manipolazione e l'interrogazione efficiente di database}
+}
+
+\newglossaryentry{firebase}{ 
+	name={Firebase},
+	text=firebase,
+	sort=firebase,
+	description={È la piattaforma \emph{mobile} di Google che ti aiuta a sviluppare applicazione \emph{mobile}. Firebase offre tutto ciò che dovrebbe offrire un \gls{back-end}\ap{[g]} quindi, funzionalità di autenticazione, un \gls{database} (quello di Firebase è di tipo NoSQL), servizi di \emph{hosting} e algoritmi di \gls{machine learning} per l'apprendimento automatico}
+}
+
+\newglossaryentry{foreground}{ 
+	name={Esecuzione in foreground},
+	text=foreground,
+	sort=foreground,
+	description={In informatica con il termine foreground (ing. primo piano) si intende l'esecuzione dei processi di un \emph{software} dove può essere richiesta l'interazione dell'utente ma che comunque l'utente sa dell'esecuzioni di tali processi. Nel caso di un'applicazione \emph{mobile} significa che nello schermo viene visualizzata l'applicazione in esecuzione con la quale l'utente può interagire}
+}
+
+\newglossaryentry{background}{ 
+	name={Esecusione in background},
+	text=background,
+	sort=background,
+	description={In informatica con il termine background, si intede l'esecuzione dei processi di un \emph{software} dove non viene richiesto l'intervento dell'utente, tanto da non essere a lui visibile tale esecuzione. Nel caso di un'applicazione \emph{mobile} significa che nello schermo non viene visualizzata l'applicazione in esecuzione. Resta comunque attiva ma non interagibile con l'utente finche è in background}
+}
+
+\newglossaryentry{base64}{ 
+	name={Base64},
+	text=base64,
+	sort=base64,
+	description={In informatica con il termine base64, si intede n sistema di codifica che consente la traduzione di dati binari in stringhe di testo ASCII cioè un insieme di codici per la codifica dei caratteri. I dati vengono rappresentati sulla base di sessantaquattro caratteri ASCII diversi}
+}
+
+\newglossaryentry{domg}{ 
+	name=\glslink{DOM}{DBMS},
+	text=Document Object Model,
+	sort=dom,
+	description={In informatica con il termine \emph{Document Object Model (DOM)} (ing. modello a oggetti del documento) in intede una forma di rappresentazione dei documenti strutturati in modo gerarchico. È lo standard ufficiale del W3C per la rappresentazione di documenti strutturati in maniera da essere neutrali sia per la lingua che per la piattaforma}
+}
+
+\newglossaryentry{gdprg}{ 
+	name=\glslink{GDPR}{GDPR},
+	text=General Data Protection Regulation,
+	sort=gdpr,
+	description={Per \emph{General Data Protection Regulation (GDPR)} (ing. Regolamento generale sulla protezione dei dati) in intede un regolamento dell'Unione europea in materia di trattamento dei dati personali e di \emph{privacy}, adottato il 27 aprile 2016, pubblicato sulla Gazzetta ufficiale dell'Unione europea il 4 maggio 2016 ed entrato in vigore il 24 maggio dello stesso anno ed operativo a partire dal 25 maggio 2018. Il testo affronta anche il tema dell'esportazione di dati personali al di fuori dell'UE e obbliga tutti i titolari del trattamento dei dati (anche con sede legale fuori dall'UE) che trattano dati di residenti nell'UE ad osservare e adempiere agli obblighi previsti.}
+}
+
+\newglossaryentry{sdkg}
+{
+	name=\glslink{sdk}{SDK},
+	text=Software Development Kit,
+	sort=sdk,
+	description={in informatica con il termine \emph{Software Development Kit (SDK)} (ing. pacchetto di sviluppo per \textit{software}) si intende una collezione di strumenti per lo sviluppo \emph{software} contenuti all'interno di un singolo pacchetto installabile all'interno del proprio sistema. Tutto ciò viene offerto per facilitare la creazione di applicazioni. Questi strumenti solitamente sono specifici per il particolare tipo di \emph{hardware}, sistema operativo e linguaggio di programmazione utilizzati per lo sviluppo \emph{software}}
+}
+
 \begin{comment}
 \newglossaryentry{e2eg}
 {
@@ -244,33 +368,16 @@
 	sort=test End to End,
 	description={Con il termine test end-to-end (end-to-end testing) si intende quell’attività di testing dell’interfaccia grafica vista dagli utenti del programma dall’inizio fino alla fine. In altre parole rappresenta una metodologia utilizzata per verificare se il flusso di un’applicazione si sta comportando come progettato dall’inizio fino alla fine senza che vengano rilevati dei errori che andrebbero a inficiare sulla qualità dell’applicazione stessa}
 }
-
-
-
 \newglossaryentry{AWMSg}
 {
-name=\glslink{AWMS}{AWMS},
-text=Advanced Workforce Management System,
-sort=AWMS,
-description={È una soluzione software che utilizza algoritmi di \gls{machine learning}, per risolvere uno dei problemi cardine di un \gls{plant manager} ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore}
+	name=\glslink{AWMS}{AWMS},
+	text=Advanced Workforce Management System,
+	sort=AWMS,
+	description={È una soluzione software che utilizza algoritmi di \gls{machine learning}, per risolvere uno dei problemi cardine di un \gls{plant manager} ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore}
 }
 
-
 Parole da aggiungere
-url
-architettura Client/Server
-SDK -> acronimo PHP
-frontend
-backend
-https
-database
-DBMS +acronimo
-Firebase
-https + acronimo
-GDPR
-base64
-SHA-1
-DOM
-foreground
-background
+
+database*
+
 \end{comment}
