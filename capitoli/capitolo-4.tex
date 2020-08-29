@@ -101,7 +101,7 @@ Oltre a campi del tipo BLOCK ha i seguenti campi in più:
 	\item \textbf{category}: Il blocco ASK è ulteriormente distinguibile in ASK o in MENU che si differenziano nel seguente aspetto:\\
 	nel caso sia di categoria ASK tutte le opzioni disponibili portano a un blocco di conversazione successivo diverso mentre per MENU tutte le opzioni portano tutte allo stesso blocco;
 	\item \textbf{source}: Parametro che contiene il nome di una variabile a cui fare riferimento per prendere i dati da utilizzare. Se non si fa riferimento a nessuna variabile allora va settato a \emph{NULL};
-	\item \textbf{items}: Questo campo contiene un array d'oggetti di tipo BlockItem che rappresentano le possibili scelte che può fare l'utente, essi graficamente vengono rappresentati come dei pulsanti;
+	\item \textbf{items}: Questo campo contiene un \emph{array} d'oggetti di tipo BlockItem che rappresentano le possibili scelte che può fare l'utente, essi graficamente vengono rappresentati come dei pulsanti;
 	\item \textbf{sourceType}: Parametro che indica la modalità di utilizzo della variabile contenuta nel campo source;
 	Sono previste due modalità:
 	\begin{itemize}
@@ -314,7 +314,7 @@ Un \emph{template engine} non è altro che un programma che prevede la definizio
  
 
 \section{Funzionamento di Azzurra Flow Engine}
-L'Azzurra Flow Engine è l'elemento in grado di interpretare i dati contenuti nelle configurazioni \g{JSON}. Grazie a esso è possibile eseguire il corretto flusso della conversazione e generare i messaggi da mostrare nella \emph{chat} dell'applicazione mobile. 
+L'Azzurra Flow Engine è quell'elemento in grado di interpretare i dati contenuti nelle configurazioni \g{JSON}. Grazie a esso è possibile eseguire il corretto flusso della conversazione e generare i messaggi da mostrare nella \emph{chat} dell'applicazione mobile. 
 \subsection{Messaggio del bot Azzurra}
 Per implementare le funzionalità del Azzura Flow Engine vengono utilizzate le seguenti classi sviluppate in Angular:
 \begin{itemize}
@@ -345,7 +345,7 @@ Una volta che si è stabilità la connessione con Azzurra.io, attraverso un \g{W
 	\begin{itemize}
 		\item \textbf{Caso SAY}: Viene eseguito il metodo \_processSay() ricevendo in input il blocco corrente. Il metodo prende il valore salvato nel campo text e le eventuali variations del blocco, generando il testo del messaggio da mostrare attraverso il metodo \_renderText(). Vengono generati eventuali BlockItems attraverso il metodo \_buildSayItems() il quale controlla il sourceType e in base al valore che ha, genera i BlockItems. Tornando in \_processSay(), se presenti vengono anche eseguite le widgetOptions attraverso il metodo \_processWidgetOptions() e creati gli eventuali BlockAttachments. Infine, viene emesso il nuovo messaggio creato per il \g{bot} Azzurra e si passa all'esecuzione del prossimo blocco;
 		\item \textbf{Caso ASK}: Viene eseguito il metodo \_processAsk ricevendo in input il blocco corrente. Il metodo salva il nome della variabile contenuta nel campo var, che contiene la risposta dell'utente. Analogamente per quanto accede per il blocco SAY viene creato il testo della domanda e attraverso il metodo \_buildQuestions() vengono creati i BlockItems delle possibili scelte. Inoltre, vengono processati gli eventuali widgetOptions. Infine, viene emesso il nuovo messaggio creato per il \g{bot}, il quale rimane in attesa della risposta dell'utente umano quando verrà visualizzato il messaggio;
-		\item \textbf{Caso JUMP}: Viene eseguito il metodo \_processJump() ricevendo in input il blocco corrente. Richiama il metodo \_getFlow() pasandogli l'identificativo del flusso da eseguire attraverso il campo target. Il metodo citato richiede ad Azzurra.io il flusso che ha l'identificativo uguale a quello ricevuto in input, e una volta ricevuto comincia l'esecuzione del nuovo flusso conversazionale richiamando start();
+		\item \textbf{Caso JUMP}: Viene eseguito il metodo \_processJump() ricevendo in input il blocco corrente. Richiama il metodo \_getFlow() passandogli l'identificativo del flusso da eseguire attraverso il campo target. Il metodo citato richiede ad Azzurra.io il flusso che ha l'identificativo uguale a quello ricevuto in input, e una volta ricevuto comincia l'esecuzione del nuovo flusso conversazionale richiamando start();
 		\item \textbf{Caso IF}: Viene eseguito il metodo \_processIf() passando in input il blocco corrente. Valuta la condizione attraverso \_manageConditions(), e in base al risultato stabilisce quale sarà il blocco di conversazione successivo da eseguire;
 		\item \textbf{Caso PROD}: Viene eseguito il metodo \_processProd() passandogli in input il blocco corrente. Stabilisce che formattazione deve essere fatta e la esegue attraverso il metodo \_manageExpressions(). Infine, passa all'esecuzione del prossimo blocco;
 		\item \textbf{CALLFUNC}: Viene ricavato il \emph{payload} del blocco e codificato il \emph{template} in Handlebars per generare il corpo della richiesta, una volta fatto ciò la richiesta è pronta e viene mandata a Azzurra.io. Successivamente viene salvata la risposta sulla variabile indicata del campo var e in base alla risposta, se andata a buon fine oppure no, si eseguirà il corrispondente blocco successivo.
