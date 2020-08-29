@@ -11,7 +11,7 @@
 Nella stesura del presente documento, sono state adottate le seguenti convenzioni tipografiche:
 \begin{itemize}
 	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per i termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
+	\item per i termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\textcolor{SchoolColor}{\ap{[g]}};
 	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
 \end{itemize}
 
@@ -26,7 +26,7 @@ Nella stesura del presente documento, sono state adottate le seguenti convenzion
 %**************************************************************
 \section{L'azienda AzzurroDigitale S.r.l}
 
-Lo stage è stato svolto nell'azienda AzzurroDigitale S.r.l. situata nella zona industriale di Padova. AzzurroDigitale nasce nel 2015 quando tre giovani padovani (Carlo Pasqualetto, Jacopo Pertile e Antonio Fornari) fondano la \emph{startup}, puntando fortemente nelle nuove emergenti tecnologie che il mercato offriva. Come primo cliente, fu l'azienda \gls{Electrolux}\glsfirstoccur che grazie a una forte attività collaborazione, fu sviluppata una piattaforma per la gestione della forza lavoro denominata \gls{AWMS}, che tutt’ora continua a ricevere miglioramenti e a crescere. Dopo il successo ottenuto con la collaborazione con \gls{Electrolux}\ap{[g]}, i fondatori capiscono che il mercato delle aziende manifatturiere è la nicchia sulla quale puntare soprattutto grazie al momento storico della \emph{digital transformation}. 
+Lo stage è stato svolto nell'azienda AzzurroDigitale S.r.l. situata nella zona industriale di Padova. AzzurroDigitale nasce nel 2015 quando tre giovani padovani (Carlo Pasqualetto, Jacopo Pertile e Antonio Fornari) fondano la \emph{startup}, puntando fortemente nelle nuove emergenti tecnologie che il mercato offriva. Come primo cliente, fu l'azienda \g{Electrolux} che grazie a una forte attività collaborazione, fu sviluppata una piattaforma per la gestione della forza lavoro denominata \gls{AWMS}, che tutt’ora continua a ricevere miglioramenti e a crescere. Dopo il successo ottenuto con la collaborazione con \g{Electrolux}, i fondatori capiscono che il mercato delle aziende manifatturiere è la nicchia sulla quale puntare soprattutto grazie al momento storico della \emph{digital transformation}. 
 
 \begin{figure}[h]
 	\begin{center}
@@ -51,17 +51,17 @@ L'azienda AzzurroDigitale offre come principale servizio, la piattaforma di gest
 		\end{center}
 	\end{figure}
 
-\gls{AWMS} è una soluzione \emph{software} che utilizza algoritmi di \gls{machine learning}\glsfirstoccur, per risolvere uno i problemi cardine di un \gls{plant manager}\glsfirstoccur ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore. Per permettere il funzionamento della pianificazione, la piattaforma estrae da dei \gls{database}\glsfirstoccur interni all'azienda che ha acquistato la soluzione, dati sui lavoratori che ne descrivono le competenze che possiedono. Viene perciò registrato uno storico dei mansioni svolte per ogni lavoratore e, se nel tempo acquisirà nuove competenze queste verranno indicate nei dati dei \gls{database}\ap{[g]}, aggiornandoli. In base perciò, ai dati estratti dalla piattaforma viene scelto il miglior candidato per un determinato compito. \gls{AWMS} offre la possibilità di pianificare il lavoro per il giorno successivo ma anche gestire situazioni impreviste, come ad esempio l'assenza di un lavoratore.
+\gls{AWMS} è una soluzione \emph{software} che utilizza algoritmi di \g{machine learning}, per risolvere uno i problemi cardine di un \g{plant manager} ovvero, la pianificazione ottimale della forza lavoro che ha disposizione. L'obbiettivo principale della soluzione è quello di pianificare la persona giusta al posto giusto in base alle competenze tecniche possedute del lavoratore. Per permettere il funzionamento della pianificazione, la piattaforma estrae da dei \g{database} interni all'azienda che ha acquistato la soluzione, dati sui lavoratori che ne descrivono le competenze che possiedono. Viene perciò registrato uno storico dei mansioni svolte per ogni lavoratore e, se nel tempo acquisirà nuove competenze queste verranno indicate nei dati dei \g{database}, aggiornandoli. In base perciò, ai dati estratti dalla piattaforma viene scelto il miglior candidato per un determinato compito. \gls{AWMS} offre la possibilità di pianificare il lavoro per il giorno successivo ma anche gestire situazioni impreviste, come ad esempio l'assenza di un lavoratore.
 
 \subsection{Il progetto Azzurra.flow}
 
-Il progetto Azzurra.flow nasce dalla esigenza, da parte dell'azienda AzzurroDigitale, di offrire un prodotto completo per tutti i soggetti coinvolti nelle attività lavorative. Con \gls{AWMS} si ha uno strumento che supporta i \emph{team leader} o i \gls{plant manager}\ap{[g]} nella loro pianificazione del lavoro ma non si ha nessun strumento che supporti il lavoratore. Da questa mancanza nasce perciò il progetto "Azzurra.flow". Esso consiste nel creare un \gls{bot}\glsfirstoccur denominato Azzurra, inserito in un’applicazione \emph{mobile}, che permette di offrire delle funzionalità utili all'utente, che sono:
+Il progetto Azzurra.flow nasce dalla esigenza, da parte dell'azienda AzzurroDigitale, di offrire un prodotto completo per tutti i soggetti coinvolti nelle attività lavorative. Con \gls{AWMS} si ha uno strumento che supporta i \emph{team leader} o i \g{plant manager} nella loro pianificazione del lavoro ma non si ha nessun strumento che supporti il lavoratore. Da questa mancanza nasce perciò il progetto "Azzurra.flow". Esso consiste nel creare un \g{bot} denominato Azzurra, inserito in un’applicazione \emph{mobile}, che permette di offrire delle funzionalità utili all'utente, che sono:
 \begin{itemize}
 	\item Visualizzare il proprio turno di lavoro;
 	\item Visualizzare i propri permessi lavorativi o richiederne di nuovi;
 	\item Visualizzare avvisi da parte dell'azienda;
 	\item Sapere qual'è il menu del giorno della mensa aziendale;
-	\item Poter effettuare prenotazioni di un posto a sedere in una sala riunioni e visualizzare le proprie prenotazioni, inoltre utilizzare un scannerizzatore \gls{QR code}\glsfirstoccur per riscattare il posto prenotato.
+	\item Poter effettuare prenotazioni di un posto a sedere in una sala riunioni e visualizzare le proprie prenotazioni, inoltre utilizzare un scannerizzatore \g{QR code} per riscattare il posto prenotato.
 \end{itemize}
 \begin{figure}[!h] 
 	\begin{center}
@@ -69,7 +69,7 @@ Il progetto Azzurra.flow nasce dalla esigenza, da parte dell'azienda AzzurroDigi
 		\caption{Logo del bot Azzurra}
 	\end{center}
 \end{figure}
-Il progetto include non solo lo sviluppo dell'applicazione \emph{mobile} con Azzurra ma, un motore conversazionale denominato Azzurra Flow Engine, in grado di poter generare una conversazione con il lavoratore, attraverso l'interpretazione dei flussi di conversazione, anche essi da sviluppare, che indicano quali azioni deve fare Azzurra. Inoltre questi flussi devono essere memorizzati in un preciso posto perciò, è stato progettato che sia un \gls{database}\ap{[g]} contenuto nella nuova componente Azzurra.io, la quale ha il compito di non solo di tenere memorizzati i flussi conversazionili esistenti e di inviarli a Azzurra quando li richiede, ma di fare da tramite tra l'applicazione con all'interno Azzurra e \gls{AWMS}, tutto attraverso una comunicazione tramite \gls{WebSocket}\glsfirstoccur.
+Il progetto include non solo lo sviluppo dell'applicazione \emph{mobile} con Azzurra ma, un motore conversazionale denominato Azzurra Flow Engine, in grado di poter generare una conversazione con il lavoratore, attraverso l'interpretazione dei flussi di conversazione, anche essi da sviluppare, che indicano quali azioni deve fare Azzurra. Inoltre questi flussi devono essere memorizzati in un preciso posto perciò, è stato progettato che sia un \g{database} contenuto nella nuova componente Azzurra.io, la quale ha il compito di non solo di tenere memorizzati i flussi conversazionili esistenti e di inviarli a Azzurra quando li richiede, ma di fare da tramite tra l'applicazione con all'interno Azzurra e \gls{AWMS}, tutto attraverso una comunicazione tramite \g{WebSocket}.
 %**************************************************************
 \section{Organizzazione del testo}
 Il capitolo trattato attualmente è l'introduzione del documento, dove si è spiegato brevemente l'ambito di lavoro e il progetto sul quale si è svolto lo stage.\\
@@ -78,7 +78,7 @@ Di seguito il documento sarà organizzato nella seguente struttura:
     
     \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] descrive in modo dettagliato lo stage svolto, indicandone obiettivi, prodotti attesi, pianificazione delle attività, strumenti e tecnologie utilizzate. Infine, verranno esposte le motivazioni per cui ho scelto di svolgere questo stage.
     
-    \item[{\hyperref[cap:archittettura del sistema AWMS]{Il terzo capitolo}}] illustra l'\gls{architettura}\ap{[g]} del sistema \gls{AWMS} che permette il funzionamento di Azzurra. Vengono qui descritte le componenti dell'architettura e le varie operazioni tra essi.
+    \item[{\hyperref[cap:archittettura del sistema AWMS]{Il terzo capitolo}}] illustra l'\g{architettura} del sistema \gls{AWMS} che permette il funzionamento di Azzurra. Vengono qui descritte le componenti dell'architettura e le varie operazioni tra essi.
     
     \item[{\hyperref[cap:flow engine]{Il quarto capitolo}}] approfondisce il funzionamento del motore conversazionale di Azzurra, indicando perciò come avviene una conversazione tra Azzurra e l'utente.
     
