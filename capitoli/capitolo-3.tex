@@ -10,7 +10,7 @@
 
 
 \section{Descrizione}
-Come scritto precedentemente, dietro all'applicazione \emph{mobile} c'è tutta un'\g{architettura} di sistema che permette la comunicazione tra la piattaforma \gls{AWMS} e l'applicazione mobile con Azzurra.
+Come scritto precedentemente, dietro all'applicazione \emph{mobile} c'è tutta un'\g{architettura} di sistema che permette la comunicazione tra la piattaforma \gls{AWMS} e l'applicazione \emph{mobile} con Azzurra.
  
  \begin{figure}[h]
  	\begin{center}
@@ -176,14 +176,14 @@ Come mostrato nella Figura~\ref{fig:recovery} si hanno i seguenti passi:
 \end{enumerate}
 
 \subsection{Richiesta e invio di dati}
-Durante l'esecuzione di una conversazione è molto probabile che Azzurra abbia bisogno di far visualizzare delle informazioni richieste dall'utente ad esempio il suo orario di lavoro, queste informazioni però non sono salvate ne nell'applicazione mobile né in Azzurra.io ma nel \g{back-end}.
+Durante l'esecuzione di una conversazione è molto probabile che Azzurra abbia bisogno di far visualizzare delle informazioni richieste dall'utente ad esempio il suo orario di lavoro, queste informazioni però non sono salvate ne nell'applicazione \emph{mobile} né in Azzurra.io ma nel \g{back-end}.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[height=5cm, width=13cm]{request.png}
 		\caption{Sequence diagram per il recupero dei dati sul lavoratore}\label{fig:request}
 	\end{center}
 \end{figure}
-La Figura~\ref{fig:request} mostra come Azzurra ottiene i dati richiesti:
+La Figura~\ref{fig:request} mostra come Azzurra ottiene i dati:
 \begin{enumerate}
 	\item L'utente chiede una qualche operazione ad Azzurra che necessita contattare il \g{back-end} per ottenere i dati che l'utente vuole;
 	\item L'applicazione chiede quindi i dati necessari a Azzurra.io che si prende carico della richiesta;
