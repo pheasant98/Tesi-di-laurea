@@ -172,3 +172,12 @@ In comune accordo con il tutor aziendale, sono stati individuati i seguenti \emp
 	\end{tabularx} \hbox{}
 	\caption{Tabella del tracciamento dei test E2E}
 \end{table}%
+\clearpage
+\section{Considerazioni}
+I \emph{test} prodotti sono stati in linea con quanto chiesto del tutor aziendale. Dall'esperienza vissuta sull'implementazione dei \emph{test} \gls{test e2e} si sono fatte delle considerazioni su di essi. Dopo un iniziale difficoltà nell'implementazione dei \emph{test} dovuta alla natura asincrona dei \emph{test} cioè i \emph{test} fallivano perché erano più veloci ad eseguirsi rispetto alla renderizzazione delle componenti grafiche che dovevano testare, ad esempio un \emph{test} non trovava una componente grafica perché non aspettava che fosse renderizzata e falliva anche se la componente grafica c'era. Si è quindi capito quanto fosse molto oneroso in termini di tempo spesi per implementare i vari \emph{test} \gls{test e2e} ciononostante, grazie all'utilizzo delle PageObject e dei loro metodi è stato risparmiato del tempo riutilizzando i metodi implementati precedentemente.\\
+
+da quanto si è fatto, si è capito quanto siano costosi i \emph{test} \gls{test e2e} non solo da essere implementati ma anche per eseguirli, infatti per eseguire solo ventisette \emph{test} per il \emph{mobile} si è impiegato più di quindici minuti mentre con l'aggiunta dei \emph{test} per la \emph{dashboard} si è arrivati a più di venti minuti.\\
+
+Infine un aspetto critico rilevato è stato il fatto che alcuni casi non possono essere testati o se ci si prova richiedono troppo tempo per essere testati, ad esempio non è stato possibile verificare in modo completamente automatizzato se lo \emph{scanner} di \g{QR code} fosse in grado di funzionare correttamente, questo perché non si poteva generare un \g{mock} di \g{QR code} da mostrare. Si poteva comunque fare un \emph{test} semi automatizzato, cioè quando il \emph{test} apriva la fotocamere per scannerizzare, si mostrare manualmente un \g{QR code} cosi che lo \emph{scanner} riusciva a scansionare e a verificare se tutto funzionava correttamente.\\
+
+Si considera perciò che i \emph{test} \gls{test e2e} danno un grande valore aggiunto nella qualità del prodotto ma questi vanno usati per testare operazioni ripetitive e che possano essere da \emph{test} facilmente implementabili perché in alcuni casi non conviene implementare dei \emph{test} \gls{test e2e} completamente automatizzati.
