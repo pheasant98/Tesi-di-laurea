@@ -201,7 +201,6 @@
 \newcommand{\intest}[1]{\multicolumn{1}{>{\columncolor{rossoep}}c}{\textbf{#1}}}
 \newcolumntype{Z}{>{\centering\arraybackslash}X}
 \renewcommand{\tabularxcolumn}[1]{>{\arraybackslash}m{#1}}
-%\renewcommand*{\glstextformat}[1]{#1}
 
 %**************************************************************
 % Altro
@@ -221,7 +220,7 @@
                        \renewcommand{\tablename}{Tabella}}
 
 \newcommand{\glsfirstoccur}{\ap{{[g]}}}
-\newcommand{\g}[1]{\gls{#1}\textcolor{SchoolColor}{\ap{[g]}}}
+\newcommand{\g}[1]{\gls{#1}\textcolor{SchoolColor}{\ap{[g]}}} %parola da glossario
 \newcommand{\acr}[1]{\texttt{\gls{#1}}}
 \newcommand{\intro}[1]{\emph{\textsf{#1}}}
 
@@ -269,7 +268,7 @@
 }{
     \medskip
 }
-
+%**************************************USE CASE**********************************************
 \newcommand{\usecasename}{UC}
 
 \newcommand{\usecaseactors}[1]{\textbf{\\Attori Principali:} #1. \vspace{4pt}}
@@ -295,13 +294,8 @@
 }
 
 
+%*****************************************Chapter Style*************************************
 
-%Chapter figo
-\usepackage[explicit]{titlesec}
-\usepackage{xcolor}
-\usepackage{lipsum}% just to generate text
-%\colorlet{myrulecolor}{black}
-%\definecolor{myrulecolor}{RGB}{150,20,0}% define the color for the rules
 \titleformat{\chapter}[display]
 {\normalfont\scshape\Huge}
 {\hspace*{-70pt}\textcolor{SchoolColor}{\textbf{\thechapter}} \textbf{\textcolor{SchoolColor}{ |}} ~#1}
@@ -314,9 +308,12 @@
 {\hspace*{-110pt}{\color{SchoolColor}\rule{\dimexpr\textwidth+80pt\relax}{3pt}}\Huge}
 \titlespacing*{\chapter}{0pt}{0pt}{30pt}
 
-%Tree Directory
+\makeatletter
+\renewcommand\@seccntformat[1]{\color{SchoolColor} {\csname the#1\endcsname}\hspace{0.5em}}
+\makeatother
 
-\usepackage[edges]{forest}
+%***************************************Tree Directory***************************************
+
 
 \definecolor{foldercolor}{RGB}{124,166,198}
 
@@ -338,7 +335,5 @@
 	folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
 	folder icons/.default={12pt},
 }
+%********************************************************************************************
 
-\usepackage{graphicx}
-\usepackage{watermark}
-\usepackage{transparent}
