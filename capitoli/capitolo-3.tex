@@ -10,7 +10,7 @@
 
 
 \section{Descrizione}
-Come scritto precedentemente, dietro all'applicazione \emph{mobile} c'è tutta un'\g{architettura} di sistema che permette la comunicazione tra la piattaforma \gls{AWMS} e l'applicazione \emph{mobile} con Azzurra.
+Come scritto precedentemente, per realizzare l'applicazione \emph{mobile} è presente un'\g{architettura} di sistema che permette la comunicazione tra la piattaforma \gls{AWMS} e l'applicazione \emph{mobile} con Azzurra.
  
  \begin{figure}[h]
  	\begin{center}
@@ -18,7 +18,7 @@ Come scritto precedentemente, dietro all'applicazione \emph{mobile} c'è tutta u
  		\caption{Architettura di sistema AWMS}\label{fig:arch}
  	\end{center}
  \end{figure}
-La figura precedente illustra come è composta l'\g{architettura}, dove ogni componente verrà descritta nelle successive sotto sezioni.
+La figura precedente illustra come è composta l'\g{architettura} in cui ogni componente verrà descritta nelle successive sotto sezioni.
 \begin{trivlist}
 	\item \subsection{AWMS Dashboard}
 	È il pannello di controllo attraverso il quale un \g{plant manager} interagisce con la piattaforma \gls{AWMS} per pianificare il lavoro da svolgere, cioè assegnare un compito alla persona più idonea. Il pannello di controllo è una applicazione web che è stata sviluppata attraverso il \g{framework} Angular.
@@ -28,27 +28,30 @@ La figura precedente illustra come è composta l'\g{architettura}, dove ogni com
 			\caption{Schermata di AWMS Dashboard}
 		\end{center}
 	\end{figure}
-	 	La \emph{dashboard} per comunicare con il \g{back-end}, utilizza delle \g{api} che il \g{back-end} espone, quindi per ragioni di sicurezza, \g{back-end} e l'applicazione web cioè il \g{front-end}, comunicano attraverso \g{api} con in più l'utilizzo del protocollo di comunicazione \g{https} che rende sicura la comunicazione. Nella Figura~\ref{fig:arch} viene mostrato il caso in cui il \g{front-end} utilizza \g{api} per l'invio di una \g{notifica push}, questo perché è previsto che quando il \g{plant manager} sceglie il lavoratore più idoneo per un certo lavoro, quest'ultimo deve essere avvisato. Perciò sarà compito del \g{front-end} avvisare il \g{back-end} che c'è stata una nuova assegnazione e che questa assegnazione deve essere comunicata al diretto interessato attraverso un notifica sull'applicazione \emph{mobile} con all'interno Azzurra.
+	 	La \emph{dashboard} per comunicare con il \g{back-end} utilizza delle \g{api} da esso esposte. Quindi, per ragioni di sicurezza, \g{back-end} e applicazione web, cioè il \g{front-end}, comunicano attraverso \g{api} e fanno uso del protocollo di comunicazione \g{https} che rende sicura la comunicazione. \\
+	 	Nella Figura~\ref{fig:arch} viene mostrato il caso in cui il \g{front-end} utilizza \g{api} per l'invio di una \g{notifica push}, questo perché è previsto che, quando il \g{plant manager} sceglie il lavoratore più idoneo per un certo lavoro, quest'ultimo deve essere avvisato. Perciò sarà compito del \g{front-end} avvisare il \g{back-end} la presenza di una nuova assegnazione e che questa deve essere comunicata al diretto interessato attraverso un notifica sull'applicazione \emph{mobile} con all'interno Azzurra.
 	\item \subsection{AWMS backend}
-	Come dice il suo nome, AWMS Backend rappresenta il \g{back-end} del sistema. AWMS Backend è stato sviluppato usando la tecnologia CakePHP, un \g{framework} per lo sviluppo di applicazioni web scritto in \gls{PHP}. Al suo interno risiede il \g{database} che contiene tutte le informazioni sui lavoratori e tra questi quindi, i dati da mostrare nei messaggi di Azzurra come ad esempio il piano di lavoro che ha il lavoratore in uno specifico giorno. Il \g{database} utilizza come \g{DBMS} PostgreSQL. \\
+	Come dice il suo nome, AWMS Backend rappresenta il \g{back-end} del sistema. È stato sviluppato usando la tecnologia CakePHP, un \g{framework} per lo sviluppo di applicazioni web scritto in \gls{PHP}. Al suo interno risiede il \g{database} che contiene tutte le informazioni sui lavoratori e tra questi i dati da mostrare nei messaggi di Azzurra come ad esempio il piano di lavoro che ha il lavoratore in uno specifico giorno. Il \g{database} utilizza come \g{DBMS} PostgreSQL. \\
 	
-	Come scritto nel punto precedente, per comunicare con AWMS Backend, vengono esposte delle \g{api} per la comunicazione infatti, esiste un \g{api} per l'invio di una \g{notifica push} ma esiste anche un \g{api} utilizzata da Azzurra.io, per la richiesta di informazioni sul lavoratore necessarie per completare il flusso di conversazione. Quindi questa \g{api} permetterà di richiedere dati al \g{back-end} che li cercherà nel suo \g{database} interno. Se l'interrogazione al \g{database} da esito positivo, ritornerà le informazioni richieste a Azzurra.io. Il \g{back-end} si trova all'interno della rete interna dell'azienda che ha acquistato la soluzione di AzzurroDigitale, anche Azzurra.io è all'interno della rete, perciò tra queste due componenti la comunicazione avviene attraverso il protocollo di comunicazione \g{http}. Il \g{back-end} ha la possibilità di comunicare direttamente con Azzurra.io quando deve inviare una \g{notifica push}, sarà poi onere di Azzurra.io inviare la \g{notifica push} ai destinatari ma solo a quelli attivi, cioè quei utenti che hanno una connessione aperta con Azzurra.io. Per i destinatati che non sono attivi cioè, quelli non hanno una connessione aperta con Azzurra.io, l'invio della notifica verrà fatto utilizzando i servizi offerti da \g{firebase}, la cui comunicazione tra \g{back-end} e \g{firebase} avviene tramite \g{https} perché \g{firebase} è un servizio esterno.\\
+	Come scritto nel punto precedente, per comunicare con AWMS Backend, vengono esposte delle \g{api} per la comunicazione. Esiste un \g{api} per l'invio di una \g{notifica push} e un \g{api} utilizzata da Azzurra.io per la richiesta di informazioni sul lavoratore, necessarie per completare il flusso di conversazione. Quindi questa \g{api} permetterà di richiedere dati al \g{back-end} che li cercherà nel suo \g{database} interno. Se l'interrogazione al \g{database} dà esito positivo ritornerà le informazioni richieste a Azzurra.io. Il \g{back-end} si trova all'interno della rete interna dell'azienda che ha acquistato la soluzione di AzzurroDigitale, anche Azzurra.io è all'interno della rete, perciò tra queste due componenti la comunicazione avviene attraverso il protocollo di comunicazione \g{http}. Il \g{back-end} ha la possibilità di comunicare direttamente con Azzurra.io quando deve inviare una \g{notifica push}. Sarà poi onere di Azzurra.io inviare la \g{notifica push} ai destinatari ma solo a quelli attivi, cioè quei utenti che hanno una connessione aperta con Azzurra.io. Per i destinatari che non sono attivi, quelli che non hanno una connessione aperta con Azzurra.io, l'invio della notifica verrà fatto utilizzando i servizi offerti da \g{firebase} la cui comunicazione avviene tramite \g{https}.\\
 	
-	La gestione dell'invio di una \g{notifica push} verrà comunque trattato in modo più dettagliato più avanti nel seguente capitolo.
+	La gestione dell'invio di una \g{notifica push} verrà comunque trattata in modo più dettagliato più avanti nel seguente capitolo.
 	\item \subsection{Azzurra.io}
-	Azzurra.io è una componente strategica per il funzionamento del \g{bot} Azzurra. Azzurra.io è sviluppata attraverso il \g{framework} NestJS. Al suo interno ha due \g{database} con \g{DBMS} PostgreSQL. Il primo \g{database} contiene i flussi di conversazione che indicano al \g{bot} la sequenza di passi che deve seguire durante la conversazione con l'utente umano, la struttura dei flussi conversazionali verrà spiegata in modo dettagliato al capitolo successivo. Il secondo \g{database} permette di memorizzare i messaggi fatti tra il \g{bot} Azzurra e l'utente. La scelta di adottare quest'ultimo \g{database} è dettata dalle seguenti motivazioni:
+	Azzurra.io è una componente strategica per il funzionamento del \g{bot} Azzurra ed è sviluppata attraverso il \g{framework} NestJS. Al suo interno ha due \g{database} con \g{DBMS} PostgreSQL. Il primo contiene i flussi di conversazione che indicano al \g{bot} la sequenza di passi che deve seguire durante la conversazione con l'utente umano, il secondo permette di memorizzare i messaggi fatti tra il \g{bot} Azzurra e l'utente. La scelta di adottare quest'ultimo \g{database} è dettata dalle seguenti motivazioni:
 	\begin{itemize}
-		\item Per mantenere lo stato della conversazione cioè, se l'utente decide di non andare avanti con la conversazione e di continuarla in un secondo momento, grazie a questo \g{database}, in cui viene salvato lo stato della conversazione, l'utente potrà continuare la conversazione da dove l'aveva lasciata. Il mantenimento dello stato della conversazione non avviene per un tempo illimitato ma dura al massimo un'ora dopo di che lo stato verrà cancellato;
-		\item Per una migliore \emph{user experience} si è scelto, nel caso in cui ci siano state delle conversazioni in precedenza, di mostrare i messaggi delle conversazioni precedenti, cosi che se l'utente ha bisogno di un’informazione che ha già chiesto precedentemente ma che si è dimenticato, basta che controlli i messaggi presenti nella \emph{chat} senza dover richiedere ad Azzurra l'informazione dimenticata.
+		\item Per mantenere lo stato della conversazione, cioè se l'utente decide di fermare la conversazione e continuarla in un secondo momento, l'utente potrà continuare la conversazione da dove l'aveva lasciata. Il mantenimento dello stato non avviene per un tempo illimitato ma dura per un massimo di un'ora, successivamente verrà cancellato;
+		\item Per una migliore \emph{user experience} si è scelto  di mostrare i messaggi delle conversazioni precedenti nel caso ci siano state delle conversazioni in precedenza. In questo modo se l'utente ha bisogno di un’informazione che ha già chiesto prima, potrà semplicemente controllare i messaggi presenti nella \emph{chat} senza dover richiedere ad Azzurra l'informazione dimenticata.
 	\end{itemize}
-	La connessione tra l'applicazione \emph{mobile} e Azzurra.io è possibile grazie ai \g{WebSocket} che permettono di aprire una connessione tra i due e di mantenere sempre aggiornati i dati come per esempio, la struttura dei flussi di conversazione. Per tenere traccia degli utenti connessi con Azzurra.io tramite l'applicazione \emph{mobile}, viene utilizzata una mappa chiave-valore, interna ad Azzurra.io, denominata \emph{User Map}. Grazie a essa Azzurra.io potrà sapere quali utenti destinatari di una \g{notifica push} sono attivi e quali no in modo da rispondere alle richieste del \g{back-end} quando viene richiesto l'invio della di una \g{notifica push}. Come scritto all'inizio della sotto sezione, Azzurro.io è una componente strategica principalmente per due motivi.
+	La connessione tra l'applicazione \emph{mobile} e Azzurra.io è possibile grazie ai \g{WebSocket} che permettono di aprire una connessione tra i due e mantenere sempre aggiornati i dati, come ad esempio la struttura dei flussi di conversazione. Per tenere traccia degli utenti connessi con Azzurra.io tramite l'applicazione \emph{mobile}, viene utilizzata una mappa chiave-valore, interna ad Azzurra.io, denominata \emph{User Map}. Grazie ad essa Azzurra.io potrà sapere quali utenti destinatari di una \g{notifica push} sono attivi e quali no in modo da rispondere alle richieste del \g{back-end} quando viene richiesto l'invio della di una \g{notifica push}. \\
+	Inoltre Azzurra.io è una componente strategica principalmente per due motivi:
 	\begin{itemize}
-		\item Quando si vuole aggiungere un nuovo flusso conversazionale o modificare un flusso già esistente, se non esistesse Azzurra.io, questi sarebbero salvati nell'applicazione. Ciò comporterebbe la necessità di un aggiornamento dell'applicazione \emph{mobile} e quindi di effettuare una nuova pubblicazione nell'Play Store per i dispositivi \g{Android} e nel Apple Store per i dispositivi \g{iOS} ad ogni aggiunta o modifica dei flussi. Grazie all'esistenza di Azzurra.io ciò viene evitato perché esiste il \g{database} dedicato per la memorizzazione dei flussi conversazionali che permette di aggiungere un nuovo flusso, semplicemente inserendolo all'interno del \g{database}, analogamente, questo vale anche per la modifica di un flusso. Inoltre, grazie alla connessione tramite \g{WebSocket} qualunque modifica o aggiunta viene subito recepita dell'applicazione \emph{mobile};
-		\item Per evitare che vengano fatte un numero elevato di richieste al \g{back-end} si è deciso di distribuire le informazioni in diverse componenti della rete, infatti il \g{bot} per sapere che flusso conversazionale deve seguire per genere i messaggi per la conversazione con l'utente umano, chiede a Azzurra.io e non al \g{back-end}. Il \g{back-end} però verrà contattato quando il \g{bot} Azzurra ha bisogno di dati sul lavoratore da mostrare, ciononostante questa richiesta sarà fatta inizialmente a Azzurra.io che si prenderà carico di richiedere le informazioni al \g{back-end} e di ritornarle all'applicazione. Quindi il \g{back-end} sarà contattato solo dalla \emph{dashboard} e da Azzurra.io per il caso descritto precedentemente o per il processo di autenticazione dell'utente, diminuendo il carico sul \g{back-end}.
+		\item Quando si vuole aggiungere un nuovo flusso conversazionale o modificare un flusso già esistente, se non esistesse Azzurra.io, sarebbe salvato nell'applicazione. Ciò comporterebbe la necessità di aggiornare l'applicazione \emph{mobile} e di effettuare una nuova pubblicazione nel Play Store per i dispositivi \g{Android} e nell'Apple Store per i dispositivi \g{iOS} ad ogni aggiunta o modifica dei flussi. Grazie all'esistenza di Azzurra.io ciò viene grazie al \g{database} dedicato alla memorizzazione dei flussi conversazionali che permettono di aggiungere o modificare un nuovo flusso all'interno del \g{database}. Inoltre, grazie alla connessione tramite \g{WebSocket}, qualunque modifica o aggiunta viene subito recepita dell'applicazione \emph{mobile};
+		\item Per evitare che vengano fatte un numero elevato di richieste al \g{back-end} si è deciso di distribuire le informazioni in diverse componenti della rete. Il \g{bot}, infatti, per sapere che flusso conversazionale deve seguire per genere i messaggi per la conversazione con l'utente umano, chiede a Azzurra.io e non al \g{back-end}. Il \g{back-end} però viene contattato quando il \g{bot} Azzurra ha bisogno di dati sul lavoratore da mostrare, ciononostante questa richiesta è fatta inizialmente a Azzurra.io che si prende carico di richiedere le informazioni al \g{back-end} e di ritornarle all'applicazione. \\
+		Quindi il \g{back-end} sarà contattato solo dalla \emph{dashboard} e da Azzurra.io per il caso descritto precedentemente o per il processo di autenticazione dell'utente, diminuendo il carico sul \g{back-end}.
 	\end{itemize}
 	
 	\item\subsection{Applicazione mobile AWMS}
-	L'ultimo componente dell'\g{architettura} è l'applicazione \emph{mobile} \gls{AWMS}. Essa è sviluppata attraverso il \g{framework} Angular2+ e Ionic. L'applicazione \emph{mobile} è in realtà un'\g{applicazione ibrida}, questo perché viene sviluppata con tecnologie web, nello specifico \gls{HTML}, \gls{CSS} e TypeScript, e viene eseguita in un dispositivo \emph{mobile} grazie a Ionic e a Cordova. All'interno dell'applicazione \emph{mobile} risiede il \g{bot} Azzurra. Oltre al \g{bot} Azzurra esistono altre due sezioni, la sezione Questionario e la sezione Profilo. 
+	L'ultimo componente dell'\g{architettura} è l'applicazione \emph{mobile} \gls{AWMS} sviluppata attraverso il \g{framework} Angular2+ e Ionic. In realtà essa è un'\g{applicazione ibrida} perché sviluppata con tecnologie web, nello specifico \gls{HTML}, \gls{CSS} e TypeScript, ed eseguita in un dispositivo \emph{mobile} grazie a Ionic e a Cordova. Al suo interno risiede il \g{bot} Azzurra e altre due sezioni: Questionario e Profilo. 
 	
 	\begin{figure}[h]
 		\centering
@@ -58,9 +61,10 @@ La figura precedente illustra come è composta l'\g{architettura}, dove ogni com
 		\caption{Sezione Questionario}\label{fig:que}
 	\end{figure}
 	
-	La Figura~\ref{fig:que} mostra la sezione Questionario nei suoi tre possibili stati. In questa sezione viene richiesto di compilare quotidianamente un questionario in cui vengono poste domande sulla propria salute che, dai dati raccolti per ogni lavoratore l'applicazione cerca di capire se all'interno dell'azienda ci sia pericolo di contagio del virus COVID-19. Nel caso in cui non si è ancora compilato il questionario, viene mostrata una faccina grigia come si può vedere nella prima immagine della Figura~\ref{fig:que}. Se si è compilato il questionario e secondo le risposte date si risulta essere in buona salute, allora l'applicazione mostrerà una faccina verde come si può vedere nella seconda immagine della Figura~\ref{fig:que}. Se si è compilato il questionario e secondo le risposte date si risulta essere a rischio per la propria salute, allora l'applicazione mostrerà una faccina rossa come si può vedere dalla terza immagine della Figura~\ref{fig:que}.
+	La Figura~\ref{fig:que} mostra la sezione Questionario nei suoi tre possibili stati. In questa sezione viene richiesto di compilare quotidianamente un questionario in cui vengono poste domande sulla propria salute che, dai dati raccolti per ogni lavoratore, permettono all'applicazione di capire se all'interno dell'azienda ci sia pericolo di contagio del virus COVID-19. Nel caso in cui non si è ancora compilato il questionario, viene mostrata una faccina grigia come si può vedere nella prima immagine della Figura~\ref{fig:que}. Se si è compilato il questionario e secondo le risposte date si risulta essere in buona salute, allora l'applicazione mostrerà una faccina verde, come si può vedere nella seconda immagine della Figura~\ref{fig:que}. Se si è compilato il questionario e secondo le risposte date si risulta essere a rischio per la propria salute, l'applicazione mostrerà una faccina rossa, come si può vedere dalla terza immagine della Figura~\ref{fig:que}.
 	
-	Nel questionario da compilare vengono richiesti se si hanno avuto dei sintomi di malattie come mostra la prima immagine della Figura~\ref{fig:queSlide}. Successivamente viene richiesto se le persone vicino a noi hanno avuto dei sintomi di malattie come mostrato nella seconda immagine della Figura~\ref{fig:queSlide}. Viene poi richiesto in quelli luoghi si è stati come mostrato nella terza immagine della Figura~\ref{fig:queSlide}.
+	Nel questionario da compilare viene richiesta l'eventuale presenza di sintomi di malattie come mostra la prima immagine della Figura~\ref{fig:queSlide}. \\
+	Successivamente viene richiesto se le persone vicino a noi hanno avuto dei sintomi di malattie come mostrato nella seconda immagine della Figura~\ref{fig:queSlide} ed infine viene richiesto in quali luoghi si è stati come mostrato nella terza immagine della Figura~\ref{fig:queSlide}.
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[scale=0.12]{que1.png}\hfill
@@ -69,7 +73,7 @@ La figura precedente illustra come è composta l'\g{architettura}, dove ogni com
 			\caption{Schede del questionario sulla salute}\label{fig:queSlide}
 		\end{center}
 	\end{figure}
-	Una volta terminato il questionario, l'applicazione elaborare le risposte date e mostrerà l'esito sulla nostra salute. Nel caso in cui l'esito sia positivo verrà mostrata la prima immagine della Figura~\ref{fig:quefinal} invece in caso di esito negativo verrà mostrata la seconda immagine della Figura~\ref{fig:quefinal}.
+	Una volta terminato il questionario, l'applicazione elaborerà le risposte date e mostrerà l'esito sulla nostra salute. Nel caso in cui l'esito sia positivo verrà mostrata la prima immagine della Figura~\ref{fig:quefinal}, viceversa verrà mostrata la seconda immagine della Figura~\ref{fig:quefinal}.
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[scale=0.12]{finalGreen.png}\hfil
@@ -77,9 +81,9 @@ La figura precedente illustra come è composta l'\g{architettura}, dove ogni com
 			\caption{Schede dell'esito del questionario sulla salute}\label{fig:quefinal}
 		\end{center}
 	\end{figure}\\
-	Il risultato viene poi riportato anche nella schermata della sezione Questionario.
+	Il risultato viene quindi riportato anche nella schermata della sezione Questionario.
 	\\
-	Nella sezione Profilo invece, vengono mostrati i Karma points che sono stati raccolti durante la compilazione del questionario, punti che al momento non danno nessun particolare beneficio ma, in futuro è previsto l'implementazione di una qualche ricompensa. Vengono mostrate le proprie informazioni personali cliccando il tasto "Informazioni personali" come mostrato in Figura~\ref{fig:profile}, è possibile cambiare la password d'accesso cliccando il bottone "Gestione password". Cliccando il bottone "Istruzione di utilizzo" mostrato sempre nella Figura~\ref{fig:profile} è possibile accedere a una breve guida su come utilizzare l'applicazione. Nel bottone "Normativa privacy" è possibile visionare la normativa sulla tutela della \emph{privacy} \g{GDPR} mentre nel bottone "Titolare trattamento" viene indicato da chi vengono trattati i dati inseriti.
+	Nella sezione Profilo, invece, vengono mostrati i Karma points che sono stati raccolti durante la compilazione del questionario. Al momento non danno nessun particolare beneficio ma in futuro è prevista l'implementazione di una qualche ricompensa. Vengono mostrate le proprie informazioni personali cliccando il tasto "Informazioni personali" come mostrato in Figura~\ref{fig:profile} ed è possibile cambiare la password d'accesso cliccando il bottone "Gestione password". Cliccando il bottone "Istruzione di utilizzo", visualizzato sempre nella Figura~\ref{fig:profile}, è possibile accedere ad una breve guida su come utilizzare l'applicazione. Nel bottone "Normativa privacy" è possibile visionare la normativa sulla tutela della \emph{privacy} \g{GDPR} mentre nel bottone "Titolare trattamento" viene indicato da chi vengono trattati i dati inseriti.
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[scale=0.14]{profile.png}\hfil
@@ -87,36 +91,37 @@ La figura precedente illustra come è composta l'\g{architettura}, dove ogni com
 			\caption{Sezione Profilo e Chat con Azzurra}\label{fig:profile}
 		\end{center}
 	\end{figure}\\
-	Nella sezione Azzurra, è presente la \emph{chat} \g{bot} con Azzurra che attraverso il proprio Flow Engine, riesce a comprendere i flussi conversazionali ricevuti in input da Azzurra.io. Grazie a ciò il \g{bot} Azzurra sa quali risposte e domande fare all'utente umano. Nel capitolo successivo verrà spiegato in modo dettagliato il funzionamento del Flow Engine di Azzurra. Come detto precedentemente la comunicazione con Azzurra avviene attraverso \g{WebSocket} che permette di tenere aggiornati i flussi conversazionali ricevuti da Azzurra nel caso in cui subiscano modifiche. Come scritto in precedenza, Azzurra è un \g{bot} che aiuta il lavoratore a poter:
+	Nella sezione Azzurra, è presente la \emph{chat} \g{bot} con Azzurra che attraverso il proprio Flow Engine, riesce a comprendere i flussi conversazionali ricevuti in input da Azzurra.io. Grazie a ciò il \g{bot} Azzurra capisce quali risposte e domande fare all'utente umano. Come detto precedentemente, la comunicazione con Azzurra avviene attraverso \g{WebSocket} che permette di tenere aggiornati i flussi conversazionali ricevuti da Azzurra nel caso in cui subiscano modifiche. \\
+	Azzurra è quindi un \g{bot} che aiuta il lavoratore a:
 	\begin{itemize}
 		\item Visualizzare il proprio turno di lavoro;
 		\item Visualizzare i propri permessi lavorativi o richiederne di nuovi;
 		\item Visualizzare avvisi da parte dell'azienda;
 		\item Sapere qual'è il menu del giorno della mensa aziendale;
-		\item Poter effettuare prenotazioni di un posto a sedere in una sala riunioni e visualizzare le proprie prenotazioni, inoltre utilizzare un scannerizzatore \g{QR code} per riscattare il posto prenotato.
+		\item Effettuare prenotazioni di un posto a sedere in una sala riunioni, visualizzare le proprie prenotazioni e utilizzare un scannerizzatore \g{QR code} per riscattare il posto prenotato.
 	\end{itemize}
 \end{trivlist}	
 \subsubsection{Gestione modalità offline}	
-Nell'ambito dello sviluppo di un'applicazione \emph{mobile}, un aspetto importante è la gestione della modalità \emph{offline}. Per gestione della modalità \emph{offline} si intende permette agli utenti di continuare ad utilizzare l'applicazione in assenza di connettività e quindi l'impossibilità di comunicare con il \g{back-end}. Quali e quante funzionalità e con quali e quante limitazioni alle stesse si verificano quando si è \emph{offline}, è una scelta di progettazione e comporta uno sforzo più o meno significativo visto che esistono diverse modalità per ottenere quanto richiesto. Nel caso dell'applicazione \emph{mobile} \gls{AWMS} in assenza di connettività sono state scelte le seguenti limitazioni e funzionalità:
+Nell'ambito dello sviluppo di un'applicazione \emph{mobile} un aspetto importante è la gestione della modalità \emph{offline}. Per gestione della modalità \emph{offline} si intende permettere agli utenti di continuare ad utilizzare l'applicazione in assenza di connettività e quindi l'impossibilità di comunicare con il \g{back-end}. Quali e quante funzionalità e con quali e quante limitazioni alle stesse si verificano quando si è \emph{offline}, è una scelta di progettazione e comporta uno sforzo più o meno significativo, visto che esistono diverse modalità per ottenere quanto richiesto. Nel caso dell'applicazione \emph{mobile} \gls{AWMS} in assenza di connettività sono state scelte le seguenti limitazioni e funzionalità:
 \begin{itemize}
-	\item Quando c'è assenza di connettività viene avvisato l'utente di tale evento, attraverso un messaggio che comparirà sopra l'\emph{header} dell'applicazione;
-	\item Vengono garantite un insieme minimo di funzionalità anche in caso di assenza di connettività, nello specifico viene garantita all'utente la possibilità di spostarsi tra le sezioni dell'applicazione accedendo solo ad alcune pagine informative quali la "Informazioni personali", la "Privacy policy", le "Istruzioni di utilizzo" dell'applicazione.
+	\item Quando c'è assenza di connettività viene avvisato l'utente di tale evento attraverso un messaggio che comparirà sopra l'\emph{header} dell'applicazione;
+	\item Vengono garantite un insieme minimo di funzionalità anche in caso di assenza di connettività. Nello specifico viene garantita all'utente la possibilità di spostarsi tra le sezioni dell'applicazione accedendo solo ad alcune pagine informative quali la "Informazioni personali", la "Privacy policy", le "Istruzioni di utilizzo" dell'applicazione.
 \end{itemize}
 
 La gestione della modalità \emph{offline} verterà principalmente su due aspetti:
 \begin{itemize}
-	\item stato della connessione;
-	\item persistenza locale dei dati.
+	\item Stato della connessione;
+	\item Persistenza locale dei dati.
 \end{itemize}
 \subsubsection{Stato della connessione}
-Poter sapere lo stato della connessione per il funzionamento dell'applicazione \emph{mobile} è fondamentale. Inoltre, è importante tenere conto che la connettività nel tempo cambia infatti, può accadere che l'utente sia connesso all'inizio ma ad un certo punto possa perdere la connessione. Vi è quindi la necessità non solo di sapere lo stato della connessione all'inizio ma anche i cambiamenti nello stato della connettività. Solitamente per determinare lo stato della connessione si accede direttamente sullo strato nativo del \emph{device}. Per fare ciò è stato scelto di utilizzare il \emph{plugin} di Cordova, Network Information, che oltre a determinare lo stato della connessione, è in grado di rilevare cambiamenti dello stato in maniera agevole.
+Poter sapere lo stato della connessione per il funzionamento dell'applicazione \emph{mobile} è fondamentale considerando anche che la connettività cambia nel tempo. Infatti può accadere che l'utente sia connesso all'inizio ma ad un certo punto possa perdere la connessione. Vi è quindi la necessità di sapere non solo lo stato della connessione all'inizio ma anche i cambiamenti nello stato della connettività. Solitamente per determinare lo stato della connessione si accede direttamente allo strato nativo del \emph{device}. Per fare ciò è stato scelto di utilizzare il \emph{plugin} di Cordova, Network Information, che, oltre a determinare lo stato della connessione, è in grado di rilevare cambiamenti dello stato in maniera agevole.
 
 \subsubsection{Persistenza locale dei dati}
-Il poter salvare dei dati in locale, offre la possibilità di poter garantire l'esecuzioni di alcune funzioni anche in assenza di connettività. Esistono diverse possibilità per la memorizzazione locale dei dati, più o meno sicure, più o meno efficienti.\\
+La possibilità di salvare i dati in locale, permette di garantire le esecuzioni di alcune funzioni anche in assenza di connettività. Esistono diverse possibilità per la memorizzazione locale dei dati, più o meno sicure o efficienti.\\
 
-Per l'applicazione \emph{mobile} \gls{AWMS} è stato scelto di utilizzare SQLite. SQLite è un \g{DBMS} file-based memorizzato sul \emph{device} sul quale viene installata l'applicazione. La capacità del \g{database} (dimensione massima) dipende dalla memoria a disposizione nel \emph{device} offrendo quindi un buon supporto per la memorizzazione e l'esecuzione delle comuni operazioni sui dati.\\
+Per l'applicazione \emph{mobile} \gls{AWMS} è stato scelto di utilizzare SQLite, un \g{DBMS} file-based memorizzato sul \emph{device} sul quale viene installata l'applicazione. La capacità del \g{database} (dimensione massima) dipende dalla memoria a disposizione nel \emph{device} offrendo quindi un buon supporto per la memorizzazione e l'esecuzione delle comuni operazioni sui dati.\\
 
-L'applicazione \emph{mobile} essendo una \g{applicazione ibrida} costruita con Ionic, è stato scelto di utilizzare Ionic Storage che si compone di un \emph{plugin} di Cordova, per la gestione dei \g{database} SQLite.\\
+Per l'applicazione \emph{mobile}, essendo un'\g{applicazione ibrida} costruita con Ionic, è stato scelto di utilizzare Ionic Storage composto a sua volta di un \emph{plugin} di Cordova, per la gestione dei \g{database} SQLite.\\
 
 Utilizzando Ionic Storage è possibile quindi memorizzare delle coppie chiave-valore dove il valore può essere di qualsiasi tipo,
 dalle semplici stringhe o interi fino a degli oggetti \g{JSON}. I dati memorizzati localmente rimarranno disponibili sino alla disinstallazione dell'applicazione o alla formattazione del \emph{device}.
@@ -125,7 +130,7 @@ dalle semplici stringhe o interi fino a degli oggetti \g{JSON}. I dati memorizza
 \section{Operazioni}
 Nella seguente sezione verranno descritte le principali operazioni tra le varie componenti dell'\g{architettura}.
 \subsection{Creazione di una connessione attreverso WebSocket}
-Come spiegato in precedenza, la comunicazione tra l'applicazione \emph{mobile} e Azzurra.io avviene attraverso l'utilizzo di \g{WebSocket}. Grazie a ciò si ha un canale di comunicazione a due vie cioè, sia l'applicazione \emph{mobile} e sia Azzurra.io possono inviare dati o richieste. Inoltre, le modifiche ai flussi conversazionali già esistenti o l'aggiunta di nuovi flussi, verranno comunicate all'applicazione \emph{mobile} in tempo reale, aggiornando perciò i dati posseduti dell'applicazione. Infine, utilizzando una connessione tramite \g{WebSocket}, risulta essere più efficiente e performante rispetto al \g{pooling} perché il \g{server} non viene continuamente contatto da inutili richieste.
+Come spiegato in precedenza, la comunicazione tra l'applicazione \emph{mobile} e Azzurra.io avviene attraverso l'utilizzo di \g{WebSocket}. Grazie a ciò si ha un canale di comunicazione a due vie in cui sia l'applicazione \emph{mobile} e sia Azzurra.io possono inviare dati o richieste. Inoltre le modifiche ai flussi conversazionali già esistenti o l'aggiunta di nuovi flussi verranno comunicate all'applicazione \emph{mobile} in tempo reale, aggiornando perciò i dati posseduti dell'applicazione. Infine, utilizzando una connessione tramite \g{WebSocket}, risulta essere più efficiente e performante rispetto al \g{pooling} in quanto il \g{server} non viene continuamente contatto da inutili richieste.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[scale=0.8]{Connection-WebSocket.PNG}
@@ -133,10 +138,11 @@ Come spiegato in precedenza, la comunicazione tra l'applicazione \emph{mobile} e
 	\end{center}
 \end{figure}
 
-Nella Figura~\ref{fig:websocket} viene mostrato come avviene la creazione di una connessione tra l'applicazione \emph{mobile} e Azzurra.io, i passi perciò sono:
+Nella Figura~\ref{fig:websocket} viene mostrato come avviene la creazione di una connessione tra l'applicazione \emph{mobile} e Azzurra.io. I passi perciò sono:
 \begin{enumerate}
-	\item All'inizio, l'applicazione \emph{mobile} viene aperta dall'utente, essa cercherà da subito di mettersi in contatto con Azzurra.io creando una connessione;
-	\item Per avviare una connessione \g{WebSocket}, viene inviata una richiesta \g{http} a Azzurra.io(\g{server}). Tale richiesta \g{http} ha la particolarità che negli \emph{headers} dell’intestazione viene specificata un'operazione di tipo \emph{Upgrade} cioè indica che l'applicazione \emph{mobile} (\g{client}) vuole aggiornare la connessione ad un protocollo diverso, in questo caso a \g{WebSocket}. Questo tipo di operazione prende il nome di \emph{WebSocket handshake request}.\\
+	\item L'applicazione \emph{mobile} viene aperta dall'utente e cercherà da subito di mettersi in contatto con Azzurra.io creando una connessione;
+	\item Per avviare una connessione \g{WebSocket}, viene inviata una richiesta \g{http} a Azzurra.io(\g{server}). Negli \emph{headers} dell’intestazione di tale richiesta viene specificata un'operazione di tipo \emph{Upgrade} ad indicare che l'applicazione \emph{mobile} (\g{client}) vuole aggiornare la connessione ad un protocollo diverso, in questo caso a \g{WebSocket}. Questo tipo di operazione prende il nome di \emph{WebSocket handshake request}.\\
+	\\
 	\begin{lstlisting}
 GET /mychat HTTP/1.1
 Host: server.AzzurraIo.com
@@ -148,7 +154,7 @@ Sec-WebSocket-Version: 13
 Origin: http://AzzurraIo.com
 	\end{lstlisting}
 	Il codice soprastante rappresenta un esempio di \emph{WebSocket handshake request} inviata dal \g{client} al \g{server}. Il \g{client} inserisce una stringa casuale codifica in \g{base64} nel campo \emph{Sec-WebSocket-Key} alla quelle viene poi aggiunta una stringa fissa.
-	\item Se il \g{server}, in questo caso Azzurra.io supporta la connessione tramite \g{WebSocket} allora rispondere mettendo nel campo \emph{Sec-WebSocket-Accept} la risposta cioè, l'hash della stringa contenuta in \emph{Sec-WebSocket-Key} utilizzando la funzione di hashing SHA-1. Infine, viene tutto codificato in \g{base64}. Una volta arrivata la risposta al \g{client}, esso controllerà se la risposta contiene la stringa corretta. Tutte queste operazioni hanno lo scopo di evitare di aprire più connessioni multiple ma non da nessuna garanzia di autenticazione.
+	\item Se il \g{server}, in questo caso Azzurra.io, supporta la connessione tramite \g{WebSocket} allora risponde mettendo nel campo \emph{Sec-WebSocket-Accept} la risposta cioè l'hash della stringa contenuta in \emph{Sec-WebSocket-Key} utilizzando la funzione di hashing SHA-1 ed infine codificando tutto in \g{base64}. Una volta arrivata la risposta al \g{client}, esso controllerà se contiene la stringa corretta. Tutte queste operazioni hanno lo scopo di evitare l'apertura di più connessioni multiple senza dare alcuna garanzia di autenticazione.
 	Nel seguente codice viene riportato un esempio di risposta da parte del \g{server}.\\
 	\begin{lstlisting}
 HTTP/1.1 101 Switching Protocols
@@ -166,17 +172,17 @@ Per garantire una comunicazione sicura contro ascoltatori indesiderati viene usa
 		\caption{Sequence diagram per il recupero di un flusso conversazionale}\label{fig:recovery}
 	\end{center}
 \end{figure}
-Il \g{bot} Azzurra per poter funzionare ha bisogno di almeno un flusso conversazionale che grazie alla propria struttura, permette al Flow Engine di Azzurra di comprendere il flusso e capire quali messaggi deve far visualizzare ad Azzurra nella \emph{chat} con l'utente umano. I flussi si trovano nel \g{database} dedicato di Azzurra.io. Quando viene richiesto di fare un’operazione o si inizia per la prima volta un'interazione con Azzurra, essa per sapere cosa fare ha bisogno di uno specifico flusso di conversazione, nel caso in cui sia la prima interazione con l'utente, richiedere il cosiddetto \emph{MainFlow} dove vengono riportate quali funzionalità Azzurra può offrire. Se invece si è nel caso in cui l'utente richiede una specifica funzionalità ad esempio, richiedere la visualizzazione del piano di lavoro, Azzurra dovrà richiedere a Azzurra.io, il \emph{flow} dedicato alla specifica funzionalità.
+Il \g{bot} Azzurra per poter funzionare ha bisogno di almeno un flusso conversazionale che, grazie alla propria struttura, permette al Flow Engine di Azzurra di comprendere il flusso e capire quali messaggi deve far visualizzare ad Azzurra nella \emph{chat} con l'utente umano. I flussi si trovano nel \g{database} dedicato di Azzurra.io. Quando viene richiesto di fare un’operazione o si inizia per la prima volta un'interazione con Azzurra, essa ha bisogno di uno specifico flusso di conversazione e, nel caso in cui sia la prima interazione con l'utente, richiedere il cosiddetto \emph{MainFlow} dove vengono riportate quali funzionalità Azzurra può offrire. Se invece l'utente richiede una specifica funzionalità come la visualizzazione del piano di lavoro, Azzurra dovrà richiedere a Azzurra.io il \emph{flow} dedicato alla specifica funzionalità.
 Come mostrato nella Figura~\ref{fig:recovery} si hanno i seguenti passi:
 \begin{enumerate}
 \item L'utente interagisce con il \g{bot} Azzurra e richiede una funzionalità oppure l'utente interagisce con Azzurra per la prima volta;
-\item Il \g{bot} Azzurra tramite una connessione aperta precedentemente chiede a Azzurra.io il corretto \emph{flow} per poter soddisfare le richieste dell'utente. Si sottolinea che ogni \emph{flow} ha un codice identificativo che lo identifica e Azzurra sa sempre qual'è il codice identificativo del flusso di cui ha bisogno;
+\item Il \g{bot} Azzurra tramite una connessione aperta precedentemente chiede a Azzurra.io il corretto \emph{flow} per poter soddisfare le richieste dell'utente. Si sottolinea che ogni \emph{flow} ha un codice identificativo e Azzurra sa sempre qual'è quello del flusso di cui ha bisogno;
 \item Azzurra.io cerca nel proprio \g{database} se contiene il \emph{flow} richiesto;
-\item Se la ricerca da esito positivo allora Azzurra.io ritornerà il flusso che verrà eseguito dal Flow Engine di Azzurra la quale proseguirà con la conversazione. Se invece non lo trova la conversazione si interrompe mostrando nella \emph{chat} un messaggio di errore.
+\item Se la ricerca da esito positivo Azzurra.io ritornerà il flusso che verrà eseguito dal Flow Engine di Azzurra proseguendo con la conversazione. Se invece non lo trova, la conversazione si interrompe mostrando nella \emph{chat} un messaggio di errore.
 \end{enumerate}
 
 \subsection{Richiesta e invio di dati}
-Durante l'esecuzione di una conversazione è molto probabile che Azzurra abbia bisogno di far visualizzare delle informazioni richieste dall'utente ad esempio il suo orario di lavoro, queste informazioni però non sono salvate ne nell'applicazione \emph{mobile} né in Azzurra.io ma nel \g{back-end}.
+Durante l'esecuzione di una conversazione è molto probabile che Azzurra abbia bisogno di far visualizzare delle informazioni richieste dall'utente che però non sono salvate né nell'applicazione \emph{mobile} né in Azzurra.io ma nel \g{back-end}.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[height=5cm, width=13cm]{request.png}
@@ -190,9 +196,9 @@ La Figura~\ref{fig:request} mostra come Azzurra ottiene i dati:
 	\item Azzurra.io contatta il \g{back-end} attraverso una richiesta \g{http}, per richiedere i dati richiesti da Azzurra;
 	\item Se la richiesta va a buon fine il \g{back-end} ritornerà i dati ad Azzurra.io che li ritornerà a sua volta ad Azzurra.
 \end{enumerate}
-Per l'invio dei dati cioè l'utente inserisce dei dati che devono essere salvati sul \g{database} del \g{back-end}, ad esempio l'utente inserisce una nuova assenza, il procedimento sarà analogo alla richiesta di dati solo alla fine non verranno ritornati i dati ma l'esito dell'operazione effettuata.
+Per l'invio dei dati che devono essere salvati sul \g{database} del \g{back-end} come l'inserimento di una nuova assenza, il procedimento sarà analogo alla richiesta dati e solo alla fine non verranno ritornati i dati ma l'esito dell'operazione effettuata. 
 \subsection{Gestione notifiche push}
-Nel caso in cui il \g{plant manager} abbia bisogno di mandare una comunicazione a uno o più lavoratori, è stata implementata la possibilità di inviare delle notifiche contenti la comunicazione.
+Nel caso in cui il \g{plant manager} abbia bisogno di mandare una comunicazione a uno o più lavoratori è stata prevista la possibilità di inviare delle notifiche contenti la comunicazione.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[height=6cm, width=14cm]{pushMex.png}
@@ -202,11 +208,11 @@ Nel caso in cui il \g{plant manager} abbia bisogno di mandare una comunicazione 
 Nella Figura~\ref{fig:push} viene mostrato come avviene l'invio delle notifiche, di seguito ne vengono descritti i passi:
 \begin{enumerate}
 	\item Il \g{plant manager} crea il messaggio da inviare attraverso l'interazione con la \emph{dashboard} di \gls{AWMS};
-	\item La \emph{dashboard} invia al \g{back-end} il messaggio da inviare e a quali utenti registrati nel sistema mandare il messaggio, viene perciò mandato oltre al messaggio anche i codici identificativi dei destinatari;
-	\item Il \g{back-end} si connette ad Azzurra.io e successivamente invia il messaggio e la lista degli utenti a cui Azzurra.io deve mandare la notifica. Quindi l'invio della notifica viene delegato a Azzurra.io; 
-	\item Azzurra.io controlla sulla sua tabella \emph{User Map}, quali tra gli utenti che devo ricevere il messaggio sono attualmente connessi al \emph{socket}. Si specifica inoltre che vengono considerati utenti connessi o attivi tutti gli utenti che sono connessi al \emph{socket} e che hanno l’applicazione in \g{foreground}. Gli utenti che sono connessi al \emph{socket}, ma hanno l’applicazione in \g{background} vengono trattati come utenti non connessi;
-	\item Per gli utenti connessi al \emph{socket}, Azzurra.io invierà la notifica ai dispositivi connessi in cui verrà visualizzata sotto forma di messaggio da parte di Azzurra;
-	\item Nel caso in cui ci siano alcuni utenti non connessi a Azzurra.io tra i destinatari del messaggio, Azzurra.io effettua una richiesta \g{http} ad AWMS Backend, specificando gli utenti che non è riuscita a contattare, e il messaggio che avrebbe dovuto recapitare;
-	\item Il \g{back-end} una volta ricevuta la lista degli utenti a cui non è stato possibile mandare la notifica, contatterà attraverso un \g{api} di \g{firebase}, quest'ultimo per richiedere l'invio della notifica agli utenti della lista appena ricevuta. Si specifica che \g{firebase} sarà in grado di farlo solo se i dispositivi dei destinatari si sono sottoscritti al servizio di \g{firebase} per la ricezione di una \g{notifica push};
-	\item Infine, \g{firebase} una volta ricevuta la lista d'utenti a cui inviare la notifica e il testo del messaggio, invierà la \g{notifica push} ai destinatari.
+	\item La \emph{dashboard} invia al \g{back-end} il messaggio da inviare e a quali utenti registrati nel sistema mandarlo e i codici identificativi dei destinatari;
+	\item Il \g{back-end} si connette ad Azzurra.io e successivamente invia il messaggio e la lista degli utenti a cui Azzurra.io deve mandare la notifica. Quindi l'invio di quest'ultima viene delegato a Azzurra.io; 
+	\item Azzurra.io controlla sulla sua tabella \emph{User Map} quali tra gli utenti che devono ricevere il messaggio sono attualmente connessi al \emph{socket}. Si specifica inoltre che vengono considerati utenti connessi o attivi tutti quelli che sono connessi al \emph{socket} e che hanno l’applicazione in \g{foreground}. Gli utenti che sono connessi al \emph{socket}, ma hanno l’applicazione in \g{background} vengono trattati come non connessi;
+	\item Per gli utenti connessi al \emph{socket}, Azzurra.io invierà la notifica ai dispositivi connessi e verrà visualizzata sotto forma di messaggio da parte di Azzurra;
+	\item Nel caso in cui ci siano utenti non connessi a Azzurra.io tra i destinatari del messaggio, Azzurra.io effettua una richiesta \g{http} ad AWMS Backend, specificando gli utenti che non è riuscita a contattare, e il messaggio che avrebbe dovuto recapitare;
+	\item Il \g{back-end} una volta ricevuta la lista degli utenti a cui non è stato possibile mandare la notifica, contatterà attraverso un \g{api} di \g{firebase} per richiedere l'invio della notifica agli utenti della lista appena ricevuta. Si specifica che \g{firebase} sarà in grado di farlo solo se i dispositivi dei destinatari sono sottoscritti ad esso.
+	\item Infine \g{firebase}, una volta ricevuta la lista d'utenti a cui inviare la notifica e il testo del messaggio, invierà la \g{notifica push} ai destinatari.
 \end{enumerate}
