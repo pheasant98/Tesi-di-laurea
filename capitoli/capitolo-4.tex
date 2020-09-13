@@ -100,14 +100,16 @@ Oltre a campi del tipo BLOCK ha i seguenti campi in più:
 \begin{itemize}
 	\item \textbf{category}: Il blocco ASK è ulteriormente distinguibile in ASK o in MENU che si differenziano nel seguente aspetto:\\
 	nel caso sia di categoria ASK tutte le opzioni disponibili portano a un blocco di conversazione successivo diverso mentre per MENU tutte le opzioni portano tutte allo stesso blocco;
-	\item \textbf{source}: Parametro che contiene il nome di una variabile a cui fare riferimento per prendere i dati da utilizzare. Se non si fa riferimento a nessuna variabile allora va settato a \emph{NULL};
-	\item \textbf{items}: Questo campo contiene un \emph{array} d'oggetti di tipo BlockItem che rappresentano le possibili scelte che può fare l'utente; essi graficamente vengono rappresentati come dei pulsanti;
 	\item \textbf{sourceType}: Parametro che indica la modalità di utilizzo della variabile contenuta nel campo source.
 	Sono previste due modalità:
 	\begin{itemize}
-		\item \textbf{LIST}: In questo caso la variabile contenuta in source viene ignorata e vengono presi tutti gli oggetti di tipo BlockItem contenuti nel campo items che vengono trasformati in bottoni da far visualizzare a video;
-		\item \textbf{VARIABLE}: In questo caso tutto ciò che è contenuto nella variabile del campo source viene trasformato in bottoni da far visualizzare a video, per poterlo fare devono essere formattati in una struttura del tipo chiave valore.
+		\item \textbf{LIST}: In questo caso la variabile contenuta in source viene ignorata e vengono presi tutti gli oggetti di tipo BlockItem contenuti nel campo items che vengono trasformati in bottoni da far visualizzare a video. Il tipo LIST viene usato quando il campo category ha il valore ASK in modo da poter creare per ogni scelta il giusto campo target attraverso l'oggetto di tipo BlockItem;
+		\item \textbf{VARIABLE}: In questo caso tutto ciò che è contenuto nella variabile del campo source viene trasformato in bottoni da far visualizzare a video, per poterlo fare i dati contenuti nella variabile devono essere formattati in una struttura del tipo chiave valore. Il tipo VARIABLE viene usato quando il campo category ha il valore MENU e quando i dati da utilizzare per creare i bottoni sono stati ricevuti come risposta a una richiesta al \g{back-end} quindi, sono memorizzati in una variabile, la stessa indicata nel campo source. Un possibile esempio di utilizzo è il seguente; viene richiesto quali posti a sedere sono liberi per una prenotazione, attraverso una richiesta al \g{back-end} viene ricavato tale dato e salvato in una variabile indicata in source, viene poi per ogni posto libero creato un bottone che l'utente può cliccare per indicare la sua scelta. Tutte le scelte possibili porteranno al blocco che si occuperà di comunicare la scelta al \g{back-end}.
 	\end{itemize}	
+	\item \textbf{source}: Parametro che contiene il nome di una variabile a cui fare riferimento per prendere i dati da utilizzare per costruire le possibili scelte che può fare l'utente; essi graficamente vengono rappresentati come dei pulsanti rettangolari. Se non si fa riferimento a nessuna variabile o sourceType ha valore uguale a LIST, allora va settato a \emph{NULL};
+	\item \textbf{items}: Questo campo contiene un \emph{array} d'oggetti di tipo BlockItem che rappresentano le possibili scelte che può fare l'utente; essi graficamente vengono rappresentati come dei pulsanti arrotondati.
+
+
 \end{itemize} 
 
 \subsubsection{SAY}
@@ -124,9 +126,7 @@ Oltre a campi del tipo BLOCK ha il seguente campo in più:
 \begin{itemize}
 	\item \textbf{attachments}: Campo che contiene un \emph{array} d'oggetti di tipo BlockAttachment che permettono di allegare immagini o file PDF.
 \end{itemize}
-
-Inoltre sono presenti i campi items, source e sourceType con analogo funzionamento del blocco ASK per inserire eventuali bottoni che aprono schede o link contenenti il risultato richiesto.
-
+\clearpage
 \subsubsection{IF}
 
 Il blocco di conversazione IF ha la funzione di verificare se una o più condizioni sono rispettate. Perciò verifica se le condizioni sono soddisfatte e in base all'esito verrà scelto il prossimo blocco da eseguire.
@@ -237,7 +237,6 @@ Ha i seguenti tipi:
 		\includegraphics[scale=1.1]{buttons.png}
 	\caption{Rappresentazione grafica dei buttons}
 	\end{figure}
-	\clearpage
 	\item \textbf{ITEMS}: Genera dei bottoni quadrati;
 	\begin{figure}[h]
 		\centering
@@ -251,11 +250,11 @@ Ha i seguenti tipi:
 		\caption{Rappresentazione grafica del picker}
 	\end{figure}
 	\item \textbf{TIMEPICKER}: Analogo al PICKER solo che l'opzione da scegliere è l'orario che si vuole selezionare;
-	\begin{figure}[h]
-		\centering
-		\includegraphics[scale=0.2]{timePicker.jpg}
-		\caption{Rappresentazione grafica del time picker}\label{fig:time}
-	\end{figure}
+%	\begin{figure}[h]
+	%	\centering
+	%	\includegraphics[scale=0.1]{timePicker.jpg}
+	%	\caption{Rappresentazione grafica del time picker}\label{fig:time}
+%	\end{figure}
 \clearpage
 	\item \textbf{DATEPICKER}: Analogo al PICKER solo che l'opzioni da scegliere è la data che si vuole selezionare;
 	\begin{figure}[h]
@@ -327,8 +326,8 @@ Una volta stabilita la connessione con Azzurra.io, attraverso un \g{WebSocket}, 
 	\item Nel metodo \_processBlock() viene eseguito il blocco che riceve in input, in questo caso il blocco da eseguire è il primo blocco del flusso come detto nel punto precedente. In questo metodo si verifica innanzitutto se c'è un blocco da eseguire. Se non c'è viene emesso un segnale che informa che il flusso di conversazione è terminato, mentre se c'è un blocco allora si imposta questo blocco come quello in esecuzione e si verifica di che tipo è il blocco.\\
 	A seconda del tipo del blocco vengono eseguite le seguenti istruzioni:
 	\begin{itemize}
-		\item \textbf{Caso SAY}: Viene eseguito il metodo \_processSay() ricevendo in input il blocco corrente. Il metodo prende il valore salvato nel campo text e le eventuali variations del blocco, generando il testo del messaggio da mostrare attraverso il metodo \_renderText(). Vengono inoltre generati eventuali BlockItems attraverso il metodo \_buildSayItems() il quale controlla il sourceType e in base al valore che ha, genera i BlockItems. Se presenti vengono anche eseguite le widgetOptions attraverso il metodo \_processWidgetOptions() e creati gli eventuali BlockAttachments. Infine viene emesso il nuovo messaggio creato per il \g{bot} Azzurra e si passa all'esecuzione del prossimo blocco;
-		\item \textbf{Caso ASK}: Viene eseguito il metodo \_processAsk ricevendo in input il blocco corrente. Il metodo salva il nome della variabile contenuta nel campo var che contiene la risposta dell'utente. Analogamente per quanto accede per il blocco SAY viene creato il testo della domanda e attraverso il metodo \_buildQuestions() vengono creati i BlockItems delle possibili scelte. Inoltre sono processati anche gli eventuali widgetOptions. Infine viene emesso il nuovo messaggio creato per il \g{bot}, che rimane in attesa della risposta dell'utente umano quando verrà visualizzato il messaggio;
+		\item \textbf{Caso SAY}: Viene eseguito il metodo \_processSay() ricevendo in input il blocco corrente. Il metodo prende il valore salvato nel campo text e le eventuali variations del blocco, generando il testo del messaggio da mostrare attraverso il metodo \_renderText(). Se presenti vengono creati gli eventuali BlockAttachments. Infine viene emesso il nuovo messaggio creato per il \g{bot} Azzurra e si passa all'esecuzione del prossimo blocco;
+		\item \textbf{Caso ASK}: Viene eseguito il metodo \_processAsk ricevendo in input il blocco corrente. Il metodo salva il nome della variabile contenuta nel campo var che conterà la risposta dell'utente. Analogamente al caso SAY viene generato il testo della domanda. Vengono inoltre generate le possibili scelte attraverso il metodo \_buildQuestions() il quale controlla il sourceType e in base al valore che ha, genera le scelte. Inoltre sono processati anche gli eventuali widgetOptions. Infine viene emesso il nuovo messaggio creato per il \g{bot}, che rimane in attesa della risposta dell'utente umano quando verrà visualizzato il messaggio;
 		\item \textbf{Caso JUMP}: Viene eseguito il metodo \_processJump() che riceve in input il blocco corrente e richiama il metodo \_getFlow() passandogli l'identificativo del flusso da eseguire attraverso il campo target. Il metodo citato richiede ad Azzurra.io il flusso che ha l'identificativo uguale a quello ricevuto in input e, una volta ricevuto, comincia l'esecuzione del nuovo flusso conversazionale richiamando start();
 		\item \textbf{Caso IF}: Viene eseguito il metodo \_processIf() passando in input il blocco corrente. Valuta la condizione attraverso \_manageConditions(), e in base al risultato stabilisce quale sarà il blocco di conversazione successivo da eseguire;
 		\item \textbf{Caso PROD}: Viene eseguito il metodo \_processProd() passandogli in input il blocco corrente. Stabilisce quale formattazione deve essere fatta e la esegue attraverso il metodo \_manageExpressions(). Infine, passa all'esecuzione del prossimo blocco;
@@ -336,7 +335,7 @@ Una volta stabilita la connessione con Azzurra.io, attraverso un \g{WebSocket}, 
 	\end{itemize}	
 	\item Nella Figura~\ref{fig:mxBot} viene mostrato il caso in cui viene eseguito il metodo \_processAsk() perché il blocco attuale e di tipo ASK;
 	\item Viene eseguito \_renderText() per costruire il testo della domanda;
-	\item Attraverso \_buildQuestions() vengono creati i BlockItems delle possibili scelte;
+	\item Attraverso \_buildQuestions() vengono create le possibili scelte;
 	\item Viene eseguito il metodo \_processWidgetOptions() per creare le eventuali widgetOptions;
 	\item A questo punto la struttura del messaggio è stata creata, manca solo la visualizzazione nella \emph{chat} che è compito di ChatComponent, perciò attraverso il metodo next() di Angular, viene emesso un segnale che avvisa chi è in ascolto su \_outgoingMessageSub\$ che è stato creato un nuovo messaggio e che occorre visualizzarlo;
 	\item Viene notificato agli ascoltatori l'evento descritto al punto precedente;
