@@ -114,10 +114,10 @@ Nei seguenti diagrammi viene visualizzato l'insieme dei blocchi che fanno parte 
 
 La Figura~\ref{fig:ins} rappresenta il ramo del flusso Deskbooking dedicato all'inserimento di una nuova prenotazione. È così composto:
 \begin{enumerate}
-	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o scansionare un \g{QR code};
+	\item Il flusso inizia con un blocco ASK che chiede all'utente se vuole inserire una nuova prenotazione o visualizzare le sue prenotazione oppure scansionare un \g{QR code};
 	\item Nel caso in cui l'utente voglia inserire una nuova prenotazione, attraverso un blocco ASK, viene chiesta la data che vuole inserire per la prenotazione. Viene progettato che l'inserimento della data viene fatta attraverso il DATEPICKER;
 	\item Successivamente viene chiesta l'ora di inizio per la prenotazione tramite un blocco ASK. L'inserimento dell'ora avviene tramite il TIMEPICKER;
-	\item Viene rifatta la stessa operazione del punto precedente ma chiedendo la data in cui finisce la prenotazione;
+	\item Viene rifatta la stessa operazione del punto precedente ma chiedendo l'ora in cui finisce la prenotazione;
 	\item Terminato il punto precedente, l'utente ha inserito l'intervallo di tempo all'interno del quale desidera effettuare una prenotazione di un posto a sedere. Attraverso il blocco CALLFUN viene chiesto ad Azzurra.io quali stanze con posti liberi sono disponibili per la data e l'intervallo inseriti dall'utente;
 	\item Se non ci sono stanze con posti liberi o l'operazione di richiesta va in errore, attraverso un blocco SAY viene informato l'utente della situazione e ricomincia l'esecuzione dall'inizio del flusso;
 	\item Se invece ci sono stanze con posti liberi, attraverso il blocco PROC vengono formattati i dati ricevuti in modo da poterli mostrare in una forma adatta alla situazione. In questo caso viene chiesto di creare una mappa con chiave contenente il nome della stanza e il numero dei posti e come valore l'identificativo della stanza. Quando si vorrà mostrare questi dati, verrà solo mostrato la chiave dei dati;
@@ -193,7 +193,7 @@ Per poter creare i tre Widget, DATEPICKER, TIMEPICKER e QRSCANNER, nel createAct
  
   Nel ChatComponent ho implementato il metodo \_initGenericQRCode() il quale aspetta di ricevere il valore letto dal lettore di \g{QR code} che richiama quindi il metodo sendReply() di AzzurraService per dare inizio al il processo di creazione del messaggio dell'utente umano spiegato nel capitolo precedente. \\
   
-  Per quanto riguarda i metodi per il DATEPICKER e per il TIMEPICKER, essi sono molto simili a quelli per gestire il lettore \g{QR code}, con la differenza che i metodi analoghi a \_openQRcode(), \_openDatePicker() e \_openTimePicker(), non utilizzano il ModalComponent ma l'ion-datetime, una componente grafica offerta da Ionic che può essere configurato per chiedere una data oppure un intervallo temporale; il risultato viene mostrato nella Figura~\ref{fig:date} e nella Figura~\ref{fig:time}. Quindi in questi due metodi ho definito come si devono presentare i due \emph{picker} e quindi non c'è stato bisogno di un \emph{component} apposito che li gestisca come per il QRSCANNER. 
+  Per quanto riguarda i metodi per il DATEPICKER e per il TIMEPICKER, essi sono molto simili a quelli per gestire il lettore \g{QR code}, con la differenza che i metodi analoghi a \_openQRcode(), \_openDatePicker() e \_openTimePicker(), non utilizzano il ModalComponent ma l'ion-datetime, una componente grafica offerta da Ionic che può essere configurato per chiedere una data oppure un intervallo temporale; il risultato viene mostrato nella Figura~\ref{fig:date}. Quindi in questi due metodi ho definito come si devono presentare i due \emph{picker} e quindi non c'è stato bisogno di un \emph{component} apposito che li gestisca come per il QRSCANNER. 
 \section{Risultati}
 
 Nella Figura~\ref{fig:planning} viene mostrata la \emph{chat} tra Azzurra e l'utente per la visualizzazione della pianificazione, sia per un singolo giorno (prima figura) sia per tutta la settimana (seconda figura).\\
